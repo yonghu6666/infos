@@ -1,0 +1,164 @@
+BJL服务器执行流程
+    1.Program.cs
+        Main()=>
+            Game.Scene.AddComponent<GameRoomComponent>();
+            GameRoomComponent.AwakeAction += GameRoomComponentHelper.Awake;
+            GameRoomComponent.StartAction += GameRoomComponentHelper.Start;
+            GameRoomComponent.UpdateAction += GameRoomComponentHelper.Update;
+            GameRoomComponent.GamePlayerAction += GameRoomComponentHelper.GamePlayerAction;
+            Game.Scene.AddComponent<GameGlobalComponent>();
+    2.GameRoomComponentHelper.cs
+        Awake();
+        Start()=>
+            GameGlobalComponent.OnGameStart();
+        Update()=>
+            GameTableComponet.OnUpdate();
+            GameGlobalComponent.Instance.OnUpdate();
+    3.GameTableComponet.cs
+        OnUpdate()=>
+            UpdateState();
+            UpdateNewPlayers()=>
+                GameGlobalComponent.OnPlayerOnline();
+
+
+
+
+
+
+
+
+BZ14°
+1024瓶酒，其中有2瓶是毒酒，65个人，如何判断
+
+MutationObserver、Promise
+
+
+db.mycol.aggregate
+(
+	[
+		{
+			$group : 
+			{
+				_id : "$by_user", 
+				num_tutorial : 
+				{
+					$sum : 1
+				}
+			}
+		}
+	]
+)
+
+
+
+https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec
+https://juejin.im/post/5cbae494f265da03502b36b3
+
+{  
+	"nested": { 
+		"ETHotfix": { 
+			"nested": {
+				"C2R_Login": {
+				  	"fields": {
+    					"RpcId": {"type": "int32","id": 90},
+    					"Account": {"type": "string","id": 1},
+    					"Password": {"type": "string","id": 2}
+					}
+				}, 
+				"R2C_Login": {
+					"fields": {
+    					"RpcId": {"type": "int32","id": 90},
+    					"Error": {"type": "int32","id": 91},
+    					"Message": {"type": "string","id": 92},
+    					"Address": {"type": "string","id": 1},
+    					"Key": {"type": "int64","id": 2}
+					}
+				} 
+			}
+		}
+	}
+};
+
+??
+ioc容器的实现原理及源码
+随机数的周期性
+    随机函数生成的数，是否存在周期性
+??
+
+
+push，数组尾部添加一个元素
+pop，删除数组尾部的一个元素
+shift，删除数组的第一个元素
+unshift，向数组头部添加一个或多个元素
+
+
+请假统计
+	2.19	下午
+	5.21	一天
+	6.6		下午
+	7.3		上午
+	7.19	下午
+	7.23	一天
+	8.13	一天
+	
+A	0		0
+B	10 		128
+C	110		192
+D	1110	224
+E	11110	240
+
+TCP传给IP的数据单元称作TCP报文段或简称TCP段
+IP传输给网络接口层的数据单元称作IP数据报
+通过以太网传输的数据流称作帧
+
+
+            │ Class │ Package │ Subclass │ Subclass │ World
+            │       │         │(same pkg)│(diff pkg)│ 
+────────────┼───────┼─────────┼──────────┼──────────┼────────
+public      │   +   │    +    │    +     │     +    │   +     
+────────────┼───────┼─────────┼──────────┼──────────┼────────
+protected   │   +   │    +    │    +     │     +    │         
+────────────┼───────┼─────────┼──────────┼──────────┼────────
+no modifier │   +   │    +    │    +     │          │    
+────────────┼───────┼─────────┼──────────┼──────────┼────────
+private     │   +   │         │          │          │    
+
+
+2019/06/12 11:01:50
+1.数据移动至GameData。
+2.ui逻辑建立单独的类，从MainUI中拆分出去。
+3.修改自适应逻辑，以支持区域细分的布局。
+4.后台框架中，配置文件修改生效的问题。
+5.继续APP的开发。
+
+
+
+
+赔率：PC版微软雅黑  36pt  #3d9ab8
+
+赔率：手机版  微软雅黑  33pt 3d9ab8
+
+top -bn 1 -i -c
+netstat -tunlp |grep 8360
+win
+	wmic process  list
+	wmic process get name,executablepath,processid
+	netstat -ano|findstr "8080"
+	
+https://blog.csdn.net/shandian000/article/details/54582603
+
+1.WinEditor;2.Android;3.IOS
+Application.dataPath
+	1./Assets(D:/workspace/Unity/BaseXlua/Code/Assets)
+	2./data/app/com.alan.wolf-1/base.apk
+Application.persistentDataPath
+	1.C:/Users/WangBiao/AppData/LocalLow/alan/wolf
+	2./storage/emulated/0/Android/data/com.alan.wolf/files
+Application.streamAssetsPath
+	1./Assets/StreamAssets(D:/workspace/Unity/BaseXlua/Code/Assets/StreamingAssets)
+	2.jar:file:///data/app/com.alan.wolf-1/base.apk!/assets
+
+getApplication().getExternalFilesDir("").getPath(): /storage/emulated/0/Android/data/com.bdyxgames/files
+
+
+心流

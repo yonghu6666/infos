@@ -1,0 +1,9 @@
+After Complete Daily Work.
+WeekDay
+	At Night:
+		1.Unity Game AI.
+		2018/12/4 10:08(Three Months).
+		
+Weekend
+	1.Data Structure and Algorithm.
+		2018/12/4 10:09(No Deadline).

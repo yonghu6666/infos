@@ -1,0 +1,54 @@
+微信小程序
+	小程序名称：WBTest1908150
+	AppID：wx51df4d14d2677293
+
+WiFi
+	ChinaNet-T6mw
+	yykdxdni
+Facebook
+	
+	name: Open Graph Test User	
+	userId: 111544136594142	
+	email: open_zswbung_user@tfbnw.net 
+	password:123456_
+	
+	18926771511
+	Beidouyixian666
+	Email
+		msum8866@gmail.com
+		Beidouyixian666
+TeamViewer
+	计算机名称：WangBiao-Company
+	密码：123456
+	ID：1 228 428 515
+
+gitee
+	账号：abiao2018
+
+	邮箱：wangbiao19802018@gmail.com
+
+服务器信息
+	https://plat.i4player.net/
+	52.220.211.57
+	Anyfun1801
+	/data/games
+	http服务
+	mysql
+		root
+		*#Qwert1234567
+		
+	(Password:beidouyixian123.)
+SVN 
+	UserName:wangbiao.
+	Password:123456.
+Company Email
+	http://mail.hichina.com/admin/
+	UserName:biao.wang@i4player.com.
+	Password:WangBiao~12.
+	
+荣一娱乐
+	qqqq1213
+		aa123456
+	
+	qqqq1214
+		aa123456
