@@ -147,6 +147,8 @@ svn
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
 git
+	检查与git的连接
+		ssh -v git@github.com
 	tag
 		git tag，列出所有标签
 		git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
