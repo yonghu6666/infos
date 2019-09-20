@@ -25,6 +25,8 @@ BJL服务器执行流程
             allComponents
             startSystems
 
+OnUpdate
+UpdateState
 
 1,000,000,000
 219338580
