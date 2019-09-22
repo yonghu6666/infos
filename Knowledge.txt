@@ -147,6 +147,10 @@ svn
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
 git
+	git remote -v
+		查看远程仓库地址
+	git rm text.txt
+		删除文件
 	检查与git的连接
 		ssh -v git@github.com
 	tag
