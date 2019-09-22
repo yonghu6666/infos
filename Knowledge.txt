@@ -1,4 +1,8 @@
+Big Endian
+	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
+	反射
+		
 	泛型
 		泛型类和泛型方法具有可重用性、类型安全、效率的特性。
 	?
@@ -153,6 +157,9 @@ git
 		删除文件
 	检查与git的连接
 		ssh -v git@github.com
+	fatal
+		refusing to merge unrelated histories
+			git pull origin master --allow-unrelated-histories
 	tag
 		git tag，列出所有标签
 		git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
