@@ -1,8 +1,16 @@
+
+小程序、浏览器webp支持方案？
+	WKWebView、Safari浏览器、某些类型的浏览器不支持webp格式，如何实现这些浏览器对webp的支持？
+
 IP网际协议中，在没有发生错误的情况下，接收方计算的数据包首部检验和的结果，为什么是全1？
 
 Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
+	Activator
+		
+	HashSet
+		集合中元素不可以重复。
 	反射
 		
 	泛型
@@ -110,6 +118,8 @@ pomelo框架
 	fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
 
 linux
+
+	netstat -tunlp |grep 8360
 	统计行数
 		wc -l
 	
@@ -142,10 +152,11 @@ linux
 	dw：删除光标之后的单词剩余部分
 	d$：删除光标之后的该行剩余部分
 
-	top  -p PID
-		
-	ps -aux | grep 进程名
-		其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
+	主机使用情况
+		top  -p PID
+		top -bn 1 -i -c
+		ps -aux | grep 进程名
+			其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
 
 svn 
 	checkout不包括源文件根目录
@@ -504,3 +515,15 @@ h5
 		直接在ISP层面实现过滤
 		被封锁的网站IP地址和域名均在黑名单上。
 		关于一个被封锁的网站为什么无法载入，您可能会得到一个不明确或误导的解释。
+
+Unity
+	paths(1.WinEditor;2.Android;3.IOS)
+		Application.dataPath
+			1./Assets(D:/workspace/Unity/BaseXlua/Code/Assets)
+			2./data/app/com.alan.wolf-1/base.apk
+		Application.persistentDataPath
+			1.C:/Users/WangBiao/AppData/LocalLow/alan/wolf
+			2./storage/emulated/0/Android/data/com.alan.wolf/files
+		Application.streamAssetsPath
+			1./Assets/StreamAssets(D:/workspace/Unity/BaseXlua/Code/Assets/StreamingAssets)
+			2.jar:file:///data/app/com.alan.wolf-1/base.apk!/assets
