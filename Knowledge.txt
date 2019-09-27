@@ -7,6 +7,8 @@ IP网际协议中，在没有发生错误的情况下，接收方计算的数据
 Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
+	abstract
+		修饰class, method, property, indexer, event.
 	Activator
 		
 	HashSet
@@ -157,6 +159,10 @@ linux
 		top -bn 1 -i -c
 		ps -aux | grep 进程名
 			其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
+
+windows
+	flush dns
+		ipconfig /flushdns
 
 svn 
 	checkout不包括源文件根目录
