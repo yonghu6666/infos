@@ -8,7 +8,10 @@ Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
 	abstract
-		修饰class, method, property, indexer, event.
+		修饰class, method, property, indexer, event。
+		实现方法用override修饰。
+		不能同时用static或virtual修饰。
+		抽象类继承接口时，其内部的接口方法必须用abstract修饰。
 	Activator
 		
 	HashSet
