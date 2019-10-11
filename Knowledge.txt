@@ -10,7 +10,7 @@ Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
 	readonly
-		
+		可以在定义时赋值，在构造函数中赋值。相当于一个运行时常量。
 	abstract
 		修饰class, method, property, indexer, event。
 		实现方法用override修饰。
