@@ -8,11 +8,26 @@ IP网际协议中，在没有发生错误的情况下，接收方计算的数据
 ioc容器的实现原理及源码
 随机数的周期性
     随机函数生成的数，是否存在周期性
---------------------------------------------------------------------------------------
 小程序问题
 	1.玩家发出请求，到接收到请求，延迟达到500ms。
 	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
-
+--------------------------------------------------------------------------------------
+Node.js
+	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
+	Phases
+		timers; pending callbacks; idle, prepare; poll; check; close callbacks.
+		timers: executes callbacks scheduled by setTimeout() and setInterval().
+		pending callbacks: excutes I/O callbacks deferred to the next loop iteration.
+		idle, prepare: only used internally.
+		poll: retrieve new I/O events; execute I/O related callbacks(almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when appropriate.
+		check: setImmediate() callbacks are invoked here.
+		close callbacks: some close callbacks, e.g. socket.on('close', ...).
+	timers
+		timer callbacks will excute after the threshold counted, but may be delayed by system scheduling, the running of other callbacks, etc.
+	pending callbacks
+		this phase executes callbacks for some system operations such as types of TCP errors.
+	poll
+		 
 算法
 	指数退避算法
 Big Endian
