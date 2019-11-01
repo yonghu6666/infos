@@ -209,6 +209,14 @@ svn
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
 git
+	log
+		git log filename
+			显示所有记录
+		git log -n filename
+			显示最近的n条记录
+	git checkout 
+		git checkout md5str filename/directory/*
+			回退本地修改的文件
 	git remote -v
 		查看远程仓库地址
 	git rm text.txt
