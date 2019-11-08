@@ -56,6 +56,12 @@ Node.js
 		For example, if we run the the two functions which is not within an I/O cycle(i.e. the main module), the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process.However, if you move the two calls within an I/O cycle, the immediate callback is always executed first.
 
 		The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
+	process.nextTick() vs setImmediate()
+		process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().
+
+		setImmediate() fires on the following iteration or 'tick' of the event loop
+
+
 分布式
 	分布式事务
 		数据库本地事务
