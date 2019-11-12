@@ -1,3 +1,8 @@
+快速排序
+	https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
+快速选择
+	https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9
+
 ET框架，TestComponent的命名空间为ETHotfix时，其System类为什么不生效？
 
 小程序、浏览器webp支持方案？
@@ -11,7 +16,7 @@ ioc容器的实现原理及源码
 小程序问题
 	1.玩家发出请求，到接收到请求，延迟达到500ms。
 	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Node.js
 	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
 	Phases
@@ -70,7 +75,7 @@ Node.js
 			基础是CAP原则：C，一致性；A，可用性；P，分区容错性。由于C、A、P三者不可共有，考虑到网络的问题，根据经验，一般只能选择CP或AP架构。
 			BASE是对AP的扩展。B，Basically Available；S，Soft state；E，Eventually consistent。
 
-算法
+Data Structure and Algrithm
 	指数退避算法
 Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
@@ -193,7 +198,20 @@ pomelo框架
 	fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
 
 linux
-
+	vim
+		a：光标后
+		i：光标前
+		r：替换当前字符
+		R：替换当前字符及以后的字符，直至按ESC键
+		w：移动光标到下一个单词的词首，支持数字前缀，如4w向后移动4个单词
+		W：类似w，区别是用空格分割单词
+		b：移动光标到上一个单词的词首
+		B：类似b，区别是用空格分割单词
+		e：移动光标到下一个单词的词尾
+		E：类似e，区别是用空格分割单词
+		ge：移动光标到上一个单词的词尾
+		^：到行首
+		$：到行尾
 	netstat -tunlp |grep 8360
 	统计行数
 		wc -l
@@ -301,42 +319,8 @@ git
 
 JS 回调函数
 	回调函数里的this的指向
-
-TODO
-	进入游戏流程处理
-		AppCommonAds.js、MoreGamesPane.js中进入游戏的流程处理。
-		GameEntry.js中进入游戏的流程，是否可以放入EnterGames.js中。
-	金币同步
-		游戏侧导致金币变动时，从APP服务端同步到客户端。
-	任务同步
-	
-	定时任务
-		每日
-			每日任务数据清理
-			每日任务领奖数据清理
-			每日活跃度数据清理
-			每日活跃度领奖数据清理
-		每周
-			每周活跃度领奖数据清理
-	FB SDK接入
-		facebook 登录 应用未设置：应用仍处于开发模式，你没有访问权限	
-	Google Pay
-		服务端验证
-		怎样在服务端验证GooglePay的已支付账单
-		服务端验证代码
-			https://graph.facebook.com/debug_token?access_token={App-token}&input_token={User-token}
-			App-token:{Your AppId}%7C{Your AppSecret}
-	CMS服务器数据共享控制
-		每个用户对应一个进程，通过全局变量是可以在Controller之间共享数据
-		如果跨进程了，就用redis或消息队列。
-处理通知的问题
-	1.游戏侧修改了某个账户的余额数据后（通过HTTP请求），需要该账户的APP客户端更新余额数据。
-	此时如果该账户的socket服务端，给客户端推送最新的余额数据，即可更新客户端。
-	但是怎样通知该账户的服务端socket呢？
-
-第三方登录流程
-	1) 生成账户
-	2) 生成用户
+跨进程
+	用redis或消息队列
 
 navigation
 	this.props.navigation.navigate('GamePane', {
@@ -344,9 +328,6 @@ navigation
                 webURL: this.appRuleURL,
             });
 	this.props.navigation.state.params.webType;
-
-游戏内链接参数
-	http://192.168.1.34:3001/bin/?_t=1556535050&account=q1q1q1q1&balance=1000&nickName=&key=4c08e0935f01bb9692880ade1f3c62c0
 
 React-Native开发总结
 	react-native run-android
@@ -357,40 +338,6 @@ React-Native开发总结
 		cd android
 		gradlew clean
 		gradlew assembleRelease
-APP开发的问题
-	1) 图标缺少
-		“我”的功能
-			炫耀一下
-			成就点
-			条款协议
-	2) 游戏与APP交互接口的开发
-		“最近在玩”功能中，怎样的游戏参与度可以算入“最近在玩的游戏”？
-		“我”的功能中，活跃度领奖的礼包，会配置什么内容？
-		“游戏与活跃度”功能中，每种游戏对应的活跃度是多少？
-	3) “我”的功能
-		系统邮件：需要实现什么功能，详细界面是什么？
-		炫耀一下的功能是什么？
-	4) 商城的购买的功能
-		货币与金币的兑换比例
-	5) 社交的功能
-		邀请好友，如何获得未使用APP的好友？
-			FB可以获得的好友数据，只能是同时使用该APP的好友。这种好友不需要邀请。
-	6) 兑换的功能
-		详细的界面
-	7) 任务的功能
-		每日任务的数据、完成每日任务一定数量之后可以领取的礼包数据、成长任务的数据
-	8) 成就的功能
-		目前有哪些成就，如何获得这些成就？
-	9) 下载界面
-		登录之后，APP和游戏的更新下载；
-		点击游戏之后，游戏的更新下载；
-	
-APP开发前后端数据交互思路
-	1) 打开APP，建立Socket连接，推送APP的基础数据（与用户无关的信息）
-	2) 登录，返回用户基础信息，账户金额等
-	3) 打开页面，返回当前页面显示的数据，并缓存数据。这部分数据主要是用户相关的数据
-	4) 后端推送信息，主要时用户基础信息，账户信息等
-	5) 某些不常用的界面，或者是操作层级较多的界面，其APP数据可以在用户打开该页面时再返回
 	
 
 FB等第三方登录，需要获取的信息
@@ -403,8 +350,6 @@ FB等第三方登录，需要获取的信息
 		获取name
 		https://graph.facebook.com/me?access_token=
 		https://graph.facebook.com/me?fields=email,name,friends&access_token=
-
-接入FBSDK时，需要比较较高等级的Anroid版本，我的手机是Android 5.1，不支持。
 
 adb reverse tcp:8081 tcp:8081
 	adb -s 8fdb0742 reverse tcp:8081 tcp:8081
@@ -542,10 +487,8 @@ JQuery
 	$(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
 session
-	控制session的失效时间
-	目前的问题：
-		1）重启服务器后，用户未再次登录，但前端仍显示在线
-			怀疑是前端cookie+后端session机制的原因
+	?
+
 
 cache
 	global.update_cache
@@ -586,9 +529,6 @@ h5
 	https://thinkjs.org/zh-cn/doc/3.0/async.html
 	callbackhell:	http://callbackhell.com/
 	
-游戏多分辨率
-	
-
 游戏全屏按钮
 	Laya框架是支持全屏功能的，但是存在一些限制，如不支持Firefox浏览器的全屏功能。所以考虑用原生H5来实现。
 	思路比较简单：在游戏UI的上层，添加按钮。按钮添加事件，实现全屏、退出全屏功能。
@@ -614,3 +554,7 @@ Unity
 		Application.streamAssetsPath
 			1./Assets/StreamAssets(D:/workspace/Unity/BaseXlua/Code/Assets/StreamingAssets)
 			2.jar:file:///data/app/com.alan.wolf-1/base.apk!/assets
+
+颜色
+	豆沙绿
+		#CCE8CF
