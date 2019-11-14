@@ -20,6 +20,17 @@ ioc容器的实现原理及源码
 Node.js
 	In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
 
+	What code runs on the Event Loop?
+		The Event Loop executes the JavaScript callbacks registered for events, and is alse responsible for fulfilling non-blocking asynchronous requests like network I/O.
+	What code runs on the Worker Pool?
+		Node uses the Worker Pool to handle "expensive" tasks. This includes I/O for which an oprating system does not provide a non-blocking version, as well as particularly CPU-intensive tasks.
+		There are the Node module APIs that make use of this Worker Pool:
+			1.I/O-intensive
+				1.DNS:dns.lookup(), dns.lookupService().
+				2.File System: All file system API except fs.FSWatcher() and those that are explicitly sysnchronous use libuv's threadpool.
+			2.CPU-intensive
+				1.Crypto:crypto.pbkdf2(), crypto.scrypt(),crypto.randomBytes(),crypto.randomFill(),crypto.generateKeyPair().
+				2.Zlib:All zlib APIs except those that are explicitly synchronous use libuv's threadpool.
 	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
 	Phases
 		timers; pending callbacks; idle, prepare; poll; check; close callbacks.
