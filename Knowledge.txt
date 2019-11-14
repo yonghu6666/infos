@@ -290,11 +290,15 @@ git
 		git push origin :refs/tags/v1.2，删除远程服务器上的标签
 	stash
 		git stash 
-			储藏存修改的文件
+			储藏修改的文件
 		git stash list
 			列出当前的储藏列表
 		git stash apply [stash@{2}]
 			使用储藏
+		git stash drop [stash@{2}]
+			移除最近第三次的暂存
+		git stash show -p [stash@{0}] | git apply -R
+			在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
 	git设置下载的文件自动转换CRLF
 		git config --global core.autocrlf false
 	git检查换行符
