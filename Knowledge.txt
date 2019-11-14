@@ -18,6 +18,8 @@ ioc容器的实现原理及源码
 	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Node.js
+	In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
+
 	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
 	Phases
 		timers; pending callbacks; idle, prepare; poll; check; close callbacks.
