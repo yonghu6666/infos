@@ -265,6 +265,9 @@ linux
 			其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
 
 windows
+	自定义短语
+		sj
+			%yyyy%/%MM%/%dd% %HH%:%mm%:%ss%
 	flush dns
 		ipconfig /flushdns
 
