@@ -82,6 +82,36 @@ Node.js
 		setImmediate() fires on the following iteration or 'tick' of the event loop
 
 
+web
+	postMessage
+		它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
+		otherWindow.postMessage(message, tarOrigin, [transfer])
+			otherWindow，其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是明明过或数值索引的window.frames。
+			message，将要发送到其他 window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
+			targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
+			transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
+	CORS
+		跨域资源共享
+		该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
+		跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
+			1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
+			2.Web字体(CSS中通过@font-face使用跨域字体资源)，因此网站就可以发布TrueType字体资源，并只允许已授权网站进行跨站调用。
+			3.WebGL贴图。
+			4.使用drawImage将Image/video画面绘制到Canvas。
+		跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
+	跨域请求方案
+		协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
+		JSONP
+			DOM元素的src属性，能够绕过同源策略。这类元素包括：img、link、script、iframe等。JSONP就是使用script元素实现的。
+			实现流程：web端声明一个回调函数，创建一个script元素，将回调函数的名称作为url的参数，赋值给script元素的src属性。服务端收到请求后，把收到的函数名和客户端需要的数据拼接成一个字符串，通过http协议传递给web端。
+		CORS
+			仅仅依靠web端，是不能实现CORS的。它需要服务端设置Access-Control-Allow-Origin，改参数表示哪些域名可以访问当前服务器的资源。
+		postMessage
+			
+		nginx
+			反向代理
+		websocket
+
 分布式
 	分布式事务
 		数据库本地事务
