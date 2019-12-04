@@ -138,7 +138,8 @@ _|P22_0_19.09.11|P21_0_19.09.10|P17|P14_0|P10(9.1)
 	运输层协议：TCP、UDP
 
 6TCP、17UDP、1ICMP、2IGMP	
-
+Quote of the Day Protocol
+		port: 17.
 A类网络
 	首部：1个bit，值为0；网络号：7个bit；主机号：24个bit。
 B类网络

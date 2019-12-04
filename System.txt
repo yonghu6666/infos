@@ -1,0 +1,68 @@
+linux
+	vim
+		a：光标后
+		i：光标前
+		r：替换当前字符
+		R：替换当前字符及以后的字符，直至按ESC键
+		w：移动光标到下一个单词的词首，支持数字前缀，如4w向后移动4个单词
+		W：类似w，区别是用空格分割单词
+		b：移动光标到上一个单词的词首
+		B：类似b，区别是用空格分割单词
+		e：移动光标到下一个单词的词尾
+		E：类似e，区别是用空格分割单词
+		ge：移动光标到上一个单词的词尾
+		^：到行首
+		$：到行尾
+	netstat -tunlp |grep 8360
+	统计行数
+		wc -l
+	
+		cat /proc/sys/fs/inotify/max_user_instances
+		/etc/sysctl.conf
+		sysctl fs.inotify.max_user_watches
+		fs.inotify.max_user_watches = 524288
+		sysctl -p
+	whois using resources of inotify
+		find /proc/*/fd -type l -lname '*inotify' -print 2>/dev/null | cut -d / -f 3 | (while read pid; do ps --no-headers -p $pid -o user,command; done) | sort | uniq -c
+	覆盖解压
+		unzip -o file_name.zip
+	iptables 限制网速
+		限制端口号
+		iptables -A INPUT -p tcp --sport 19250 -m limit --limit 1/s -j ACCEPT
+		iptables -A INPUT -p tcp --sport 19250 -j DROP
+
+		限制IP的网速
+		iptables -A FORWARD -m limit -d 183.14.29.114 --limit 1/s --limit-burst 1 -j ACCEPT
+		iptables -A FORWARD -d 183.14.29.114 -j DROP
+
+		//列出iptables规则
+		iptables -L --line-numbers
+		//删除iptables规则
+		iptables -D INPUT 1
+
+		iptables -L -n -v
+
+	service iptables start
+	dw：删除光标之后的单词剩余部分
+	d$：删除光标之后的该行剩余部分
+
+	主机使用情况
+		top  -p PID
+		top -bn 1 -i -c
+		ps -aux | grep 进程名
+			其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
+
+windows
+	自定义短语
+		sj
+			%yyyy%/%MM%/%dd% %HH%:%mm%:%ss%
+	flush dns
+		ipconfig /flushdns
+	cmd命令
+		1) 清空屏幕命令：cls
+		2) 生成SHA256签名的方法：certutil -hashfile myfile SHA256
+		3) 编译、运行带有外部jar包的程序的方法
+			javac -classpath D:\Develop\Apache\Apache24\htdocs\bundles\android\sevenzipjbinding.jar Test.java
+			java -classpath .;D:\Develop\Apache\Apache24\htdocs\bundles\android\jars\sevenzipjbinding.jar; Test
+		4) mkdir -p 
+			-p -parent 需要时生成父目录，如：mkdir -p bundles/android/bundles

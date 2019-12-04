@@ -1,8 +1,7 @@
-布隆过滤器的去重算法
+
 内存数据的连续读写
 
-AlphaBeta剪枝算法
-蒙特卡洛树搜索
+
 深层神经网络
 
 校验和的计算方法：16bit字的二进制反码。
@@ -28,109 +27,23 @@ ioc容器的实现原理及源码
 	1.玩家发出请求，到接收到请求，延迟达到500ms。
 	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Node.js
-	In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
-
-	What code runs on the Event Loop?
-		The Event Loop executes the JavaScript callbacks registered for events, and is alse responsible for fulfilling non-blocking asynchronous requests like network I/O.
-	What code runs on the Worker Pool?
-		Node uses the Worker Pool to handle "expensive" tasks. This includes I/O for which an oprating system does not provide a non-blocking version, as well as particularly CPU-intensive tasks.
-		There are the Node module APIs that make use of this Worker Pool:
-			1.I/O-intensive
-				1.DNS:dns.lookup(), dns.lookupService().
-				2.File System: All file system API except fs.FSWatcher() and those that are explicitly sysnchronous use libuv's threadpool.
-			2.CPU-intensive
-				1.Crypto:crypto.pbkdf2(), crypto.scrypt(),crypto.randomBytes(),crypto.randomFill(),crypto.generateKeyPair().
-				2.Zlib:All zlib APIs except those that are explicitly synchronous use libuv's threadpool.
-	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
-	Phases
-		timers; pending callbacks; idle, prepare; poll; check; close callbacks.
-		
-		timers: executes callbacks scheduled by setTimeout() and setInterval().
-
-		pending callbacks: excutes I/O callbacks deferred to the next loop iteration.
-
-		idle, prepare: only used internally.
-		
-		poll: retrieve new I/O events; execute I/O related callbacks(almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when appropriate.
-		
-		check: setImmediate() callbacks are invoked here.
-		
-		close callbacks: some close callbacks, e.g. socket.on('close', ...).
-	timers
-		timer callbacks will excute after the threshold counted, but may be delayed by system scheduling, the running of other callbacks, etc.
-	pending callbacks
-		this phase executes callbacks for some system operations such as types of TCP errors.
-	poll
-		the poll phase has two main functions:
-			1.Calculating how long it should block and poll for I/O, then
-			2.Processing events in the poll queue.
-		When the event loop enters the poll phase and there are no timers scheduled, one of two things will happen:
-			If the poll queue is not empty, the event loop will iterate through its queue of callbacks executing them synchronously until either the queue has been exhausted, or the system-dependent hard limit is reached.
-			If the poll pueue is empty, one of two more things will happen:
-				If scripts has been scheduled by setImmediate(), the event loop will end the poll phase and continue to the check phase to execute those scheduled scripts.
-				If scripts have not been scheduled by setImmediate(), the event loop will wait for callbacks to be added to the queue, then execute them immediately.
-			Once the poll queue is empty the event loop will check for timers whose time thresholds have been reached.If one or more timers are ready, the event loop will warp back to the timers phase to execute those timers'callbacks.
-	check
-		This phase allows a person to execute callbacks immediately after the poll phase has completed.If the poll phase becomes idle and scripts have been queued with setImmediate(), the event loop may continue to the check phase rather than waiting.
-		setImmediate() is actually a special timer that runs in a separate phase of the eventloop.It uses a libuv API that schedules callbacks to execute after the poll phase has completed.	`
-	close callbacks
-		If a socket or handle is closed abruptly(e.g. socket.destory()),the 'close' event will be emitted in this phase.Otherwise it will be emitted via process.nextTick().
-	setImmediate() vs setTimeout()
-		setImmediate() is designed to execute a script once the current poll phase completes.
-		setTimeout() schedules a script to be run after a minimum threshold in ms has elapsed.
-
-		The order in which the timers are executed will vary depending on the context in which they are called. If both are called from within the main module, then timing will be bound by the performance of the process(which can be impacted by other applications running on the machine).
-
-		For example, if we run the the two functions which is not within an I/O cycle(i.e. the main module), the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process.However, if you move the two calls within an I/O cycle, the immediate callback is always executed first.
-
-		The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
-	process.nextTick() vs setImmediate()
-		process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().
-
-		setImmediate() fires on the following iteration or 'tick' of the event loop
-
-
-web
-	postMessage
-		它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
-		otherWindow.postMessage(message, tarOrigin, [transfer])
-			otherWindow，其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是明明过或数值索引的window.frames。
-			message，将要发送到其他 window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
-			targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
-			transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
-	CORS
-		跨域资源共享
-		该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
-		跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
-			1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
-			2.Web字体(CSS中通过@font-face使用跨域字体资源)，因此网站就可以发布TrueType字体资源，并只允许已授权网站进行跨站调用。
-			3.WebGL贴图。
-			4.使用drawImage将Image/video画面绘制到Canvas。
-		跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
-	跨域请求方案
-		协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
-		JSONP
-			DOM元素的src属性，能够绕过同源策略。这类元素包括：img、link、script、iframe等。JSONP就是使用script元素实现的。
-			实现流程：web端声明一个回调函数，创建一个script元素，将回调函数的名称作为url的参数，赋值给script元素的src属性。服务端收到请求后，把收到的函数名和客户端需要的数据拼接成一个字符串，通过http协议传递给web端。
-		CORS
-			仅仅依靠web端，是不能实现CORS的。它需要服务端设置Access-Control-Allow-Origin，改参数表示哪些域名可以访问当前服务器的资源。
-		postMessage
-			
-		nginx
-			反向代理
-		websocket
-
-分布式
-	分布式事务
-		数据库本地事务
-			基础是ACID原则：A，原子性；C，一致性；I，隔离性；D，持久性。
-		分布式事务
-			基础是CAP原则：C，一致性；A，可用性；P，分区容错性。由于C、A、P三者不可共有，考虑到网络的问题，根据经验，一般只能选择CP或AP架构。
-			BASE是对AP的扩展。B，Basically Available；S，Soft state；E，Eventually consistent。
-
 Data Structure and Algrithm
-	指数退避算法
+	0，未实现；1，已实现
+	算法
+		指数退避算法？
+		布隆过滤器的去重算法？
+		AlphaBeta剪枝算法？
+		蒙特卡洛树搜索？
+		字符串相似度算法 0
+	数据结构
+		数组
+		栈
+		堆
+		链表
+		图
+		散列表（哈希表）
+		队列
+		树
 Big Endian
 	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 C#
@@ -158,25 +71,20 @@ C#
 		使用时，需要引入定义扩展方法的类的命名空间。
 		不能调用被扩展的类的私有属性。
 
-JSHeap、JSStack
-	Heap，堆
-	Stack，栈
+Heap、Stack
+	Heap，堆；Stack，栈
 	JavaScript
 		Heap
 			无序的存储非基础数据类型的数据。
 
 		Stack
-			遵循先进后出原则。一个线程拥有一个单独的栈空间。存储指向堆里的数据结构的地址的指针。
-			存储变量、基础数据类型（Number、Boolean、String、Null、Undefined、Symbol）。
+			存储变量、基础数据类型（Number、Boolean、String、Null、Undefined、Symbol）、指向堆里的数据结构的地址的指针。
+			遵循先进后出原则。一个线程拥有一个单独的栈空间。
 			函数是放在栈里的，函数执行的时候，在栈里执行。
 		所有同步任务都在主线程上执行，形成了一个执行栈。
 		主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件.
 		一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，将队列中的事件放到执行栈中依次执行。
 		主线程从任务队列中读取事件，这个过程是循环不断的。
-TCP/IP
-	Quote of the Day Protocol
-		port: 17.
-
 mongodb
 	2.概念
 		db
@@ -198,8 +106,7 @@ mongodb
 		db.runCommand({addshard: 's0/localhost:27020,localhost:27021'})
 		db.runCommand({enablesharding:'test'})
 		db.runCommand({shardcollection: 'test.user', key: {name: 1}})
-CSS
-	引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
+
 Code Practice
 	目的：
 		减少代码量
@@ -251,73 +158,12 @@ pomelo框架
 		不支持BOM、DOM操作
 	fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
 
-linux
-	vim
-		a：光标后
-		i：光标前
-		r：替换当前字符
-		R：替换当前字符及以后的字符，直至按ESC键
-		w：移动光标到下一个单词的词首，支持数字前缀，如4w向后移动4个单词
-		W：类似w，区别是用空格分割单词
-		b：移动光标到上一个单词的词首
-		B：类似b，区别是用空格分割单词
-		e：移动光标到下一个单词的词尾
-		E：类似e，区别是用空格分割单词
-		ge：移动光标到上一个单词的词尾
-		^：到行首
-		$：到行尾
-	netstat -tunlp |grep 8360
-	统计行数
-		wc -l
-	
-		cat /proc/sys/fs/inotify/max_user_instances
-		/etc/sysctl.conf
-		sysctl fs.inotify.max_user_watches
-		fs.inotify.max_user_watches = 524288
-		sysctl -p
-	whois using resources of inotify
-		find /proc/*/fd -type l -lname '*inotify' -print 2>/dev/null | cut -d / -f 3 | (while read pid; do ps --no-headers -p $pid -o user,command; done) | sort | uniq -c
-	覆盖解压
-		unzip -o file_name.zip
-	iptables 限制网速
-		限制端口号
-		iptables -A INPUT -p tcp --sport 19250 -m limit --limit 1/s -j ACCEPT
-		iptables -A INPUT -p tcp --sport 19250 -j DROP
-
-		限制IP的网速
-		iptables -A FORWARD -m limit -d 183.14.29.114 --limit 1/s --limit-burst 1 -j ACCEPT
-		iptables -A FORWARD -d 183.14.29.114 -j DROP
-
-		//列出iptables规则
-		iptables -L --line-numbers
-		//删除iptables规则
-		iptables -D INPUT 1
-
-		iptables -L -n -v
-
-	service iptables start
-	dw：删除光标之后的单词剩余部分
-	d$：删除光标之后的该行剩余部分
-
-	主机使用情况
-		top  -p PID
-		top -bn 1 -i -c
-		ps -aux | grep 进程名
-			其中第三列是CPU占用率，第四列是内存占用率，第六列是物理内存使用量（k）。
-
-windows
-	自定义短语
-		sj
-			%yyyy%/%MM%/%dd% %HH%:%mm%:%ss%
-	flush dns
-		ipconfig /flushdns
-
-svn 
+Svn 
 	checkout不包括源文件根目录
 		svn co svn://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
-git
+Git
 	log
 		git log filename
 			显示所有记录
@@ -377,20 +223,12 @@ git
 	git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
 
 
-
-JS 回调函数
-	回调函数里的this的指向
-跨进程
-	用redis或消息队列
-
-navigation
-	this.props.navigation.navigate('GamePane', {
-                webType: 1, 
-                webURL: this.appRuleURL,
-            });
-	this.props.navigation.state.params.webType;
-
 React-Native开发总结
+	
+	export default class A
+		import A from ...
+		不加大括号
+
 	react-native run-android
 		react-native run-android --deviceId yourdeviceId
 		adb -s yourdeviceId install yourapp
@@ -399,8 +237,49 @@ React-Native开发总结
 		cd android
 		gradlew clean
 		gradlew assembleRelease
-	
+	navigation
+		this.props.navigation.navigate('GamePane', {
+	                webType: 1, 
+	                webURL: this.appRuleURL,
+	            });
+		this.props.navigation.state.params.webType;
+	adb reverse tcp:8081 tcp:8081
+		adb -s 8fdb0742 reverse tcp:8081 tcp:8081
+		adb -s emulator-5554 reverse tcp:8081 tcp:8081
+		
+		react-native run-android --deviceId 8fdb0742
+		react-native run-android --deviceId emulator-5554
+	添加包
+		1) react-native-fs	
+			npm install react-native-fs --save
+		2) native-base
+			npm install native-base --save
+		3) react-navigation
+			npm install react-navigation --save
+		4) 拷贝
+			拷贝文件夹./node_modules/native-base/src/theme到./app/plugins下，并改名为native-base_theme
+		5) react-native-i18n
+			npm install react-native-i18n --save
+			react-native link react-native-i18n
+		5) react-native-fbsdk
+			npm install react-naitve-fbsdk --save
+			react-native link react-naitve-fbsdk
+		6) react-native-fbads
+			npm install react-naitve-fbads --save
+			react-native link react-naitve-fbads
+		7) react-native-swiper
+			npm install react-native-swiper --save
+		8) react-native-root-toast
+			npm install react-native-root-toast --save
 
+		npm uninstall react-native-whc-toast --save
+		
+		
+		npm install xxx --save
+		react-native link xxx
+		react-native unlink xxx
+		npm uninstall --save xxx
+		
 FB等第三方登录，需要获取的信息
 	FB
 		userID(134116137729302)、lastRefreshtime、expirationTime、accessToken、userImgURL
@@ -409,102 +288,36 @@ FB等第三方登录，需要获取的信息
 			https://graph.facebook.com/134116137729302/picture
 			https://graph.facebook.com/134116137729302/picture?type=large
 		获取name
-		https://graph.facebook.com/me?access_token=
-		https://graph.facebook.com/me?fields=email,name,friends&access_token=
+			https://graph.facebook.com/me?access_token=
+			https://graph.facebook.com/me?fields=email,name,friends&access_token=
+	Login 
+		开发密钥散列
+			a7bhysxUinuNBEx9z+VZMhzmNcA=
+		密钥散列（FB）
+			6o04ZlbwMHWx3uM2TfkgFp0D+hM=
+	project problems
+		1)React-Native Error: Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
+			open node_modules\react-native\scripts\launchPackager.bat
+			// delete this line
+			node "%~dp0..\cli.js" start 
+			Add this line
+			node "%~dp0..\cli.js" start --projectRoot ../../../
+		
+		2)thinkjs memory leak
+		(node:68000) 
+		
+	    this.setMaxListeners(30);
+		D:\workspace\Web\hellcase\CmsWing\node_modules\think-websocket-ws\index.js L82
+	icon 不显示图标
+		close running packager
+		run react-native link react-native-vector-icons
+		run react-native start --reset-cache
+		Finally use react-native run-android
 
-adb reverse tcp:8081 tcp:8081
-	adb -s 8fdb0742 reverse tcp:8081 tcp:8081
-	adb -s emulator-5554 reverse tcp:8081 tcp:8081
-	
-	react-native run-android --deviceId 8fdb0742
-	react-native run-android --deviceId emulator-5554
-	
-FB Login 
-	开发密钥散列
-		a7bhysxUinuNBEx9z+VZMhzmNcA=
-	密钥散列（FB）
-		6o04ZlbwMHWx3uM2TfkgFp0D+hM=
-
-keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
-
-keytool -exportcert -alias my-key-alias -keystore D:\workspace\Web\hellcase\ShellApp\BDYXGames\android\app\my-release-key.keystore | openssl sha1 -binary | openssl base64
-
-project problems
-	1)React-Native Error: Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
-		open node_modules\react-native\scripts\launchPackager.bat
-		// delete this line
-		node "%~dp0..\cli.js" start 
-		Add this line
-		node "%~dp0..\cli.js" start --projectRoot ../../../
-	
-	2)thinkjs memory leak
-	(node:68000) 
-	
-    this.setMaxListeners(30);
-	D:\workspace\Web\hellcase\CmsWing\node_modules\think-websocket-ws\index.js L82
-
-icon 不显示图标
-	close running packager
-	run react-native link react-native-vector-icons
-	run react-native start --reset-cache
-	Finally use react-native run-android
-
-react-native生成release包的方法
-	进入项目跟目录下的android目录，执行命令：
-		react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/android/index.android.bundle --assets-dest ./bundles/android
-
-cmd命令
-	1) 清空屏幕命令：cls
-	2) 生成SHA256签名的方法：certutil -hashfile myfile SHA256
-	3) 编译、运行带有外部jar包的程序的方法
-		javac -classpath D:\Develop\Apache\Apache24\htdocs\bundles\android\sevenzipjbinding.jar Test.java
-		java -classpath .;D:\Develop\Apache\Apache24\htdocs\bundles\android\jars\sevenzipjbinding.jar; Test
-	4) mkdir -p 
-		-p -parent 需要时生成父目录，如：mkdir -p bundles/android/bundles
-	
-添加包
-	1) react-native-fs	
-		npm install react-native-fs --save
-	2) native-base
-		npm install native-base --save
-	3) react-navigation
-		npm install react-navigation --save
-	4) 拷贝
-		拷贝文件夹./node_modules/native-base/src/theme到./app/plugins下，并改名为native-base_theme
-	5) react-native-i18n
-		npm install react-native-i18n --save
-		react-native link react-native-i18n
-	5) react-native-fbsdk
-		npm install react-naitve-fbsdk --save
-		react-native link react-naitve-fbsdk
-	6) react-native-fbads
-		npm install react-naitve-fbads --save
-		react-native link react-naitve-fbads
-	7) react-native-swiper
-		npm install react-native-swiper --save
-	8) react-native-root-toast
-		npm install react-native-root-toast --save
-
-	npm uninstall react-native-whc-toast --save
-	
-	
-	npm install xxx --save
-	react-native link xxx
-	react-native unlink xxx
-	npm uninstall --save xxx
-	
-export default class A
-	import A from ...
-	不加大括号
-
-WebSocket
-	ReadyState：
-		0 CONNECTING Socket has been created. The connection is not yet open.
-		1 OPEN The connection is open and ready to communicate.
-		2 CLOSING The connection is in the process of closing.
-		3 CLOSED The connection is closed or couldn't be opened.
-
-Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
+	生成release包的方法
+		进入项目跟目录下的android目录，执行命令：
+			react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/android/index.android.bundle --assets-dest ./bundles/android
+	Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
 	Update node_modules\react-native\scripts\launchPackager.bat file.
 		@echo off
 		title Metro Bundler
@@ -520,82 +333,30 @@ Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
 		exit
 	We are giving project root path to Metro instance here
 
-react-native-vector-icons自定义图标
-	9.1 把iconfont.css放入\react-native-vector-icons\Fonts
-	9.2 react-native-vector-icons\glyphmaps中加入iconfont.json
-	9.3 \react-native-vector-icons中加入iconfont.js
-	9.4 在需要使用的地方，添加代码:
-		import MyIcons from 'react-native-vector-icons/iconfont';
-		
-		...
-		<MyIcons name='duihuan' size={26} color='#cccccc'/> 
+	react-native-vector-icons自定义图标
+		9.1 把iconfont.css放入\react-native-vector-icons\Fonts
+		9.2 react-native-vector-icons\glyphmaps中加入iconfont.json
+		9.3 \react-native-vector-icons中加入iconfont.js
+		9.4 在需要使用的地方，添加代码:
+			import MyIcons from 'react-native-vector-icons/iconfont';
+			
+			...
+			<MyIcons name='duihuan' size={26} color='#cccccc'/> 
 
-CSS
-	选择器
-		' ' 后代选择器，所包含的所有层级的元素，都会被选择
-		'>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
-		'~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
-		'+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
-	position
-		absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
-		fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
-		relative 生成相对的元素，相对于其正常位置进行定位。
-	
-JQuery
-	jquery
-	$(#id)，#取的是id
-	$(.class)，.取的是class
-	$(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
-session
-	?
+keytool -exportcert -alias my-key-alias -keystore D:\workspace\Web\hellcase\ShellApp\BDYXGames\android\app\my-release-key.keystore | openssl sha1 -binary | openssl base64
 
+WebSocket
+	ReadyState：
+		0 CONNECTING Socket has been created. The connection is not yet open.
+		1 OPEN The connection is open and ready to communicate.
+		2 CLOSING The connection is in the process of closing.
+		3 CLOSED The connection is closed or couldn't be opened.
 
-cache
-	global.update_cache
-	await think.cache
-	
-	all_task
-	all_taskgamemap
-	all_game
-	app_achivment
-	type_define
-
-nunjucks
-	{##}，会注释其中包含的nunjucks代码和h5代码
-	<!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
-
-h5
-	cart.js
-		this.success(
-	view.js
-		env.addFilter('strToJson'
-	global.js
-		global.get_pic
-		global.get_price_format
-
-	list_shop.html
-	{%column data="column"}
-	{%column data="clist"}
-	{%topic data="hotgoods"}
-
-	view/admin/index_index.html
-	HOOK@AdminIndex|safe
-	?.?
-	HOOK@loginView
-	
-	nunjucks
-	
 异步处理
 	https://thinkjs.org/zh-cn/doc/3.0/async.html
 	callbackhell:	http://callbackhell.com/
-	
-游戏全屏按钮
-	Laya框架是支持全屏功能的，但是存在一些限制，如不支持Firefox浏览器的全屏功能。所以考虑用原生H5来实现。
-	思路比较简单：在游戏UI的上层，添加按钮。按钮添加事件，实现全屏、退出全屏功能。
-	遇到的问题：
-		添加按钮之后，向下拖动按钮时，会触发浏览器的下拉刷新事件。解决办法：在按钮的样式里添加
-    overscroll-behavior: none;，并在拖动事件里添加evt.preventDefault();，阻止事件在冒泡阶段向外传递。
 
 网络匿名
 	审查手段
