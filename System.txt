@@ -13,7 +13,10 @@ linux
 		ge：移动光标到上一个单词的词尾
 		^：到行首
 		$：到行尾
-	netstat -tunlp |grep 8360
+	netstat
+		根据进程名查端口号
+		netstat -tunlp |grep PID
+		netstat -nap |grep PID
 	统计行数
 		wc -l
 	
