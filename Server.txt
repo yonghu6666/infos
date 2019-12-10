@@ -1,4 +1,9 @@
 Node.js
+	Blocking Node Event Loop:
+		REDOS, some RegExp patterns will be very slowly while the input string is big. For example, nested quantifiers like (a+)*, OR's with overlapping clauses like (a|a)*, backreferences like (a.*) \1.
+		Encryption, Compression, File system, Child process.
+		JSON.parse, JSON.stringify while the obj is big.
+
 	In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
 
 	What code runs on the Event Loop?
