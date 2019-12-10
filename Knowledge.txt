@@ -74,11 +74,13 @@ C#
 Heap、Stack
 	Heap，堆；Stack，栈
 	JavaScript
+		基础数据类型
+			undefined, null, boolean, number, string, symbol
 		Heap
 			无序的存储非基础数据类型的数据。
 
 		Stack
-			存储变量、基础数据类型（Number、Boolean、String、Null、Undefined、Symbol）、指向堆里的数据结构的地址的指针。
+			存储变量、基础数据类型、指向堆里的数据结构的地址的指针。
 			遵循先进后出原则。一个线程拥有一个单独的栈空间。
 			函数是放在栈里的，函数执行的时候，在栈里执行。
 		所有同步任务都在主线程上执行，形成了一个执行栈。
