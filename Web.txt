@@ -1,3 +1,37 @@
+V8
+	GC主要做三件事：
+		1.区分活着的、死亡的对象；
+		2.重新利用死亡对象占用的内存；
+		3.压紧、去分片内存。
+
+浏览器
+	内核
+		渲染引擎
+			Blink
+				Google Chrome，Edge，Opera
+			Webkit
+				Safari
+			Gecko
+				Firefox
+			Trident
+				IE，360，搜狗等
+		JS引擎
+			V8
+				Chrome
+			Nitro?JavaScriptCore
+				Safari
+			TraceMonkey
+				Firefox
+			Chakra
+				Edge
+	Tasks and Microtasks
+		Tasks execute in order, and the browser may render between them.
+		Microtasks execute in order, and are executed:
+			1.after every callback, as long as no other JavaScript is mid_execution.
+			2.at the end of each task.
+this in JS
+
+
 nunjucks
 	{##}，会注释其中包含的nunjucks代码和h5代码
 	<!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
@@ -15,8 +49,6 @@ JQuery
 	$(.class)，.取的是class
 	$(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
-JS回调函数
-	回调函数里的this的指向?
 CSS
 	引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
 	选择器
