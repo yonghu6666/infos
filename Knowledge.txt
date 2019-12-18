@@ -175,34 +175,32 @@ Svn
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
 Git
-	log
+	git checkout 
+		git checkout md5str filename/directory/*
+			回退本地修改的文件
+	git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
+
+	git commit
+		git commit <file> -m <commit comment>
+			提交单个文件并添加提交信息
+		git commit -am <commit comment>
+			提交所有文件并添加提交信息
+	git fetch
+		git fetch origin master
+		git merge origin/master
+	git log
 		git log filename
 			显示所有记录
 		git log -n filename
 			显示最近的n条记录
-	git checkout 
-		git checkout md5str filename/directory/*
-			回退本地修改的文件
+	git pull 
+		git pull origin master --allow-unrelated-histories
+			refusing to merge unrelated histories
 	git remote -v
 		查看远程仓库地址
 	git rm text.txt
 		删除文件
-	检查与git的连接
-		ssh -v git@github.com
-	fatal
-		refusing to merge unrelated histories
-			git pull origin master --allow-unrelated-histories
-	tag
-		git tag，列出所有标签
-		git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
-		git tag -a v1.4 -m 'my version 1.4'，创建一个含有附注的标签
-		git show v1.4，查看标签
-		git tag -a v1.2 9fceb02，给校验和的前几位为9fceb02的提交，打标签v1.2
-		git push origin v1.2，推送v1.2标签到服务器
-		git push origin --tags，推送所有未推送的标签到服务器
-		git tag -d v1.2，删除本地标签
-		git push origin :refs/tags/v1.2，删除远程服务器上的标签
-	stash
+	git stash
 		git stash 
 			储藏修改的文件
 		git stash list
@@ -213,6 +211,27 @@ Git
 			移除最近第三次的暂存
 		git stash show -p [stash@{0}] | git apply -R
 			在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
+	git tag
+		git tag，列出所有标签
+		git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
+		git tag -a v1.4 -m 'my version 1.4'，创建一个含有附注的标签
+		git show v1.4，查看标签
+		git tag -a v1.2 9fceb02，给校验和的前几位为9fceb02的提交，打标签v1.2
+		git push origin v1.2，推送v1.2标签到服务器
+		git push origin --tags，推送所有未推送的标签到服务器
+		git tag -d v1.2，删除本地标签
+		git push origin :refs/tags/v1.2，删除远程服务器上的标签
+	git update-index
+		git update-index --skip-worktree <file>
+			忽略某个文件的修改
+		git update-index --assume-unchanged <file>
+			忽略某个文件的修改
+		git update-index --no-skip-worktree <file>
+			取消忽略的某个文件
+		git update-index --no-assume-unchanged <file>
+			取消忽略的某个文件
+	检查与git的连接
+		ssh -v git@github.com
 	git设置下载的文件自动转换CRLF
 		git config --global core.autocrlf false
 	git检查换行符
@@ -223,15 +242,13 @@ Git
 	长期保持密码
 		git config --global credential.helper store
 	仅克隆指定分支的指定文件夹
-	$ git init <project>
-	$ cd <project>
-	$ git remote add origin ssh://<user>@<repository's url>
-	$ git config core.sparsecheckout true
-	$ echo "path1/" >> .git/info/sparse-checkout
-	$ echo "path2/" >> .git/info/sparse-checkout
-	$ git pull origin master
-	
-	git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
+		$ git init <project>
+		$ cd <project>
+		$ git remote add origin ssh://<user>@<repository's url>
+		$ git config core.sparsecheckout true
+		$ echo "path1/" >> .git/info/sparse-checkout
+		$ echo "path2/" >> .git/info/sparse-checkout
+		$ git pull origin master
 
 
 React-Native开发总结
