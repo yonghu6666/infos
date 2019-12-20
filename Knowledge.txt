@@ -250,8 +250,13 @@ Git
 		$ echo "path2/" >> .git/info/sparse-checkout
 		$ git pull origin master
 
+nvm
+	nvm ls
+		查看所有的node版本
+	nvm use <v>
+		使用v版本的node
 
-React-Native开发总结
+react-native开发总结
 	
 	export default class A
 		import A from ...
@@ -308,8 +313,7 @@ React-Native开发总结
 		react-native unlink xxx
 		npm uninstall --save xxx
 		
-FB等第三方登录，需要获取的信息
-	FB
+	FB等第三方登录，需要获取的信息
 		userID(134116137729302)、lastRefreshtime、expirationTime、accessToken、userImgURL
 		
 		获取头像
@@ -346,20 +350,20 @@ FB等第三方登录，需要获取的信息
 		进入项目跟目录下的android目录，执行命令：
 			react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/android/index.android.bundle --assets-dest ./bundles/android
 	Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
-	Update node_modules\react-native\scripts\launchPackager.bat file.
-		@echo off
-		title Metro Bundler
-		call .packager.bat
+		Update node_modules\react-native\scripts\launchPackager.bat file.
+			@echo off
+			title Metro Bundler
+			call .packager.bat
 
-		:: delete this line
-		node "%~dp0..\cli.js" start 
+			:: delete this line
+			node "%~dp0..\cli.js" start 
 
-		:: Add this line
-		node "%~dp0..\cli.js" start --projectRoot ../../../ 
+			:: Add this line
+			node "%~dp0..\cli.js" start --projectRoot ../../../ 
 
-		pause
-		exit
-	We are giving project root path to Metro instance here
+			pause
+			exit
+		We are giving project root path to Metro instance here
 
 	react-native-vector-icons自定义图标
 		9.1 把iconfont.css放入\react-native-vector-icons\Fonts
