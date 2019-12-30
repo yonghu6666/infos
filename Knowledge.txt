@@ -257,7 +257,8 @@ nvm
 		使用v版本的node
 
 react-native开发总结
-	
+	react-native start
+		启动调试服务器
 	export default class A
 		import A from ...
 		不加大括号
