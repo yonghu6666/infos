@@ -252,12 +252,6 @@ Git
 		$ echo "path2/" >> .git/info/sparse-checkout
 		$ git pull origin master
 
-nvm
-	nvm ls
-		查看所有的node版本
-	nvm use <v>
-		使用v版本的node
-
 react-native开发总结
 	react-native start
 		启动调试服务器
