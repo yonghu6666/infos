@@ -84,3 +84,10 @@ Node.js
 
 Session
 	?
+
+
+nvm
+	nvm ls
+		查看所有的node版本
+	nvm use <v>
+		使用v版本的node

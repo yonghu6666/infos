@@ -185,6 +185,8 @@ Git
 			提交单个文件并添加提交信息
 		git commit -am <commit comment>
 			提交所有文件并添加提交信息
+	git diff <file>
+		
 	git fetch
 		git fetch origin master
 		git merge origin/master
@@ -249,12 +251,6 @@ Git
 		$ echo "path1/" >> .git/info/sparse-checkout
 		$ echo "path2/" >> .git/info/sparse-checkout
 		$ git pull origin master
-
-nvm
-	nvm ls
-		查看所有的node版本
-	nvm use <v>
-		使用v版本的node
 
 react-native开发总结
 	react-native start
