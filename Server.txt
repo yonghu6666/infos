@@ -67,7 +67,7 @@ Node.js
 
 		The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
 	process.nextTick() vs setImmediate()
-		process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().
+		process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().It is alse non-clearable.
 
 		setImmediate() fires on the following iteration or 'tick' of the event loop
 
