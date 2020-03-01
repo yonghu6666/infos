@@ -1,0 +1,321 @@
+2020/02/28 18:04:28
+今日工作
+	1.完成webserver调用平台的AdGold、RealmToGate、HallGames接口代码。
+	2.完成webserver供浏览器调用的login接口。
+	2.完成session的配置。
+
+2020/02/27 10:50:42
+今日工作
+	1.完成some_defines.js、server_util.js、http_net.js等工具类
+	2.完成webserver调用平台的LoginGameApp接口
+	
+webserver调用平台接口
+	1./api/LoginGameAPP
+	2./api/auth/RealmToGate
+	3./api/HallGames
+
+---------------------------------------------------
+2020/02/26 19:57:23
+今日工作
+	1.讨论网页版接口
+	2.部署webserver环境
+	
+
+---------------------------------------------------
+2020/02/25 10:35:47
+今日工作
+	1.确定实现h5大厅的开发方式：fairygui实现h5网页，webserver做数据处理及请求转发。
+	2.确定h5大厅的页面内容，以及业务数据流转过程。讨论确定webserver需要开发的接口。
+
+
+h5网页开发内容
+	1.登录界面
+		登陆界面只需要支持Facebook登录这一种方式。
+		登录成功之后，需要直接跳转到Farkle游戏（网页版）。
+	2.大厅界面
+		大厅界面展示的内容，是很多个游戏的入口icon。
+
+业务流程：
+	1.玩家进入登陆界面。
+	2.玩家进行FB登录。
+	3.Fb登录失败，停留在登陆界面。
+		登录成功，则需要调用webServer的登录接口，进行我们自身的平台登录。
+	4.自身平台登录验证成功后，会通过webServer返回Farkle游戏的url，然后就会做url重定向。这时玩家就进入到Farklle游戏界面了。
+	5.在Farkle游戏界面中主要包括两部分内容：a.Farkle游戏自身的功能，如Frakle游戏的四个模式信息等；b.一个大厅按钮，用于进入大厅界面，该大厅就是上面说的大厅界面。
+	6.玩家可以随意体验Farkle游戏的任意功能。
+	7.点击大厅按钮时，进入大厅界面。大厅界面需要展示的内容，通过http请求从webserver获取。
+	8.h5游戏前端与其服务器进行通信时，所依赖websocket，是公共的websocket。该websocket的地址在登录自身平台成功后返回。websocket的建立，在进入游戏之前完成即可。
+	这就是从登录到大厅界面的业务流程。至此所有的页面，都已经展示给玩家了。
+
+浏览器端调用的接口
+	1.平台的登录接口
+		Fb登录成功后，将相关用户相关信息发送给webserver，做平台登录。
+	2.Frakle大厅的url
+		平台登录成功后，需要将Frakle大厅的url返回给浏览器。
+	3.h5大厅入口的图标icon
+		在Frakle游戏里，需要展示一个图标，用于作为h5大厅的入口。
+	4.h5大厅的入口地址
+		点击h5大厅的入口icon后，需要一个获取入口url的地址
+	6.h5大厅里的数据接口
+		接口返回的数据是，在大厅需要展示的游戏信息
+	7.h5大厅里游戏的入口icon
+		接口返回的数据是，单个游戏的url地址
+
+浏览器同一域名下，存储cookie的数量（30-50）及大小（4K）有限制
+
+webserver接口
+	1.供浏览器端调用
+		平台登录
+
+	2.调用平台端的API
+
+发现问题：
+	1.展示游戏界面的业务流程。
+		浏览器想webserver发送平台登陆请求后，webserver会向平台发送转发验证请求。验证失败，则webserver原样返回给浏览器；验证成功，则webserver向浏览器回一个游戏的url地址。至于websocket的url地址以及所需的key信息，是不能在此时返回给浏览器。因为在网页不使用服务端渲染的模式时，此时浏览器端还没有从服务端获取html页面以及js文件，若此时数据传过来，数据没有合适的存放位置（我感觉这个数据存入cookie是不合理的）。所以应该再增加一个接口，用于给浏览器端js获取websocket的url及对应的key值。
+		进入大厅里的某个游戏，也存在同样的问题。
+
+Login
+
+webserver接口内容
+
+
+web服务器-->平台服务器
+	1.
+1.LoginGameAPP
+	登录token
+	返回web服务器的大厅地址
+2.登录大厅
+	验证token（平台服务器）
+	
+---------------------------------------------------
+
+2020/02/24 10:45:32
+今日工作
+	1.整理h5game转换为wxgame文档
+	2.打包web3：彩球、走地百家乐、龙虎斗。
+	3.整理完成ios客户端需要的时间，讨论网页版大厅的实现方式。
+
+本周计划
+	开发网页版大厅
+
+
+插件包的集成配置这一部分，ios版本的开发时间，大概需要7.5天的时间。
+ios的RN环境配置、打包，原生代码，这两部分Android项目花的时间共计大概是3周。
+由于我只做过unity项目的ios打包，没有做过ios原生项目的打包，也没有做过ios的开发（ObjectC/swift），所以这两部分对应的ios版本的时间不确定。
+
+
+集成的插件包（9个）
+	RN集成+原生的配置时间，0.5天/个，总共4.5天，另外其中某些包的rn里的写法，ios和andriod不同，找出+修改时间估计共需3天。
+	react-native-admob
+	react-native-gesture-handler
+	react-native-i18n
+	react-native-fs
+	react-native-fbsdk
+	react-native-device-info
+	react-native-vector-icons
+	react-native-randombytes
+	react-native-fbads
+ios的RN环境配置、打包
+	android部分，大概花了3天时间。
+	我只做过unity的ios环境打包，没有做过原生项目的打包，所以这部分的时间不能确定。
+原生代码部分
+	android部分，大概花了2周多的时间。
+	原生代码包括：2个Activity，1个工具类（读写文件、获取MD5值等），2个Native模块（RN下载接口、FB广告），网络请求、下载工具模块，获取后台的token模块，处理App、Farkle的更新及下载逻辑模块。
+	我没有做过ios的开发（ObjectC/swift），这部分的时间也不能确定。
+
+---------------------------------------------------
+2020/02/22 17:34:41
+今日工作
+	1.完成gp ad功能。
+	2.完成自动登录功能。
+
+登录成功存入的数据
+	uid、token
+
+BDYXGamesData
+	1.platToken
+	2.Realm URL
+	3.userToken
+	4.uid
+	5.usertype
+---------------------------------------------------
+
+2020/02/21 19:04:46
+
+今日工作：
+	1.配置Google Admob，申请奖励广告。
+	2.引入react-native-admob，用于开发google视频激励广告。
+	3.发现无法打包的问题，查找解决方法，暂时没有结果，需要继续花时间解决。
+---------------------------------------------------
+2020/02/20 11:06:59
+今日工作：
+	1.添加游戏渲染结束通知接口，用于显示事先隐藏的WebView界面。
+	2.添加提供给游戏调用的播放广告接口，用于播放广告。
+	3.测试FB广告发现无法播放：缺少广告位编码。无法申请成功商务管理平台，原因未知。
+	4.开始接入Google广告。
+	
+	游戏渲染结束后，调用type为AppRequest，route为GameRendered的app接口，就会将背景图隐藏，显示游戏。
+---------------------------------------------------
+2020/02/19 18:37:22
+今日工作：
+	1.配置FB的开发者中心中的Farkle Mania应用。
+	2.实现APP的FB登录调起网页版的功能。
+
+2020/02/18 14:52:52
+---------------------------------------------------
+今日工作
+	1.解决昨天遇到的RN缓存错误的问题。
+	2.解决打签名包遇到的资源重复、签名文件配置密钥别名的问题，并打出Android签名包。
+	3.发现保存token等信息到手机时，格式错误的问题。
+
+2020/02/17 17:13:13
+
+ssr://NDUuMzIuODIuMTE0OjI4MDM6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnRsczEuMl90aWNrZXRfYXV0aDpRbVZwWkc5MWVXbDRhV0Z1TVRJei8_b2Jmc3BhcmFtPSZncm91cD1SbkpsWlZOVFVpMXdkV0pzYVdN
+
+今日工作
+	修改部分彩球及全部走地百家乐的bug，优化龙虎斗的音效反馈。
+	配置VPN环境。
+
+本周计划
+	1.完成FB登录、弹出看广告页面的功能。
+	2.解决打包Release出现的问题。
+	3.接入Google Play的SDK。
+
+---------------------------------------------------
+2020/02/14 12:12:56
+今日工作：
+	1.修改部分龙虎斗的音效，优化走地的音效反馈。
+	2.优化Farkle App打开游戏慢的问题。
+
+现在遇到了这个问题，大家有没有比较好的解决方法：
+Farkle App里，在使用react native的WebView显示游戏时，是每一个游戏分别开启一个WebView来显示的。这种方式显示游戏，会出现比较长的白屏时间。这个白屏时间主要用于启动WebView，加载并解析laya及fairygui的js资源，加载并解析游戏资源。
+为了减少白屏时间，现在使用这种方式进行优化：所有游戏共用一个全局WebView，这样就可以避免，在APP的单次启动期间，第二次打开游戏时，重复启动WebView、加载并解析laya及fairygui的js资源的工作，从而减少白屏时间。
+现在遇到了这个问题：在React native中，怎么使 非游戏页面 与 全局WebView页面 在内存中共存，即如何在显示非游戏页面时，隐藏全局WebView页面，保证其不被销毁。
+
+大家有什么方法，来解决这个共存的问题吗？
+
+在使用react native（以下简称RN）开发APP时，有这样一个需求：在APP中需要打开一些本地的h5游戏。
+使用的方案是，使用RN的WebView组件来展示这些游戏。即每打开一次游戏，就调用一次WebView。
+这种方案发现了这个问题（问题1）：每次打开游戏时，都会有一段时间的白屏。
+经查发现，从点击游戏入口，到白屏结束这段时间，是用于启动浏览器内核（android内嵌），启动WebView，加载、解析脚本等。
+为了减少白屏的时间，使用了这种方案：在RN中建立一个WebView页面，使其在APP的整个生命周期中一直存在而不销毁。每次打开游戏时，都在这个WebView页面进行显示。从而避免重复启动浏览器内核、启动WebView等的时间消耗。
+在这个方案中，会遇到这个问题（问题2）：由于APP中除了WebView页面，还有其他的一些RN的非游戏页面，需要保证在非游戏页面与WebView页面切换时，这个WebView页面不被销毁。即打开非游戏页面时，隐藏WebView页面，而不销毁它，在需要的时候，再显示这个WebView页面。
+
+如何解决问题2？
+
+react native
+
+2020/02/13 18:30:41
+今日工作
+	1.检查水果机、龙虎斗等游戏是否存在重复下注的bug。
+	2.替换彩球的所有需要修改的音效及走地百家乐的部分音效。
+
+---------------------------------------------------
+2020/02/12 10:40:15
+今日工作
+	编写完成GlobalWebView的代码80%。
+	修改彩球、飞禽走兽的bug。
+
+---------------------------------------------------
+2020/02/11 15:52:23
+FarkleApp
+	外网服务器地址地址
+		http://52.220.211.57:8080。
+	服务器路径
+		/usr/plat/test/
+今日工作
+	编写GlobalWebView代码至60%。
+	发现 非游戏页面 与 全局WebView页面 如何共存的问题，即如何在显示非游戏页面时，隐藏全局WebView页面，保证其不被销毁。
+
+---------------------------------------------------
+2020/02/10 08:08:22
+目前的主要工作内容：
+	优化FarkleAPP打开Farkle等游戏的速度。
+本周预计的工作进度：
+	1.完成全局WebView(GlobalWebView)的代码工作。
+	2.将打开Farkle的游戏的WebView改成全局WebView。
+	3.将打开其他游戏的的WebView改成全局WebView。
+今日工作：
+	编写了一部分全局WebView的代码。
+
+---------------------------------------------------
+1228428515
+4e76wh
+
+node
+	6.2.0
+	10.13.0
+
+Question
+	对从点击游戏入口图标，到正常显示游戏这段时间，详细分析每个阶段所占用的时间，然后对每个阶段做针对性的优化。
+
+开发环境
+	FairyGUI：3.10.7
+	Layabox：1.8.2
+
+FB开发者账号
+	账号：13316464053
+	密码：Beidouyixian123
+	邮箱：beidouyixian.i4player@gmail.com
+	姓：Zhang
+	名：Bruce
+FB广告账号
+	账号：13342967451
+	密码：WangBiao~12
+	邮箱：wangbiao19892018@gmail.com
+	商务管理平台名称：Bdyxgamesadsmgr
+
+GP开发者账号
+	https://developer.android.com/distribute/console/?hl=zh-cn
+	用户名：ifuntransfer@gmail.com
+	密码：Beidouyixian123
+	电话号码：13316464053
+admob账号
+	网址：https://apps.admob.com/
+	用户名：beidouyixian.i4player@gmail.com
+	密码：Beidouyixian123
+我自己的FB账号
+	账号：13530870264
+	密码：666biao666
+
+http://52.220.211.57:7001/admin
+
+google play申请应用准备资源
+	1.应用名称、简短说明、完整说明；
+	2.应用相关的图片资源
+		ICON：512*512 32位PNG，禁止使用透明背景
+		屏幕截图：JPEG 或 24 位 PNG（无 alpha 透明层）。边长下限：320 像素；边长上限：3840 像素。1-8张
+		置顶大图：宽 1024 x 高 500 JPG 或 24 位 PNG（无 alpha 通道）格式
+	3.应用类型
+		游戏|应用
+	4.类别
+		如选择游戏，则分为策略、动作、赌场等。
+	5.电子邮件
+	6.隐私权政策
+		一个可用的隐私地址http://...
+
+Farkle Manina admob（https://apps.admob.com/）
+	应用 ID:ca-app-pub-1899333947510550~7527513680
+	广告类型和展示位置:ca-app-pub-1899333947510550/9426934625
+
+	Google Mobile Ads SDK version 17.0.0
+
+
+
+gradlew :BL:dependencies
+
+
+ERROR_CODE_INTERNAL_ERROR - Something happened internally; for instance, an invalid response was received from the ad server.
+ERROR_CODE_INVALID_REQUEST - The ad request was invalid; for instance, the ad unit ID was incorrect.
+ERROR_CODE_NETWORK_ERROR - The ad request was unsuccessful due to network connectivity.
+ERROR_CODE_NO_FILL - The ad request was successful, but no ad was returned due to lack of ad inventory.
+
+
+现在缺少的功能：
+1.进入APP的下载界面是白屏界面，需要放一张背景图、下载信息。（下载的是APP的更新和FARKLE游戏资源）。
+2.自动登录。现在是每次进入APP，都需要重新登录。
+3.下载其他游戏资源的过程，没有UI部分的提示。
+4.昨天天华给的包，在我的手机上不能正常进入farkle游戏。原因应该还是我的手机版本（Android5.2）支持的是ES5，他给的是ES6，不兼容。这个问题在高版本android手机（Android6.0）上是没有问题的。具体是哪里的代码问题，我下午查一下。
+
+APP大厅的布局显示配置化
+	如背景图可以配置：目前可行的方式是通过接口传图片的url过来。

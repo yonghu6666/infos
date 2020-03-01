@@ -91,3 +91,7 @@ nvm
 		查看所有的node版本
 	nvm use <v>
 		使用v版本的node
+	nvm install <v>
+		安装某版本
+	nvm uninstall <v>
+		卸载某版本

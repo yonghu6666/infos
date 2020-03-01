@@ -28,6 +28,42 @@ ioc容器的实现原理及源码
 	1.玩家发出请求，到接收到请求，延迟达到500ms。
 	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+vultr
+
+命名规范
+	1.js
+		项目名
+			小写字母
+		目录名
+			小写字母、_
+		文件名
+			小写字母、_
+		类名
+			大驼峰命名法
+		属性
+			小驼峰命名法
+		方法
+			小驼峰命名法
+SDK集成
+	1.FB
+		在线指引：https://developers.facebook.com/docs/facebook-login/android/
+		需要填写的主要信息：
+			修改/app/res/values/strings.xml、/app/manifest/AndroidManifest.xml
+			将软件包名称与应用的默认类关联
+				例如：
+					软件包名称：com.bdyx.bdyxgames；
+					默认活动类名称：com.bdyx.bdyxgames.MainActivity；
+			为应用提供开发和发布密钥散列
+				Android 密钥散列、发布密钥散列（应用发布后）。
+				散列密钥生成方式
+					keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
+					如：shYpzDEt/9nil2PDpccBN92fsKg=
+				生成发布密钥散列
+					keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore YOUR_RELEASE_KEY_PATH | openssl sha1 -binary | openssl base64
+					如：shYpzDEt/9nil2PDpccBN92fsKg=
+				
+
+
 Data Structure and Algrithm
 	0，未实现；1，已实现
 	算法
@@ -175,7 +211,25 @@ Svn
 		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
 		svn co https://gitee.com/jing_wei/chess.git
 Git
+	git add
+		git add .
+			监控工作区的状态树，会把工作区的所有变化提交到暂存区，包括文件内容修改和新文件，但不包括被删除的文件。
+		git add -u 
+			添加被修改和被删除的文件。git add -update的缩写。
+		git add -A
+			添加被修改的文件，新文件和被删除的文件。git add -all的缩写
+	git branch
+		git branch
+			查看分支
+		git branch -a
+			查看所有分支
+		git branch -r
+			查看远程分支
+		git branch -d <branchName>
+			删除本地分支
 	git checkout 
+		git checkout <branch>
+			切换到branch分支
 		git checkout md5str filename/directory/*
 			回退本地修改的文件
 	git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
@@ -185,6 +239,17 @@ Git
 			提交单个文件并添加提交信息
 		git commit -am <commit comment>
 			提交所有文件并添加提交信息
+	git config
+		git config --global core.autocrlf false
+			设置下载的文件自动转换CRLF
+		git config --global core.safecrlf true
+			检查换行符
+		git config --global credential.helper store
+			长期保持密码
+		git config --global user.name [YOUR_USER_NAME]
+			查看用户名称，缺省部分填值时，表示设置用户名称
+		git config --global user.email [YOUR_EMAIL]
+			查看用户邮箱，缺省部分填值时，表示设置用户邮箱
 	git diff <file>
 		
 	git fetch
@@ -253,6 +318,7 @@ Git
 		$ git pull origin master
 
 react-native开发总结
+	npm cache clean --force
 	react-native start
 		启动调试服务器
 	export default class A
@@ -263,6 +329,9 @@ react-native开发总结
 		react-native run-android --deviceId yourdeviceId
 		adb -s yourdeviceId install yourapp
 		adb -s yourdeviceId uninstall yourappId
+		adb reverse tcp:8081 tcp:8081
+			adb -s 8fdb0742 reverse tcp:8081 tcp:8081
+			adb -s emulator-5554 reverse tcp:8081 tcp:8081
 	release版本
 		cd android
 		gradlew clean
@@ -273,9 +342,6 @@ react-native开发总结
 	                webURL: this.appRuleURL,
 	            });
 		this.props.navigation.state.params.webType;
-	adb reverse tcp:8081 tcp:8081
-		adb -s 8fdb0742 reverse tcp:8081 tcp:8081
-		adb -s emulator-5554 reverse tcp:8081 tcp:8081
 		
 		react-native run-android --deviceId 8fdb0742
 		react-native run-android --deviceId emulator-5554

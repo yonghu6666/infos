@@ -71,3 +71,7 @@ windows
 			-p -parent 需要时生成父目录，如：mkdir -p bundles/android/bundles
 	netstat
 		netstat -ano|findstr "8080"
+
+RN中注冊一個方法后，在NativeModules調用多次報錯：
+DeviceEventEmiter 
+	Illegal callback invocation from native module. This callback type only permits a single invocation from native code.
