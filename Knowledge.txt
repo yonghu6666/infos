@@ -1,3 +1,5 @@
+usage: git log directory
+
 内存数据的连续读写
 
 
@@ -215,7 +217,7 @@ Git
 		git add .
 			监控工作区的状态树，会把工作区的所有变化提交到暂存区，包括文件内容修改和新文件，但不包括被删除的文件。
 		git add -u 
-			添加被修改和被删除的文件。git add -update的缩写。
+			添加被修改和被删除的文件，不包括新增的文件。git add -update的缩写。
 		git add -A
 			添加被修改的文件，新文件和被删除的文件。git add -all的缩写
 	git branch
@@ -232,8 +234,11 @@ Git
 			切换到branch分支
 		git checkout md5str filename/directory/*
 			回退本地修改的文件
-	git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
-
+	git clone
+		git clone <repository> [YOUR_REPOSITORY_NAME]
+			克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
+		git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
+			克隆一个远程仓库分支。
 	git commit
 		git commit <file> -m <commit comment>
 			提交单个文件并添加提交信息

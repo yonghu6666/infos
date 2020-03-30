@@ -1,3 +1,477 @@
+server error
+	_http_outgoing.js:470
+	    throw new ERR_HTTP_HEADERS_SENT('set');
+	    ^
+
+	Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+	    at ServerResponse.header (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:771:10)
+	    at ServerResponse.send (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:170:12)
+	    at ServerResponse.json (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:267:15)
+	    at loginHandle (D:\workspace\BDYX\webgamelobby\src\router\login.js:66:8)
+	    at D:\workspace\BDYX\webgamelobby\src\router\login.js:29:11
+	    at D:\workspace\BDYX\webgamelobby\src\logic\server_login.js:72:17
+	    at IncomingMessage.<anonymous> (D:\workspace\BDYX\webgamelobby\src\net\http_net.js:22:23)
+	    at IncomingMessage.emit (events.js:187:15)
+	    at endReadableNT (_stream_readable.js:1094:12)
+	npm ERR! code ELIFECYCLE
+	npm ERR! errno 1
+	npm ERR! webgamelobby@1.0.0 start: `node ./src/app.js`
+	npm ERR! Exit status 1
+	npm ERR!
+	npm ERR! Failed at the webgamelobby@1.0.0 start script.
+	npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+	npm ERR! A complete log of this run can be found in:
+	npm ERR!     C:\Program Files\nodejs\node_cache\_logs\2020-03-25T08_24_11_232Z-debug.log
+
+
+-------------------------------------
+2020/03/27 10:05:50
+今日工作
+	1.完成h5 lobby的返回系统
+	2.开始app多游戏页面的开发。
+	3.完成h5 lobby Hall2C_GameHallNotify的消息处理
+
+/**
+ * @param _otherEntryType
+ * @param _type
+ */
+window.bdgame.enterEntry = function (_otherEntryType, _type);
+
+-------------------------------------
+2020/03/25 16:25:36
+今日工作
+	1.初步完成h5单游戏大厅的代码与调试。
+所有界面
+	1.LM
+		LobbyMain
+	2.SGP
+		SingleGamePage
+	3.MGP
+		MultiGamesPage
+	4.SGPMG
+		SingleGamePageSingleGamePageMainGame
+	5.SGPSG
+		SingleGamePageSubGame
+	6.MGPSG
+		MultiGamesPageSubGame
+从一个界面到另一个界面的所有可能性
+	1.LM->SGP 	
+		A.PrePageType
+			LobbyMain
+		B.OtherGameInfo
+		C.SingleGamePageMainGame
+	2.LM->MGP
+		A.PrePageType
+			LobbyMain
+		B.CateTypeArr
+	3.SGP->SGPMG
+		A.PrePageType
+			LobbyMain
+		B.OtherGameInfo
+	4.SGP->SGPSG 	RB
+		A.PrePageType
+			SingleGamePage
+	5.SGP->MGP 	RB
+		A.PrePageType
+			SingleGamePage
+		B.CateTypeArr
+	6.MGP->MGPSG	RB
+		A.PrePageType
+			MultiGamesPage
+	7.MGP->SGP
+		A.PrePageType
+			LobbyMain
+		B.OtherGameInfo
+		C.SingleGamePageMainGame
+	8.SGPSG->SGP
+		A.PrePageType
+			LobbyMain
+		B.OtherGameInfo
+	9.MGPSG->MGP	RB
+		A.PrePageType
+			SingleGamePage|LobbyMain
+		B.CateTypeArr
+需要存储的数据
+	1.PrePageType
+		LobbyMain, SingleGamePage, MultiGamesPage
+	2.OtherGameInfo
+	3.CateTypeArr
+	4.SingleGamePageMainGame
+MGP、MGPSG
+SGP、SGPSG
+SGP、SGPMG
+SGP、MGP、MGPSG
+游戏界面需要显示的数据
+	1.是否显示ReturnBtn
+	2.ReturnBtn返回到哪里
+	3.其他游戏入口数据
+
+-------------------------------------
+2020/03/24 18:35:06
+今日工作
+	1.完成部分单游戏大厅的代码。
+
+
+farkle app的工作
+	1.完成farkle app的单游戏大厅
+		布局规则同网页版的单游戏大厅
+	2.完成farkle app的多游戏大厅
+		布局规则同网页版的多游戏大厅
+
+-------------------------------------
+2020/03/23 09:31:51
+今日工作
+	1.调试h5多游戏大厅。
+	2.完成h5多游戏大厅的功能。
+
+
+问题
+	1 在游戏界面，网页刷新后出现报错。
+	2 farkle刷新之后游戏是否会在桌子。
+
+本周工作
+	1.完成多游戏大厅的调试。
+	2.完成单游戏大厅的开发及调试。
+
+我的工作
+1 h5大厅
+	1.1 单游戏大厅
+		目前完成了一个版本，但新确定的需求尚未完成（其他游戏入口相关的改动）。
+		预计2天时间完成。
+	1.2 多游戏大厅
+		已完成。
+	1.3 h5大厅的webServer
+		已完成。
+2 Farkle App
+	2.1 单游戏大厅
+		已完成。
+	2.2 多游戏大厅
+		未完成。
+		未确定需求：同一个app，是否即支持单游戏大厅，又支持多游戏大厅。
+		开发时间不能确定。
+	2.3 第三方app端接入
+		未完成。
+		未确定需求：第三方是否可以使用app接入平台大厅，以及如何接入大厅。
+		开发时间不能确定。
+3 统一App版本与h5版本的游戏接入接口
+	未完成。
+	预计3天。
+4 开发toB的网页版前端
+	目前暂未确定需求。
+	开发时间不能确定。
+
+-------------------------------------
+2020/03/20 14:23:34
+今日工作
+	1.完成多游戏大厅的代码编写。
+
+-------------------------------------
+2020/03/19 18:29:32
+今日工作
+	1.编写多游戏大厅的代码。
+		编写代码base_entry_list.js、base_img_check_entry.js、base_img_entry.js、cate_entry_list.js、cate_entry.js等。
+
+
+
+-------------------------------------
+2020/03/18 10:18:35
+今日工作
+	1.与海尖讨论确定大厅接口。
+	2.完成大厅UI。
+	3.开始多游戏大厅的代码编写。
+
+
+-------------------------------------
+2020/03/17 10:18:35
+今日工作
+	1.讨论并确定h5大厅的布局
+	2.发现并解决Farkle游戏里的业务逻辑的流程问题
+		与天华讨论后解决。
+	3.修改登录的参数
+
+单游戏大厅的布局规则
+	1.针对每一个单游戏大厅，分别给予有限的入口数量，该数量由平台配置。
+	2.入口类型可以是合集入口，也可以是游戏入口。
+单游戏大厅入口显示规则
+	1.优先显示category图标
+		如果category里只有一个游戏，则显示游戏图标
+	2.其次显示seperateDisplay的图标
+
+--------------------------------------------
+2020/03/16 09:50:35
+今日工作
+	1.基本完成h5大厅的版本
+		大厅是一个html页面，支持的功能：
+		1.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
+		1.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
+	2.完善游戏接入h5大厅、app大厅的文档
+
+明日任务：
+	1-：多游戏大厅里分类别显示游戏；现在平台是已经支持的
+	2:-单游戏大厅里支持多个“合集”的入口。这个平台还未支持，之后会做
+	3:-当一个合集里只有一个游戏时，合集的入口显示为该游戏图标，点击该图标直接进入游戏。平台已经支持。
+	4.每个合集下面，只有一种类型的游戏。
+
+本周工作
+	1.完成h5大厅的版本
+		包括两种大厅。
+	2.完善游戏接入h5大厅、app大厅的文档
+	3.完成farkle app版本的入口隐藏功能
+	4.与海尖讨论确定接下来的开发内容
+
+
+-------------------------------------
+2020/03/13 14:10:13
+今日工作
+	1.调试Farkle、txsasslot游戏。
+		遇到嗲用平台接口C2Gate_EnterRoom，返回202008的错误，平台侧尚未解决。
+	2.开发第三方接入后，平台侧返回的页面是一个游戏页面的功能。
+		拆分出lobby_multigames.js、lobby_game.js
+
+	Farkle
+		1.this.iframeBdgame.msgQueue
+		2.this.iframeBdgame.enterRoomMsg
+
+
+-------------------------------------
+2020/03/12 19:27:39
+今日工作
+	1.调试合集页面的游戏接入。
+	2.与马总、海尖讨论并确定第三方接入的方式。
+
+1.第三方接入的方式已确定
+	1.1 接入方式：第三方接入后，由web侧提供一个html页面的入口给第三方。
+	1.2 该html页面支持的功能：
+		1.2.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
+		1.2.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
+
+2.目前的进度
+	2.1 h5大厅版本
+		功能1.2.1正在收尾，预计明天（3.13）可以完成；
+		功能1.2.2 没有实现。预计需要2天时间完成，即3.16号完成。（会与1.2.1兼容）
+	2.2 farkle app版本
+		功能1.2.1未实现，完成需要的时间需要暂不确定。
+		功能1.2.2仅入口隐藏的功能未实现，预计0.5天时间即可完成。
+
+
+当前平台整体功能和业务场景：
+    1.应用场景和最终目标: 
+    	自身运营、To B两种服务方式，是以当前的平台功能衍生出两个独立的平台。（基本最终的状态就是我们要维护这两个平台系统）
+    	1.1 To B    ：提供给B端用户的基础的通用的游戏平台，B端用户通过API接入平台服务（就是完整的游戏大厅页面）。
+    	1.2 自身运营：是基于我们自己个性化的需求，打造自身的品牌，把所有自身运营的游戏业务都归并到这个平台下进行统一管理。
+    2.当前目标：
+    	实现To B完整平台服务。
+
+    3.To B平台整体功能和结构说明：
+    	3.1 平台服务
+    		提供整个平台业务调度和服务管理、游戏接入、建立平台统一账号体系等，并根据实际业务对外提供一序列API
+    	3.2 平台后台管理服务
+    		管理和配置平台所有基础数据、报表统计、服务管理和监控等
+    	3.3 游戏服务
+    		完成具体的游戏功能
+    	3.4 游戏大厅网站
+    		3.4.1 建立一个统一的大厅网站，兼容和支持单游戏大厅和多游戏大厅。B端用户通过平台的API，最终接入的就是这个大厅页面。
+    		3.4.2 在游戏大厅上实现一些增值业务，如广告、排行榜、兑换、任务（收集卡片奖励）等
+    	3.5 To B网站
+    		提供给B用户查询相应数据、API接入规则管理、配置游戏（与平台权限挂钩）、配置相关业务（如奖励）、配置页面相关主题排版等
+-------------------------------------
+2020/03/11 08:59:40
+今日工作
+	1.基本完成大厅界面。
+
+      <!-- onlogin="FBLogin.checkLoginState();"> -->
+
+	https://graph.facebook.com/128937725322092/picture?type=large&v=1
+-------------------------------------
+2020/03/10 16:17:16
+今日工作
+	1.完成h5大厅的lobby_avatar.js、lobby_img.js、lobby_money.js、lobby_ping.js代码。
+	2.与海尖、天华开会讨论平台API的修改。
+
+收货人: 王彪
+手机号码: 135 3087 0264
+所在地区: 广东省深圳市宝安区新安街道
+详细地址: 裕丰路裕和花园1巷1号304
+
+
+身份证：341 281 198 807 108 632
+-------------------------------------
+2020/03/09 09:30:10
+今日工作
+	1.发现并解决fetch使用https协议的NET::ERR_CERT_COMMON_NAME_INVALID错误。
+		解决方法：重新申请证书，在CommonName选项，输入localhost。
+	2.完成大厅页面的UI布局。
+	3.讨论整理标签玩法。
+
+
+本周工作
+	完成h5大厅的开发（不包括接入google AFG、标签玩法）。
+
+可以把这些功能分为四大模块：
+	1.大厅
+		包括大厅客户端、大厅webserver
+	2.游戏
+		包括游戏客户端、游戏服务端
+	3.平台
+		平台服务器
+	4.后台
+		包括后台客户端（配置页面）、后台服务器。
+模块1是我在做；
+模块2可以让ZHR做；
+模块三是海尖在做；
+模块四的客户端我可以做，服务器看看是海尖做合适，还是ZHR做合适。
+
+1.增加一些https的请求；
+2.html入口改为js入口；
+3.原来直接与服务端进行的websocket的通信，改为通过大厅与平台进行通信。
+
+马总，下面这些是跟海尖讨论、整理的结果，你看看有没有问题：
+思路
+	平台侧负责触发玩法的逻辑，并通知给大厅、游戏。
+	游戏侧负责开发多个玩法，用于支撑平台侧的玩法。
+	大厅侧负责展示玩法的规则、进度等，显示给玩家看。
+牵涉到四个功能方：平台（平台服务器）、后台（配置页面）、大厅（大厅客户端）、游戏（游戏客户端+游戏服务器）。
+业务流程
+	1.在后台侧配置功能的规则。
+	2.平台侧实时读取上述配置，并通知大厅、游戏侧显示。
+	3.大厅显示玩法规则、说明。
+	4.游戏侧根据配置的规则，放开或者关闭对应的玩法。
+以搜集玩法（记为标签A）为例，功能的开发分配如下：
+	搜集玩法的规则举例：配置标签A，即玩家通过玩一局Farkle游戏里的打地鼠玩法，获得一张卡片。5张该卡片可用于兑换某种物品。
+	1.后台
+		配置标签A，并给Farkle游戏添加该标签。
+	2.平台
+		实时读取后台的配置，然后通知大厅侧、游戏侧：Farkle游戏获得标签A。
+		处理Farkle游戏的数据，在玩家玩一局Farkle游戏的打地鼠玩法后，发一张卡片给该玩家（记录到平台的数据库中），并通知大厅侧、游戏侧。
+	3.大厅
+		收到平台的Farkle游戏的标签A消息后，在Farkle游戏的入口图标上显示标签A的icon。
+		在大厅添加搜集功能，用于给玩家展示搜集中的所有玩法、进度等。
+	4.游戏
+		预先开发打地鼠玩法，以支撑标签A玩法。
+		收到平台侧的卡片奖励消息后，展示玩家获得奖励的消息。
+
+1.搜集功能。
+	平台侧配置搜集的玩法，在大厅里显示。
+	平台对游戏数据进行分析，在合适的时机，触发掉落功能，并通知大厅、游戏掉落的结果。
+	搜集玩法是可配置的，平台侧修改后，大厅、游戏侧实时进行变动。
+	搜集具有时效性、一个游戏具有多个搜集玩法。
+	类似任务功能。
+2.问题
+	3）BNG\Features entry bottleneck，这个不理解。
+
+3.功能的开发分配
+	平台
+		1.搜集玩法的配置、触发及发奖逻辑。
+		2.通知大厅、游戏，搜集玩法的变动。
+	大厅
+		显示搜集的功能。
+	游戏
+		1.掉落物品所需要的玩法的开发，及收到平台消息后玩法的显示与隐藏。
+		2.显示大厅发来的通知消息，用来统一处理平台发来的消息。
+	后台
+		配置数值。
+
+先以一个具体问题开头：
+大厅做的一些功能，如何能在游戏中比较无缝的衔接好。比如“大厅”功能实现的集齐5张什么样卡片即可获得X奖励。
+这5张卡片分别在5个游戏中可获得，有第一个卡片的游戏对bet无限制，第二个卡片只在中级场出现比如bet 10000，诸如此类。
+
+另外，可获得卡片的这5个游戏不固定。 同时，处于可搜集的这些游戏，游戏图标会有一些显示上的“标识”
+
+最后，可以对掉落的东西，平台测可做一些数值的配置，包括概率、rtp等（当然游戏要提前做好对应的功能）
+
+目的：围绕诸多个游戏，通过丰富大厅的功能玩法把每个游戏盘活。
+
+所以第一个切入点，或者说是功能就是搜集
+
+每个游戏设置若干个标签：
+（1）对应游戏中具体的一些参数配置如概率等。当标签激活后，游戏中的数值会跟随变化，并且游戏图标的外观会加一个视觉上的标识\特效
+（2）标签可设置时效性，如持续8小时、24小时等
+（3）一个游戏可同时激活多个标签
+	标签种类：每个标签名字待定，但功能倾向于统一每个游戏都统一。我现在能设想的是以下几点
+（1）物品掉落标签==》配置每个游戏中的物品掉落。主要对应搜集的玩法。
+（2）Odds Booster标签===》对应配置游戏中的概率、RTP等
+（3）BNG\Features entry bottleneck===》对应配置游戏中特色玩法的bet，也就是说高于此bet时候feature激活。
+（4）其他你们能想到的
+
+涉及到问题：
+大厅做的一些功能，如何能在游戏中比较无缝的衔接好。比如游戏中出现一些大厅激活的一些功能图标。相当于游戏中需要预留好接口。
+
+你现在做的一个大厅 是一个纯粹的“原始”大厅，这样的大厅玩家能玩进去的很少，所以我们要加入一些功能，跟游戏密切接合起来。
+一个简单的类比：你之前玩过MMO或arpg的时候，为了做一个装备，可能要反复刷不同的几个副本，对吧？你可以把若干个我们的H5游戏比如Slots当成副本。至于掉落什么，掉落概率等等，这些我们后台配置。
+
+这里的“装备”，我们可以当成一个“iPhone”诸如此类
+
+你可以先跟LHJ讨论，看看那些是平台做的、那些是大厅、那些是游戏（游戏只是按你们给的规则来实现功能）
+---------------------------------------------------
+
+2020/03/06 15:32:36
+今日工作
+	1.添加登陆页面index.html的背景图、logo，并使用css实现自适应功能。
+	2.完成浏览器端http_fetch.js、error_code.js、LoginData.js、login_server.js等代码。
+	3.发现在https页面中，使用websocket需要wss协议的问题。
+		已跟平台侧沟通，提出提供支持wss协议的功能。
+
+---------------------------------------------------
+2020/03/05 16:25:56
+今日工作
+	1.配置Fb的网页版登录后台。
+		发现配置oauth的url时，需要使用域名而非ip的问题。
+	2.配置webserver的https。
+		Fb的oauth的url，需要使用https协议，而非http协议。
+	3.完成Fb登录的功能（Fb登录成功后跳转到Farkle游戏的功能除外）。
+
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v6.0&appId=469791273702134&autoLogAppEvents=1"></script>
+
+<div class="fb-login-button" data-width="180" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+---------------------------------------------------
+
+2020/03/04 18:12:09
+今日工作
+	1.模拟浏览器端调用，完成webserver供浏览器调用的接口logingameapp、realmtogate、adgold、gogame、hallgame的调试。
+	2.发现并解决平台api接口中，url地址的域名问题。
+
+
+---------------------------------------------------
+2020/03/03 09:27:46
+今日工作
+	1.完成webserver供浏览器调用的adGold、goGame、hallGames接口的代码。
+
+
+
+---------------------------------------------------
+2020/03/02 09:03:31
+今日工作
+	1.完成error_code.js。
+	2.完成供浏览器调用的otherGameImg接口。
+
+本周计划
+	1.完成webserver的开发。
+	2.完成部分h5客户端的开发：Fb登录、Farkle游戏侧的功能。
+
+1.查看对接平台的接口是否完成 1
+	LoginGameApp、RealmToGate、HallGames、AdGold
+2.确定对接浏览器的接口 0
+	1）登录界面 1
+		FB登录信息转发验证
+			/Login
+	2）Farkle游戏界面
+		h5大厅图标地址
+			/hall/otherGameImg
+		获取h5大厅数据接口
+			/hall/hallGames
+	3）h5大厅
+		点击每个h5大厅的游戏，进入的游戏url
+			/hall/goGames
+		增加金币
+			/hall/adGold
+
+3.Google Ad
+	看广告
+---------------------------------------------------
 2020/02/28 18:04:28
 今日工作
 	1.完成webserver调用平台的AdGold、RealmToGate、HallGames接口代码。
@@ -239,8 +713,9 @@ FarkleApp
 	编写了一部分全局WebView的代码。
 
 ---------------------------------------------------
-1228428515
-4e76wh
+TeamViewer
+	1228428515
+	4e76wh
 
 node
 	6.2.0
@@ -319,3 +794,21 @@ ERROR_CODE_NO_FILL - The ad request was successful, but no ad was returned due t
 
 APP大厅的布局显示配置化
 	如背景图可以配置：目前可行的方式是通过接口传图片的url过来。
+
+从开发角度来看，h5game与小游戏的区别，主要有两点：
+	1.入口文件。
+		h5game的入口文件，是一个html文件，小游戏的入口文件，是game.js。
+		针对这一点，开发需要做的就是，把html的入口修改为js的入口。
+	2.运行环境的差别。
+		见https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html。
+		这一部分，对我们的游戏来说，由于我们的游戏没有直接操纵dom，所以可以说是没有区别。
+可以先大致了解一下，laya下新建的h5game，与通过laya打包出小游戏的项目，在目录结构上的区别，来理解这个开发上的区别。
+再去微信官方平台（https://developers.weixin.qq.com/minigame/dev/guide/）上，熟悉小游戏/小程序的基础知识。
+
+
+Fb网页版的登录
+	有效 OAuth 跳转 URI
+		配置域名可以，如https://localhost:10086/。配置IP地址则不行，如https://127.0.0.1:10086/。
+
+Google Adsense
+	google有一个专门针对游戏的叫AdSense For Games，简称AFG，我们接的话是接这个。

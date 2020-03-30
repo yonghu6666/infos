@@ -1,4 +1,33 @@
 
+
+
+2. 精通html/css/javascript；
+
+3. 掌握基础算法，有web性能分析与调优能力；
+
+4. 熟悉react vue框架，以及相关工具和技术栈；
+
+5. 熟悉canvas画图，ECharts/Hightcharts 等数据可视化工具；
+有jslint, eslint使用习惯
+
+2.熟练掌握css3，弹性盒子布局，rem布局，熟悉less/sass来书写css； 
+
+3.熟悉使用js，能使用原生js以及jq（zp）实现开发各类任务； 
+
+4.熟练使用sea.js、require.js，Vue/React等前端框架或类库,Vue熟练者最佳； 
+
+5.熟悉http、websocket通讯； 
+
+精通HTML5/CSS3/JS/ES6等前端技能，理解web标准和兼容性，了解Webpack；
+
+熟练使用主流的JavaScript框架（React/Vue/RN等），并精通其中的一种以上；
+
+熟悉nodejs/php等任一种后端脚本语言优先，熟悉linux系统优先；
+
+熟悉mongodb/redis/mysql等任一种数据库；
+
+有android开发、IOS开发、微信小程序或其它移动端开发技能优先；
+
 大数据、人工智能方向
 	线性代数 高等代数
 	掌握大量的基础算法，练习经典题目，如ACM等。对图、数（树）等的特性有清晰认知，能举出各自的经典用例。
