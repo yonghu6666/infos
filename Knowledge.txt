@@ -221,8 +221,10 @@ Git
 		git add -A
 			添加被修改的文件，新文件和被删除的文件。git add -all的缩写
 	git branch
-		git branch
-			查看分支
+		git branch <branchname>
+			没有branchname，为查看分支；否则为创建新的分支
+		git push origin [branchname]:[branchname]
+			将新创建的分支branchname提交到远程
 		git branch -a
 			查看所有分支
 		git branch -r
@@ -321,127 +323,6 @@ Git
 		$ echo "path1/" >> .git/info/sparse-checkout
 		$ echo "path2/" >> .git/info/sparse-checkout
 		$ git pull origin master
-
-react-native开发总结
-	npm cache clean --force
-	react-native start
-		启动调试服务器
-	export default class A
-		import A from ...
-		不加大括号
-
-	react-native run-android
-		react-native run-android --deviceId yourdeviceId
-		adb -s yourdeviceId install yourapp
-		adb -s yourdeviceId uninstall yourappId
-		adb reverse tcp:8081 tcp:8081
-			adb -s 8fdb0742 reverse tcp:8081 tcp:8081
-			adb -s emulator-5554 reverse tcp:8081 tcp:8081
-	release版本
-		cd android
-		gradlew clean
-		gradlew assembleRelease
-	navigation
-		this.props.navigation.navigate('GamePane', {
-	                webType: 1, 
-	                webURL: this.appRuleURL,
-	            });
-		this.props.navigation.state.params.webType;
-		
-		react-native run-android --deviceId 8fdb0742
-		react-native run-android --deviceId emulator-5554
-	添加包
-		1) react-native-fs	
-			npm install react-native-fs --save
-		2) native-base
-			npm install native-base --save
-		3) react-navigation
-			npm install react-navigation --save
-		4) 拷贝
-			拷贝文件夹./node_modules/native-base/src/theme到./app/plugins下，并改名为native-base_theme
-		5) react-native-i18n
-			npm install react-native-i18n --save
-			react-native link react-native-i18n
-		5) react-native-fbsdk
-			npm install react-naitve-fbsdk --save
-			react-native link react-naitve-fbsdk
-		6) react-native-fbads
-			npm install react-naitve-fbads --save
-			react-native link react-naitve-fbads
-		7) react-native-swiper
-			npm install react-native-swiper --save
-		8) react-native-root-toast
-			npm install react-native-root-toast --save
-
-		npm uninstall react-native-whc-toast --save
-		
-		
-		npm install xxx --save
-		react-native link xxx
-		react-native unlink xxx
-		npm uninstall --save xxx
-		
-	FB等第三方登录，需要获取的信息
-		userID(134116137729302)、lastRefreshtime、expirationTime、accessToken、userImgURL
-		
-		获取头像
-			https://graph.facebook.com/134116137729302/picture
-			https://graph.facebook.com/134116137729302/picture?type=large
-		获取name
-			https://graph.facebook.com/me?access_token=
-			https://graph.facebook.com/me?fields=email,name,friends&access_token=
-	Login 
-		开发密钥散列
-			a7bhysxUinuNBEx9z+VZMhzmNcA=
-		密钥散列（FB）
-			6o04ZlbwMHWx3uM2TfkgFp0D+hM=
-	project problems
-		1)React-Native Error: Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
-			open node_modules\react-native\scripts\launchPackager.bat
-			// delete this line
-			node "%~dp0..\cli.js" start 
-			Add this line
-			node "%~dp0..\cli.js" start --projectRoot ../../../
-		
-		2)thinkjs memory leak
-		(node:68000) 
-		
-	    this.setMaxListeners(30);
-		D:\workspace\Web\hellcase\CmsWing\node_modules\think-websocket-ws\index.js L82
-	icon 不显示图标
-		close running packager
-		run react-native link react-native-vector-icons
-		run react-native start --reset-cache
-		Finally use react-native run-android
-
-	生成release包的方法
-		进入项目跟目录下的android目录，执行命令：
-			react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/android/index.android.bundle --assets-dest ./bundles/android
-	Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
-		Update node_modules\react-native\scripts\launchPackager.bat file.
-			@echo off
-			title Metro Bundler
-			call .packager.bat
-
-			:: delete this line
-			node "%~dp0..\cli.js" start 
-
-			:: Add this line
-			node "%~dp0..\cli.js" start --projectRoot ../../../ 
-
-			pause
-			exit
-		We are giving project root path to Metro instance here
-
-	react-native-vector-icons自定义图标
-		9.1 把iconfont.css放入\react-native-vector-icons\Fonts
-		9.2 react-native-vector-icons\glyphmaps中加入iconfont.json
-		9.3 \react-native-vector-icons中加入iconfont.js
-		9.4 在需要使用的地方，添加代码:
-			import MyIcons from 'react-native-vector-icons/iconfont';
-			
-			...
-			<MyIcons name='duihuan' size={26} color='#cccccc'/> 
 
 keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
