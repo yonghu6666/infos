@@ -10,14 +10,14 @@ usage: git log directory
 C#接口中定义参数和返回值都为泛型的方法
 
 快速排序
-	https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
+  https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
 快速选择
-	https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9
+  https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9
 
 ET框架，TestComponent的命名空间为ETHotfix时，其System类为什么不生效？
 
 前端webp支持方案？
-	WKWebView、Safari浏览器、某些类型的浏览器不支持webp格式，如何实现这些浏览器对webp的支持？
+  WKWebView、Safari浏览器、某些类型的浏览器不支持webp格式，如何实现这些浏览器对webp的支持？
 
 IP网际协议中，在没有发生错误的情况下，接收方计算的数据包首部检验和的结果，为什么是全1？
 
@@ -27,337 +27,375 @@ ioc容器的实现原理及源码
     随机函数生成的数，是否存在周期性
 
 小程序问题
-	1.玩家发出请求，到接收到请求，延迟达到500ms。
-	2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
+  1.玩家发出请求，到接收到请求，延迟达到500ms。
+  2.首次进入小程序时，小程序的首次加载时间达到数秒，而非想象中的1-2秒。
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Unity
+  6.Canvas Scaler
+    UI Scale Mode
+      Constant Pixel Size：UI元素的位置和大小会被指定为屏幕上的像素。
+      Scale With Screen Size：UI元素的位置和大小，被指定为Reference Resolution分辨率下的像素值。
+      Constant Physical Size：UI元素的位置和大小，会被指定为物理单元，例如毫米。
+      480 / (640 / 480) = n
+      480 / n = 640 / 480
+  5.anchors
+    anchored to the center of the parent rectangle. keep a constant offset from the center.
+  4.Transparent Queue
+    渲染顺序
+      4.1.SortingLayer and Order in Layer
+      4.2.Specify Render Queue
+        在Material或Shader中设置Render Queue。
+      4.3.Distance to Camera
+        Perspective，透视模式。按照Renderer到摄像机位置的距离进行渲染。
+        Orthographic，正交模式。
+      4.4.Sorting Group
+      4.5.Material/Shader
+      4.6.A Tiebreaker occurs when multiple Renderers have the same sorting priorities.
+
+  3.Order in Layer
+    控制相同SortingLayer的对象的渲染顺序。
+
+  2.SortingLayer
+    控制对象的渲染顺序。
+    通过Render Queue指定Renderers的渲染顺序。主要有Opaque quene和Transparent queue。2D Renderers主要使用Transparent queue。
+      
+  1.Layer
+    常用于摄像机渲染，灯光照射，射线检测，碰撞检测。
+      摄像机渲染，在Camera组件的CullingMask中勾选的部分，才会被渲染。MainCamera对象中，即使不勾选UI层，UI层也会被渲染。
+    灯光照射?
+
+    射线检测
+      在Physics.Raycast()中传入检测的层即可。
+    碰撞检测
+      在Project Setting->Physics中设置各个层之间的碰撞检测。
 vultr
 
 命名规范
-	1.js
-		项目名
-			小写字母
-		目录名
-			小写字母、_
-		文件名
-			小写字母、_
-		类名
-			大驼峰命名法
-		属性
-			小驼峰命名法
-		方法
-			小驼峰命名法
+  1.js
+    项目名
+      小写字母
+    目录名
+      小写字母、_
+    文件名
+      小写字母、_
+    类名
+      大驼峰命名法
+    属性
+      小驼峰命名法
+    方法
+      小驼峰命名法
 SDK集成
-	1.FB
-		在线指引：https://developers.facebook.com/docs/facebook-login/android/
-		需要填写的主要信息：
-			修改/app/res/values/strings.xml、/app/manifest/AndroidManifest.xml
-			将软件包名称与应用的默认类关联
-				例如：
-					软件包名称：com.bdyx.bdyxgames；
-					默认活动类名称：com.bdyx.bdyxgames.MainActivity；
-			为应用提供开发和发布密钥散列
-				Android 密钥散列、发布密钥散列（应用发布后）。
-				散列密钥生成方式
-					keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
-					如：shYpzDEt/9nil2PDpccBN92fsKg=
-				生成发布密钥散列
-					keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore YOUR_RELEASE_KEY_PATH | openssl sha1 -binary | openssl base64
-					如：shYpzDEt/9nil2PDpccBN92fsKg=
-				
+  1.FB
+    在线指引：https://developers.facebook.com/docs/facebook-login/android/
+    需要填写的主要信息：
+      修改/app/res/values/strings.xml、/app/manifest/AndroidManifest.xml
+      将软件包名称与应用的默认类关联
+        例如：
+          软件包名称：com.bdyx.bdyxgames；
+          默认活动类名称：com.bdyx.bdyxgames.MainActivity；
+      为应用提供开发和发布密钥散列
+        Android 密钥散列、发布密钥散列（应用发布后）。
+        散列密钥生成方式
+          keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
+          如：shYpzDEt/9nil2PDpccBN92fsKg=
+        生成发布密钥散列
+          keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore YOUR_RELEASE_KEY_PATH | openssl sha1 -binary | openssl base64
+          如：shYpzDEt/9nil2PDpccBN92fsKg=
+        
 
 
 Data Structure and Algrithm
-	0，未实现；1，已实现
-	算法
-		指数退避算法？
-		布隆过滤器的去重算法？
-		AlphaBeta剪枝算法？
-		蒙特卡洛树搜索？
-		字符串相似度算法 0
-	数据结构
-		数组
-		栈
-		堆
-		链表
-		图
-		散列表（哈希表）
-		队列
-		树
+  0，未实现；1，已实现
+  算法
+    指数退避算法？
+    布隆过滤器的去重算法？
+    AlphaBeta剪枝算法？
+    蒙特卡洛树搜索？
+    字符串相似度算法 0
+  数据结构
+    数组
+    栈
+    堆
+    链表
+    图
+    散列表（哈希表）
+    队列
+    树
 Big Endian
-	数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
+  数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 浮点数的误差问题
-	1.某些小数，用二进制表示，本身就是无限循环小数。
-		例如十进制0.2，换算成二进制是0.0011 0011 ...(0011无限循环)
-		在计算机中，无论是32bit存储，还是64bit存储，或者是定点、浮点表示，都存在一定的舍入误差。这跟是不是浮点数没有直接关联。
-	2.IEEE754标准规定的浮点数存储格式本身也有可能引入误差：(+-)M * 2^E，这里M部分用23bit表示。把一个数字用二进制表示成上述形式时，当M部分超出23bit，就有误差了。当M部分不超过23bit时，是不会有误差的。
-	3.浮点数运算可能会带来新的误差，也被成为误差积累。
-		即使两个没有任何误差的浮点数，经过运算，也有可能引入误差，因为浮点数标准中的M部分，只有23个bit。
-	所以，用浮点数表示数字，有时有误差，有时没有。用浮点数做运算时，也是有时有误差，有时没有误差。何时有误差，何时没有误差，无法做到实时预判。
+  1.某些小数，用二进制表示，本身就是无限循环小数。
+    例如十进制0.2，换算成二进制是0.0011 0011 ...(0011无限循环)
+    在计算机中，无论是32bit存储，还是64bit存储，或者是定点、浮点表示，都存在一定的舍入误差。这跟是不是浮点数没有直接关联。
+  2.IEEE754标准规定的浮点数存储格式本身也有可能引入误差：(+-)M * 2^E，这里M部分用23bit表示。把一个数字用二进制表示成上述形式时，当M部分超出23bit，就有误差了。当M部分不超过23bit时，是不会有误差的。
+  3.浮点数运算可能会带来新的误差，也被成为误差积累。
+    即使两个没有任何误差的浮点数，经过运算，也有可能引入误差，因为浮点数标准中的M部分，只有23个bit。
+  所以，用浮点数表示数字，有时有误差，有时没有。用浮点数做运算时，也是有时有误差，有时没有误差。何时有误差，何时没有误差，无法做到实时预判。
 C#
-	readonly
-		可以在定义时赋值，在构造函数中赋值。相当于一个运行时常量。
-	abstract
-		修饰class, method, property, indexer, event。
-		实现方法用override修饰。
-		不能同时用static或virtual修饰。
-		抽象类继承接口时，其内部的接口方法必须用abstract修饰。
-	Activator
-		
-	HashSet
-		集合中元素不可以重复。
-	反射
-		
-	泛型
-		泛型类和泛型方法具有可重用性、类型安全、效率的特性。
-	?
-		T?，表示T可为空，是System.Nullable的一种泛型表示
-	virtual
-		虚方法，可被重写。不能与static、private、abstract、override同时修饰。
-	扩展方法
-		静态方法，参数中传入this，调用语法同实例方法。
-		使用时，需要引入定义扩展方法的类的命名空间。
-		不能调用被扩展的类的私有属性。
+  readonly
+    可以在定义时赋值，在构造函数中赋值。相当于一个运行时常量。
+  abstract
+    修饰class, method, property, indexer, event。
+    实现方法用override修饰。
+    不能同时用static或virtual修饰。
+    抽象类继承接口时，其内部的接口方法必须用abstract修饰。
+  Activator
+    
+  HashSet
+    集合中元素不可以重复。
+  反射
+    
+  泛型
+    泛型类和泛型方法具有可重用性、类型安全、效率的特性。
+  ?
+    T?，表示T可为空，是System.Nullable的一种泛型表示
+  virtual
+    虚方法，可被重写。不能与static、private、abstract、override同时修饰。
+  扩展方法
+    静态方法，参数中传入this，调用语法同实例方法。
+    使用时，需要引入定义扩展方法的类的命名空间。
+    不能调用被扩展的类的私有属性。
 
 Heap、Stack
-	Heap，堆；Stack，栈
-	JavaScript
-		基础数据类型
-			undefined, null, boolean, number, string, symbol
-		Heap
-			无序的存储非基础数据类型的数据。
+  Heap，堆；Stack，栈
+  JavaScript
+    基础数据类型
+      undefined, null, boolean, number, string, symbol
+    Heap
+      无序的存储非基础数据类型的数据。
 
-		Stack
-			存储变量、基础数据类型、指向堆里的数据结构的地址的指针。
-			遵循先进后出原则。一个线程拥有一个单独的栈空间。
-			函数是放在栈里的，函数执行的时候，在栈里执行。
-		所有同步任务都在主线程上执行，形成了一个执行栈。
-		主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件.
-		一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，将队列中的事件放到执行栈中依次执行。
-		主线程从任务队列中读取事件，这个过程是循环不断的。
+    Stack
+      存储变量、基础数据类型、指向堆里的数据结构的地址的指针。
+      遵循先进后出原则。一个线程拥有一个单独的栈空间。
+      函数是放在栈里的，函数执行的时候，在栈里执行。
+    所有同步任务都在主线程上执行，形成了一个执行栈。
+    主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件.
+    一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，将队列中的事件放到执行栈中依次执行。
+    主线程从任务队列中读取事件，这个过程是循环不断的。
 mongodb
-	2.概念
-		db
-		collection
-		document
-		field
+  2.概念
+    db
+    collection
+    document
+    field
 
-	1.分片
-	1.1创建Sharding
-		mongod --port 27020 --dbpath=D:\workspace\s0 --logpath=D:\workspace\logs\s0.log --logappend
-		mongod --port 27021 --dbpath=D:\workspace\s1 --logpath=D:\workspace\logs\s1.log --logappend
-		...
-	1.2创建Config
-		mongod --port 27100 --dbpath=D:\workspace\config --logpath=D:\workspace\logs\config.log --logappend
-	1.3创建Route
-		mongos --port 40000 --configdb localhost:27100 --logpath=D:\workspace\logs\route.log --logappend
-	1.4设置分片(?)
-		use admin
-		db.runCommand({addshard: 's0/localhost:27020,localhost:27021'})
-		db.runCommand({enablesharding:'test'})
-		db.runCommand({shardcollection: 'test.user', key: {name: 1}})
+  1.分片
+  1.1创建Sharding
+    mongod --port 27020 --dbpath=D:\workspace\s0 --logpath=D:\workspace\logs\s0.log --logappend
+    mongod --port 27021 --dbpath=D:\workspace\s1 --logpath=D:\workspace\logs\s1.log --logappend
+    ...
+  1.2创建Config
+    mongod --port 27100 --dbpath=D:\workspace\config --logpath=D:\workspace\logs\config.log --logappend
+  1.3创建Route
+    mongos --port 40000 --configdb localhost:27100 --logpath=D:\workspace\logs\route.log --logappend
+  1.4设置分片(?)
+    use admin
+    db.runCommand({addshard: 's0/localhost:27020,localhost:27021'})
+    db.runCommand({enablesharding:'test'})
+    db.runCommand({shardcollection: 'test.user', key: {name: 1}})
 
 Code Practice
-	目的：
-		减少代码量
-		使业务逻辑更加清晰
-	数据及业务逻辑代码的实现，应该怎样分配到以下的类中
-		Data
-			数据存储
-			数据的元操作处理
-		DataManager
-			管理所有的Data类
-		Bussiness
-			业务类，通过DataManager操作Data类
+  目的：
+    减少代码量
+    使业务逻辑更加清晰
+  数据及业务逻辑代码的实现，应该怎样分配到以下的类中
+    Data
+      数据存储
+      数据的元操作处理
+    DataManager
+      管理所有的Data类
+    Bussiness
+      业务类，通过DataManager操作Data类
 
 pomelo框架
-	1.h5游戏打包成微信小游戏
-	main.js
-	config.js
-	msgHandler.js
+  1.h5游戏打包成微信小游戏
+  main.js
+  config.js
+  msgHandler.js
 
-	LeaderBroad.js
-	communicate
+  LeaderBroad.js
+  communicate
 
-	升级fairygui，更新fairy.main.js。fairygui编辑器的全局设置时，取消压缩描述文件勾选，选中使用二进制格式的勾选。
+  升级fairygui，更新fairy.main.js。fairygui编辑器的全局设置时，取消压缩描述文件勾选，选中使用二进制格式的勾选。
 
-	动效处理
-		trans = obj.getTransition("moveIn");
-		for (var m = 0, lenM = trans._items.length; m < lenM; m ++) {
-			item = trans._items[m];
-			// item.endValue.f1 = point.x;
-			// item.endValue.f2 = point.y;
-			item.value.f1 = point.x;
-			item.value.f2 = point.y;
-		}
+  动效处理
+    trans = obj.getTransition("moveIn");
+    for (var m = 0, lenM = trans._items.length; m < lenM; m ++) {
+      item = trans._items[m];
+      // item.endValue.f1 = point.x;
+      // item.endValue.f2 = point.y;
+      item.value.f1 = point.x;
+      item.value.f2 = point.y;
+    }
 
-	fairygui.GearBase
+  fairygui.GearBase
 
-	1.环境
-		laya2.0.2
-		fairygui 3.10.7
-	2.库文件
-		laya相关的库文件，使用2.0版本的
-		fairygui.min.js，使用最新版本
-		pomelo框架中自带的build.js，需要屏蔽jQuery部分的功能
-	3.流程
-		入口文件是game.js，且加载js文件存在顺序。所以引入的时候，需要按照执行顺序进行引入。
-		修改main.js、config.js、msgHandler.js，以微信小游戏支持的方式导出（module.exports）
-		其余的js文件：1.全局变量不能使用var修饰；2.非全局变量，以微信小游戏支持的方式导出
-	4.不支持的功能
-		不支持BOM、DOM操作
-	fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
+  1.环境
+    laya2.0.2
+    fairygui 3.10.7
+  2.库文件
+    laya相关的库文件，使用2.0版本的
+    fairygui.min.js，使用最新版本
+    pomelo框架中自带的build.js，需要屏蔽jQuery部分的功能
+  3.流程
+    入口文件是game.js，且加载js文件存在顺序。所以引入的时候，需要按照执行顺序进行引入。
+    修改main.js、config.js、msgHandler.js，以微信小游戏支持的方式导出（module.exports）
+    其余的js文件：1.全局变量不能使用var修饰；2.非全局变量，以微信小游戏支持的方式导出
+  4.不支持的功能
+    不支持BOM、DOM操作
+  fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
 
 Svn 
-	checkout不包括源文件根目录
-		svn co svn://gitee.com/jing_wei/chess/Baccarat/game/.
-		svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
-		svn co https://gitee.com/jing_wei/chess.git
+  checkout不包括源文件根目录
+    svn co svn://gitee.com/jing_wei/chess/Baccarat/game/.
+    svn co https://gitee.com/jing_wei/chess/Baccarat/game/.
+    svn co https://gitee.com/jing_wei/chess.git
 Git
-	git add
-		git add .
-			监控工作区的状态树，会把工作区的所有变化提交到暂存区，包括文件内容修改和新文件，但不包括被删除的文件。
-		git add -u 
-			添加被修改和被删除的文件，不包括新增的文件。git add -update的缩写。
-		git add -A
-			添加被修改的文件，新文件和被删除的文件。git add -all的缩写
-	git branch
-		git branch <branchname>
-			没有branchname，为查看分支；否则为创建新的分支
-		git push origin [branchname]:[branchname]
-			将新创建的分支branchname提交到远程
-		git branch -a
-			查看所有分支
-		git branch -r
-			查看远程分支
-		git branch -d <branchName>
-			删除本地分支
-	git checkout 
-		git checkout <branch>
-			切换到branch分支
-		git checkout md5str filename/directory/*
-			回退本地修改的文件
-	git clone
-		git clone <repository> [YOUR_REPOSITORY_NAME]
-			克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
-		git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
-			克隆一个远程仓库分支。
-	git commit
-		git commit <file> -m <commit comment>
-			提交单个文件并添加提交信息
-		git commit -am <commit comment>
-			提交所有文件并添加提交信息
-	git config
-		git config --global core.autocrlf false
-			设置下载的文件自动转换CRLF
-		git config --global core.safecrlf true
-			检查换行符
-		git config --global credential.helper store
-			长期保持密码
-		git config --global user.name [YOUR_USER_NAME]
-			查看用户名称，缺省部分填值时，表示设置用户名称
-		git config --global user.email [YOUR_EMAIL]
-			查看用户邮箱，缺省部分填值时，表示设置用户邮箱
-	git diff <file>
-		
-	git fetch
-		git fetch origin master
-		git merge origin/master
-	git log
-		git log filename
-			显示所有记录
-		git log -n filename
-			显示最近的n条记录
-	git pull 
-		git pull origin master --allow-unrelated-histories
-			refusing to merge unrelated histories
-	git remote -v
-		查看远程仓库地址
-	git rm text.txt
-		删除文件
-	git stash
-		git stash 
-			储藏修改的文件
-		git stash list
-			列出当前的储藏列表
-		git stash apply [stash@{2}]
-			使用储藏
-		git stash drop [stash@{2}]
-			移除最近第三次的暂存
-		git stash show -p [stash@{0}] | git apply -R
-			在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
-	git tag
-		git tag，列出所有标签
-		git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
-		git tag -a v1.4 -m 'my version 1.4'，创建一个含有附注的标签
-		git show v1.4，查看标签
-		git tag -a v1.2 9fceb02，给校验和的前几位为9fceb02的提交，打标签v1.2
-		git push origin v1.2，推送v1.2标签到服务器
-		git push origin --tags，推送所有未推送的标签到服务器
-		git tag -d v1.2，删除本地标签
-		git push origin :refs/tags/v1.2，删除远程服务器上的标签
-	git update-index
-		git update-index --skip-worktree <file>
-			忽略某个文件的修改
-		git update-index --assume-unchanged <file>
-			忽略某个文件的修改
-		git update-index --no-skip-worktree <file>
-			取消忽略的某个文件
-		git update-index --no-assume-unchanged <file>
-			取消忽略的某个文件
-	检查与git的连接
-		ssh -v git@github.com
-	git设置下载的文件自动转换CRLF
-		git config --global core.autocrlf false
-	git检查换行符
-		git config --global core.safecrlf true
-	windows文件与unix格式文件互转
-		dos2unix
-		unix2dos 
-	长期保持密码
-		git config --global credential.helper store
-	仅克隆指定分支的指定文件夹
-		$ git init <project>
-		$ cd <project>
-		$ git remote add origin ssh://<user>@<repository's url>
-		$ git config core.sparsecheckout true
-		$ echo "path1/" >> .git/info/sparse-checkout
-		$ echo "path2/" >> .git/info/sparse-checkout
-		$ git pull origin master
+  git add
+    git add .
+      监控工作区的状态树，会把工作区的所有变化提交到暂存区，包括文件内容修改和新文件，但不包括被删除的文件。
+    git add -u 
+      添加被修改和被删除的文件，不包括新增的文件。git add -update的缩写。
+    git add -A
+      添加被修改的文件，新文件和被删除的文件。git add -all的缩写
+  git branch
+    git branch <branchname>
+      没有branchname，为查看分支；否则为创建新的分支
+    git push origin [branchname]:[branchname]
+      将新创建的分支branchname提交到远程
+    git branch -a
+      查看所有分支
+    git branch -r
+      查看远程分支
+    git branch -d <branchName>
+      删除本地分支
+  git checkout 
+    git checkout <branch>
+      切换到branch分支
+    git checkout md5str filename/directory/*
+      回退本地修改的文件
+  git clone
+    git clone <repository> [YOUR_REPOSITORY_NAME]
+      克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
+    git clone -b update_201901 --single-branch https://gitee.com/jing_wei/sgj.git
+      克隆一个远程仓库分支。
+  git commit
+    git commit <file> -m <commit comment>
+      提交单个文件并添加提交信息
+    git commit -am <commit comment>
+      提交所有文件并添加提交信息
+  git config
+    git config --global core.autocrlf false
+      设置下载的文件自动转换CRLF
+    git config --global core.safecrlf true
+      检查换行符
+    git config --global credential.helper store
+      长期保持密码
+    git config --global user.name [YOUR_USER_NAME]
+      查看用户名称，缺省部分填值时，表示设置用户名称
+    git config --global user.email [YOUR_EMAIL]
+      查看用户邮箱，缺省部分填值时，表示设置用户邮箱
+  git diff <file>
+    
+  git fetch
+    git fetch origin master
+    git merge origin/master
+  git log
+    git log filename
+      显示所有记录
+    git log -n filename
+      显示最近的n条记录
+  git pull 
+    git pull origin master --allow-unrelated-histories
+      refusing to merge unrelated histories
+  git remote -v
+    查看远程仓库地址
+  git rm text.txt
+    删除文件
+  git stash
+    git stash 
+      储藏修改的文件
+    git stash list
+      列出当前的储藏列表
+    git stash apply [stash@{2}]
+      使用储藏
+    git stash drop [stash@{2}]
+      移除最近第三次的暂存
+    git stash show -p [stash@{0}] | git apply -R
+      在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
+  git tag
+    git tag，列出所有标签
+    git tag -l 'v1.4.2.*'，列出v1.4.2系列的标签
+    git tag -a v1.4 -m 'my version 1.4'，创建一个含有附注的标签
+    git show v1.4，查看标签
+    git tag -a v1.2 9fceb02，给校验和的前几位为9fceb02的提交，打标签v1.2
+    git push origin v1.2，推送v1.2标签到服务器
+    git push origin --tags，推送所有未推送的标签到服务器
+    git tag -d v1.2，删除本地标签
+    git push origin :refs/tags/v1.2，删除远程服务器上的标签
+  git update-index
+    git update-index --skip-worktree <file>
+      忽略某个文件的修改
+    git update-index --assume-unchanged <file>
+      忽略某个文件的修改
+    git update-index --no-skip-worktree <file>
+      取消忽略的某个文件
+    git update-index --no-assume-unchanged <file>
+      取消忽略的某个文件
+  检查与git的连接
+    ssh -v git@github.com
+  git设置下载的文件自动转换CRLF
+    git config --global core.autocrlf false
+  git检查换行符
+    git config --global core.safecrlf true
+  windows文件与unix格式文件互转
+    dos2unix
+    unix2dos 
+  长期保持密码
+    git config --global credential.helper store
+  仅克隆指定分支的指定文件夹
+    $ git init <project>
+    $ cd <project>
+    $ git remote add origin ssh://<user>@<repository's url>
+    $ git config core.sparsecheckout true
+    $ echo "path1/" >> .git/info/sparse-checkout
+    $ echo "path2/" >> .git/info/sparse-checkout
+    $ git pull origin master
 
 keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
 keytool -exportcert -alias my-key-alias -keystore D:\workspace\Web\hellcase\ShellApp\BDYXGames\android\app\my-release-key.keystore | openssl sha1 -binary | openssl base64
 
 WebSocket
-	ReadyState：
-		0 CONNECTING Socket has been created. The connection is not yet open.
-		1 OPEN The connection is open and ready to communicate.
-		2 CLOSING The connection is in the process of closing.
-		3 CLOSED The connection is closed or couldn't be opened.
+  ReadyState：
+    0 CONNECTING Socket has been created. The connection is not yet open.
+    1 OPEN The connection is open and ready to communicate.
+    2 CLOSING The connection is in the process of closing.
+    3 CLOSED The connection is closed or couldn't be opened.
 
 异步处理
-	https://thinkjs.org/zh-cn/doc/3.0/async.html
-	callbackhell:	http://callbackhell.com/
+  https://thinkjs.org/zh-cn/doc/3.0/async.html
+  callbackhell: http://callbackhell.com/
 
 网络匿名
-	审查手段
-		互联网流量里的关键词受到监控
-		直接在ISP层面实现过滤
-		被封锁的网站IP地址和域名均在黑名单上。
-		关于一个被封锁的网站为什么无法载入，您可能会得到一个不明确或误导的解释。
+  审查手段
+    互联网流量里的关键词受到监控
+    直接在ISP层面实现过滤
+    被封锁的网站IP地址和域名均在黑名单上。
+    关于一个被封锁的网站为什么无法载入，您可能会得到一个不明确或误导的解释。
 
 Unity
-	paths(1.WinEditor;2.Android;3.IOS)
-		Application.dataPath
-			1./Assets(D:/workspace/Unity/BaseXlua/Code/Assets)
-			2./data/app/com.alan.wolf-1/base.apk
-		Application.persistentDataPath
-			1.C:/Users/WangBiao/AppData/LocalLow/alan/wolf
-			2./storage/emulated/0/Android/data/com.alan.wolf/files
-		Application.streamAssetsPath
-			1./Assets/StreamAssets(D:/workspace/Unity/BaseXlua/Code/Assets/StreamingAssets)
-			2.jar:file:///data/app/com.alan.wolf-1/base.apk!/assets
+  paths(1.WinEditor;2.Android;3.IOS)
+    Application.dataPath
+      1./Assets(D:/workspace/Unity/BaseXlua/Code/Assets)
+      2./data/app/com.alan.wolf-1/base.apk
+    Application.persistentDataPath
+      1.C:/Users/WangBiao/AppData/LocalLow/alan/wolf
+      2./storage/emulated/0/Android/data/com.alan.wolf/files
+    Application.streamAssetsPath
+      1./Assets/StreamAssets(D:/workspace/Unity/BaseXlua/Code/Assets/StreamingAssets)
+      2.jar:file:///data/app/com.alan.wolf-1/base.apk!/assets
 
 颜色
-	豆沙绿
-		#CCE8CF
+  豆沙绿
+    #CCE8CF

@@ -1,107 +1,212 @@
 
 
 server error
-	_http_outgoing.js:470
-	    throw new ERR_HTTP_HEADERS_SENT('set');
-	    ^
+  _http_outgoing.js:470
+      throw new ERR_HTTP_HEADERS_SENT('set');
+      ^
 
-	Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client    at ServerResponse.setHeader (_http_outgoing.js:470:11)
-	    at ServerResponse.header (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:771:10)
-	    at ServerResponse.send (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:170:12)
-	    at ServerResponse.json (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:267:15)
-	    at loginHandle (D:\workspace\BDYX\webgamelobby\src\router\login.js:66:8)
-	    at D:\workspace\BDYX\webgamelobby\src\router\login.js:29:11
-	    at D:\workspace\BDYX\webgamelobby\src\logic\server_login.js:72:17
-	    at IncomingMessage.<anonymous> (D:\workspace\BDYX\webgamelobby\src\net\http_net.js:22:23)
-	    at IncomingMessage.emit (events.js:187:15)
-	    at endReadableNT (_stream_readable.js:1094:12)
-	npm ERR! code ELIFECYCLE
-	npm ERR! errno 1
-	npm ERR! webgamelobby@1.0.0 start: `node ./src/app.js`
-	npm ERR! Exit status 1
-	npm ERR!
-	npm ERR! Failed at the webgamelobby@1.0.0 start script.
-	npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+      at ServerResponse.header (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:771:10)
+      at ServerResponse.send (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:170:12)
+      at ServerResponse.json (D:\workspace\BDYX\webgamelobby\node_modules\express\lib\response.js:267:15)
+      at loginHandle (D:\workspace\BDYX\webgamelobby\src\router\login.js:66:8)
+      at D:\workspace\BDYX\webgamelobby\src\router\login.js:29:11
+      at D:\workspace\BDYX\webgamelobby\src\logic\server_login.js:72:17
+      at IncomingMessage.<anonymous> (D:\workspace\BDYX\webgamelobby\src\net\http_net.js:22:23)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1094:12)
+  npm ERR! code ELIFECYCLE
+  npm ERR! errno 1
+  npm ERR! webgamelobby@1.0.0 start: `node ./src/app.js`
+  npm ERR! Exit status 1
+  npm ERR!
+  npm ERR! Failed at the webgamelobby@1.0.0 start script.
+  npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
-	npm ERR! A complete log of this run can be found in:
-	npm ERR!     C:\Program Files\nodejs\node_cache\_logs\2020-03-25T08_24_11_232Z-debug.log
+  npm ERR! A complete log of this run can be found in:
+  npm ERR!     C:\Program Files\nodejs\node_cache\_logs\2020-03-25T08_24_11_232Z-debug.log
 //TODO
 
 Unity for lobby
-	1.WebView的实现
-		小飞机项目，使用的是AssetStore插件UniWebView，这里优先考虑使用该插件。
-		目前已知的一些问题：
-			a.开发期间的调试
-				在开发期间，如何调试WebView上跑的游戏。
-				插件提供的方案：支持在mac的Editor上直接调试，android的调试需要打包，在android机器上运行时调试。
-				一般Unity的开发期间的调试，都是在Editor上进行，可以很大提高开发调试的效率。
-			b.加载本地资源是否正常 完成验证
-				需要demo验证。
-			c.能否在UniWebView上叠加界面或组件
-				即在Unity中实现的组件，叠加到UniWebView上的时候，会不会存在问题。（主要是考虑会不会拦截事件。）
-				需要demo验证。
-	2.Unity中使用websocket
-		可以使用.netcore的ClientWebSocket，编写网络模块。不必从Asset Store 中购买Best HTTP/2。
-	3.Unity通过网络下载资源的限制	
-		使用Unity官方API：UnityWebRequest，未发现该API对下载的资源格式的限制。
-	4.Unity里C#与UniWebView通信 
-		需要继续研究UniWebView接受Unity消息的方法。
-		经验证，可以实现双向通信。
-	5.Unity版本选择
-		1)选择LTS版本
-			可选版本为2018.4.x、2017.4.x
-		2)选择issue较少的版本
-			2018.4.8及之前的版本
-		3)选择最新的f版本
-			2018.4.7f1
-		说明：UnityHub默认提供安装的最新版本是2018.4.20f1，也可以使用该版本
-	6.google play应用大小限制
-		APK大小不超过100M。
-		超过100M：
-			a.上传apk时，附加两个扩展文件，每个的大小不超过2G。
-			b.打包成Android App Bundle，但大小不超过150M。
-				Android App Bundle是优化的APK，其中仅包含运行应用所需的代码和资源。
-		详细内容见：https://developer.android.com/google/play/expansion-files
+  1.WebView的实现
+    小飞机项目，使用的是AssetStore插件UniWebView，这里优先考虑使用该插件。
+    目前已知的一些问题：
+      a.开发期间的调试
+        在开发期间，如何调试WebView上跑的游戏。
+        插件提供的方案：支持在mac的Editor上直接调试，android的调试需要打包，在android机器上运行时调试。
+        一般Unity的开发期间的调试，都是在Editor上进行，可以很大提高开发调试的效率。
+      b.加载本地资源是否正常 完成验证
+        需要demo验证。
+      c.能否在UniWebView上叠加界面或组件
+        即在Unity中实现的组件，叠加到UniWebView上的时候，会不会存在问题。（主要是考虑会不会拦截事件。）
+        需要demo验证。
+  2.Unity中使用websocket
+    可以使用.netcore的ClientWebSocket，编写网络模块。不必从Asset Store 中购买Best HTTP/2。
+  3.Unity通过网络下载资源的限制
+    使用Unity官方API：UnityWebRequest，未发现该API对下载的资源格式的限制。
+  4.Unity里C#与UniWebView通信 
+    需要继续研究UniWebView接受Unity消息的方法。
+    经验证，可以实现双向通信。
+    4.1 C#发消息给UniWebView
+      UniWebView.AddJavaScript(jsCodeString, callback);
+      jsCodeString，需要执行的js代码；
+      callback，js执行结束的回调。
+    4.2 UniWebView发消息给C#
+      通过URL方式发送消息，即
+      window.location.href = 'uniwebview://game-over';
+      限制：
+          在入口页面加载完所有的资源（js、css等）之前，不能执行语句window.location.href，否则入口页面会跳转至'uniwebview://game-over'，而非发消息给C#。
+          URL的长度不能超过16KB。
+
+  5.Unity版本选择
+    1)选择LTS版本
+      可选版本为2018.4.x、2017.4.x
+    2)选择issue较少的版本
+      2018.4.8及之前的版本
+    3)选择最新的f版本
+      2018.4.7f1
+    说明：UnityHub默认提供安装的最新版本是2018.4.20f1，也可以使用该版本
+  6.google play应用大小限制
+    APK大小不超过100M。
+    超过100M：
+      a.上传apk时，附加两个扩展文件，每个的大小不超过2G。
+      b.打包成Android App Bundle，但大小不超过150M。
+        Android App Bundle是优化的APK，其中仅包含运行应用所需的代码和资源。
+    详细内容见：https://developer.android.com/google/play/expansion-files
+
+Question
+  2.内网环境，nginx配置服务器域名
+    使用nginx，给nodejs启动的服务器，配置域名。
+
+  1.内网环境，app能否访问绑定未认证的ssl证书的https请求。
+
+
 
 WORK
-	5.
-	4.添加广告UI的弹窗 1
+  5.
+  4.RN开发的APP大厅，添加广告UI的弹窗 1
 
-WORK
-	5.
-	4.添加广告UI的弹窗
+  3.WebView页面，左侧添加其他游戏入口,用RN实现。
 
-	3.WebView页面，左侧添加其他游戏入口,用RN实现。
-
-	1.继续先改其他几个新框架下的Slots；
-	2.加上大厅支持横竖的布局；
-		优先h5lobby，后续抽时间修改app版本。
+  2.加上大厅支持横竖的布局；
+    优先h5lobby，后续抽时间修改app版本。
+  1.继续先改其他几个新框架下的Slots；
 
 优化
-	1.H5LOBBY
-		1.1 wss服务
-			websocket的加密协议：wss。
-		1.2 webpack打包
+  1.H5LOBBY
+    1.1 wss服务
+      websocket的加密协议：wss。
+      网页版接入FB登录时，要求接入登录的
+    1.2 webpack打包
 
-		1.3 bable
-			将es6语法转换为es5语法
+    1.3 bable
+      将es6语法转换为es5语法
 
-	2.shell app
-		2.1 是否需要接入Google Play SDK	
-		2.2 打开app，卡住界面，显示0%
-		2.3 webserver更新图片后，app加载时，获取到的仍是更新前的图片，而不是更新的图片
+  2.shell app
+    2.1 是否需要接入Google Play SDK 
+    2.2 打开app，卡住界面，显示0%
+    2.3 webserver更新图片后，app加载时，获取到的仍是更新前的图片，而不是更新的图片
+-------------------------------------
+2020/04/24 17:36:28
+今日工作
+  1.确定UnityEditor的版本
+    Unity2018.4.21f
+  2.确定UniWevView的版本
+    UniWebView3.9.1
+  3.确定UI框架
+    项目同时提供对UGUI和FairyGUI的支持。
+    在界面开发时，可根据自己的需要，选择对应的UI框架。
+
+接入Unity大厅项目的h5游戏，目前存在这个情况：
+  由于UniWebView在h5页面加载的js/css等资源加载完之前，不能发消息给C#，所以要求h5游戏在未获取到服务器的任何数据之前，能够完整的执行完js的逻辑，即js代码不报错。同时，需要支持在js逻辑执行完之后，如果收到从C#发过来的数据，能够将数据完整的填充到游戏中。
+在开发新的h5游戏时，可以在考虑上述情况下进行开发。
+
+-------------------------------------
+2020/04/23 13:43:57
+今日工作
+  1.查找在UniWebView的指定区域，显示Unity的对象方法。要求指定区域之外的UniWevView页面不受任何影响。
+    未找到实现方法。
+  
+使用Unity开发APP大厅的结论：
+  可以开发，存在一些限制。
+  1.WebSocket
+    使用C#自带的WebSocket进行开发。
+  2.使用UniWebView显示h5游戏
+    目前在游戏中，在不重新渲染游戏界面的情况下，打开Unity界面的方式，只能是隐藏UniWebView，将Unity界面设置为可见。例如隐藏h5游戏界面，显示Unity的活动页面。
+    不支持在UniWebView的指定区域，显示Unity的对象。例如将游戏中的活动这个公共入口，由Unity实现，并放到游戏界面的某个位置。原因：UniWevView会遮挡住自己尺寸范围下的Unity的UI元素、3D对象、粒子动画。
+    小飞机使用的是UniWebView2，官方说法是UniWebView3对UniWebView2做了优化（特别是ios平台），建议使用UniWebView3。
+  3.Unity与UniWebView通信
+    3.1 C#发消息给UniWebView
+    通过以下方法执行js代码：
+      UniWebView.AddJavaScript(jsCodeString, callback);
+      jsCodeString，需要执行的js代码；
+      callback，js执行结束的回调。
+    3.2 UniWebView发消息给C#
+      通过URL方式发送消息，即window.location.href = ...;
+      限制：
+          在入口页面加载完所有的资源（js、css等）之前，不能执行语句window.location.href，否则UniWebView会跳转至'uniwebview://game-over'，而非发消息给C#。
+          URL的长度不能超过16KB。
+
+
+    1.资源放到目录
+      D:\workspace\BeiDouYiXianH5\ShellApp\BDYXGames\android\app\src\main\assets
+    2.通过API读取到这个资源，拷贝到一个可读写目录
+      读取资源API
+      _context.getAssets().open(“appBundle.mp3”)
+      可读写目录
+        getExternalFilesDir(AppConsts.getInstance().getEmptyString()).getPath()
+    3.从可读写目录读取资源
+      getExternalFilesDir(AppConsts.getInstance().getEmptyString()).getPath()
+-------------------------------------
+2020/04/22 09:59:46
+今日工作
+  1.实现Unity中不关闭UniWebView的情况下，显示Unity对象的demo。
+    （
+    此demo已确认，在不关闭UniWebView的情况下，打开Unity的某个页面（如任务界面），是可行的。
+    实现方式：隐藏UniWebView，显示Unity页面。
+    ）
+
+
+-------------------------------------
+2020/04/21 16:03:00
+今日工作
+  1.在APP中打包一份RN资源、Farkle资源。
+  2.打包Farkle App。
+
+-------------------------------------
+2020/04/20 10:16:19
+今日工作
+  1.app接入穿山甲广告
+  2.测试Farkle接入app是否存在问题
+gameclient.mainCtrl.request('PlayerPurchase'
+广告得金币，购买都用这个
+1.穿山甲创建应用
+  修改TTAdManagerHolder.buildConfig
+  appId("5061147")
+  appName("塔防消消乐")
+
+2.
+
+project build.gradle
+classpath 'com.android.tools.build:gradle:3.3.1'
+gradle-wrapper.properties
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
+
+本周计划
+  1.完成farkle的app版本，包括穿山甲广告接入、farkle app的farkle游戏接入、打包出farkle app。
+  2.完成uniwebview的三个功能验证。
 -------------------------------------
 2020/04/18 14:29:55
 完成验证
-	a.Unity里C#与UniWebView通信
-	b.加载本地资源
+  a.Unity里C#与UniWebView通信
+  b.加载本地资源
 -------------------------------------
 2020/04/17 09:32:56
 今日工作
-	1.完成验证以下两个功能的demo
-		a.Unity里C#与UniWebView通信
-		b.加载本地资源
-		由于小飞机版本的app进不去游戏，未能验证上述两个功能。
+  1.完成验证以下两个功能的demo
+    a.Unity里C#与UniWebView通信
+    b.加载本地资源
+    由于小飞机版本的app进不去游戏，未能验证上述两个功能。
 
 
 
@@ -112,58 +217,58 @@ Unity里C#与UniWebView通信
 -------------------------------------
 2020/04/16 18:39:04
 今日工作
-	研究Unity开发APP的可行性，整理如下：
-		1.WebView的实现
-		小飞机项目，使用的是AssetStore插件UniWebView，这里优先考虑使用该插件。
-		目前已知的一些问题：
-			a.开发期间的调试
-				在开发期间，如何调试WebView上跑的游戏。
-				插件提供的方案：支持在mac的Editor上直接调试，android的调试需要打包，在android机器上运行时调试。
-				一般Unity的开发期间的调试，都是在Editor上进行，可以很大提高开发调试的效率。
-			b.加载本地资源是否正常
-				需要demo验证。
-			c.能否在WebView上叠加界面
-				即在Unity中实现的组件，叠加到WebView上的时候，会不会存在问题。（主要是考虑会不会拦截事件。）
-				需要demo验证。
-		2.Unity中使用websocket
-			可以使用.netcore的ClientWebSocket，编写网络模块。不必从Asset Store 中购买Best HTTP/2。
-		3.Unity通过网络加载资源的限制	
-			使用Unity官方API：UnityWebRequest，未发现该API对下载的资源格式的限制。
-		4.Unity里C#与WebView通信	
-			需要继续研究UniWebView接受Unity消息的方法。
+  研究Unity开发APP的可行性，整理如下：
+    1.WebView的实现
+    小飞机项目，使用的是AssetStore插件UniWebView，这里优先考虑使用该插件。
+    目前已知的一些问题：
+      a.开发期间的调试
+        在开发期间，如何调试WebView上跑的游戏。
+        插件提供的方案：支持在mac的Editor上直接调试，android的调试需要打包，在android机器上运行时调试。
+        一般Unity的开发期间的调试，都是在Editor上进行，可以很大提高开发调试的效率。
+      b.加载本地资源是否正常
+        需要demo验证。
+      c.能否在WebView上叠加界面
+        即在Unity中实现的组件，叠加到WebView上的时候，会不会存在问题。（主要是考虑会不会拦截事件。）
+        需要demo验证。
+    2.Unity中使用websocket
+      可以使用.netcore的ClientWebSocket，编写网络模块。不必从Asset Store 中购买Best HTTP/2。
+    3.Unity通过网络加载资源的限制  
+      使用Unity官方API：UnityWebRequest，未发现该API对下载的资源格式的限制。
+    4.Unity里C#与WebView通信  
+      需要继续研究UniWebView接受Unity消息的方法。
 
 -------------------------------------
 2020/04/15 10:37:13
 今日工作
-	1.将SingleGamePage.js、MultiGamePage.js中的广告功能、WebView功能，拆分出来，做成单独的组件。
+  1.将SingleGamePage.js、MultiGamePage.js中的广告功能、WebView功能，拆分出来，做成单独的组件。
 
 
 -------------------------------------
 2020/04/14 09:39:39
 今日工作
-	1.在RN中实现可全局调用的广告UI的弹窗。
+  1.在RN中实现可全局调用的广告UI的弹窗。
 
 
 
 -------------------------------------
 2020/04/13 10:31:45
 今日工作：
-	1.打包多游戏大厅app。
-	2.确定广告UI的弹出方式。
-	3.接入炼金老虎机。
+  1.打包多游戏大厅app。
+  2.确定广告UI的弹出方式。
+  3.接入炼金老虎机。
 
 1.getOtherEntryArr()
-	这个接口是获取其他游戏/合集的入口数据的。
-	不同的游戏，获取其他入口之后，由于需要展示的入口方式不同，需要有不同的代码。
-	SLOT不需要展示其他的入口，所以在获取到数据之后，没有添加处理UI逻辑的代码。
+  这个接口是获取其他游戏/合集的入口数据的。
+  不同的游戏，获取其他入口之后，由于需要展示的入口方式不同，需要有不同的代码。
+  SLOT不需要展示其他的入口，所以在获取到数据之后，没有添加处理UI逻辑的代码。
 2.enterEntry()
-	这个接口是进入其他游戏/合集页面的。
-	SLOT不需要展示其他的入口，所以不需要调用该接口。
+  这个接口是进入其他游戏/合集页面的。
+  SLOT不需要展示其他的入口，所以不需要调用该接口。
 
 
 本周计划：
-	1.完结单游戏大厅APP、多游戏大厅APP、h5lobby大厅的工作。
-	2.选择合适的UI框架，开发toB的后台PC前端。
+  1.完结单游戏大厅APP、多游戏大厅APP、h5lobby大厅的工作。
+  2.选择合适的UI框架，开发toB的后台PC前端。
 
 1.删除游戏中的PC相关的资源，以减小压缩包的大小；
 2.需要把库文件，放到我们自己的CDN上；
@@ -172,22 +277,22 @@ Unity里C#与UniWebView通信
 -------------------------------------
 2020/04/10 17:41:01
 今日工作
-	1.合并游戏接入APP/h5lobby的部分接口
+  1.合并游戏接入APP/h5lobby的部分接口
 
 
 统一游戏接入APP/h5lobby的接口遇到的问题：
-	1.游戏更新信息接口
-		APP版本会注册一个游戏更新信息事件，并且在游戏页面显示下载游戏进度、检查更新信息，h5lobby则不需要。
-		这个接口要求游戏侧做不同的处理。
-	2.获取用户数据接口
-		APP中获取用户数据是异步的，所以需要额外注册一个事件来获取；而h5lobby直接调同步接口即可。
-		这个接口要求游戏侧做不同的处理。
-	3.通知APP/h5lobby游戏的当前进度接口
-		游戏需要在游戏渲染结束后通知APP，而h5lobby则需要在刚执行游戏逻辑时通知。
-		这个接口要求游戏侧做不同的处理。
-	4.播放广告接口
-		APP目前是播放的GA广告，h5lobby目前暂未介入广告。
-		这个接口不清楚能否统一。
+  1.游戏更新信息接口
+    APP版本会注册一个游戏更新信息事件，并且在游戏页面显示下载游戏进度、检查更新信息，h5lobby则不需要。
+    这个接口要求游戏侧做不同的处理。
+  2.获取用户数据接口
+    APP中获取用户数据是异步的，所以需要额外注册一个事件来获取；而h5lobby直接调同步接口即可。
+    这个接口要求游戏侧做不同的处理。
+  3.通知APP/h5lobby游戏的当前进度接口
+    游戏需要在游戏渲染结束后通知APP，而h5lobby则需要在刚执行游戏逻辑时通知。
+    这个接口要求游戏侧做不同的处理。
+  4.播放广告接口
+    APP目前是播放的GA广告，h5lobby目前暂未介入广告。
+    这个接口不清楚能否统一。
 目前游戏接入APP的接口有8个，接口h5lobby的接口是5个。只有其中4个接口可以统一。
 
 
@@ -199,16 +304,16 @@ Unity里C#与UniWebView通信
 -------------------------------------
 2020/04/09 10:28:41
 今日工作
-	1.完成游戏接入APP的部分接口。
+  1.完成游戏接入APP的部分接口。
 
 
 RN提供给游戏的数据
-	游戏更新信息
+  游戏更新信息
 
 -------------------------------------
 2020/04/08 10:08:54
 今日工作
-	1.完成app多游戏大厅的代码编写。
+  1.完成app多游戏大厅的代码编写。
 
 
 
@@ -216,29 +321,29 @@ RN提供给游戏的数据
 =======
 2020/04/14 09:39:39
 今日工作
-	1.在RN中实现可全局调用的广告UI的弹窗。
+  1.在RN中实现可全局调用的广告UI的弹窗。
 
 
 
 -------------------------------------
 2020/04/13 10:31:45
 今日工作：
-	1.打包多游戏大厅app。
-	2.确定广告UI的弹出方式。
-	3.接入炼金老虎机。
+  1.打包多游戏大厅app。
+  2.确定广告UI的弹出方式。
+  3.接入炼金老虎机。
 
 1.getOtherEntryArr()
-	这个接口是获取其他游戏/合集的入口数据的。
-	不同的游戏，获取其他入口之后，由于需要展示的入口方式不同，需要有不同的代码。
-	SLOT不需要展示其他的入口，所以在获取到数据之后，没有添加处理UI逻辑的代码。
+  这个接口是获取其他游戏/合集的入口数据的。
+  不同的游戏，获取其他入口之后，由于需要展示的入口方式不同，需要有不同的代码。
+  SLOT不需要展示其他的入口，所以在获取到数据之后，没有添加处理UI逻辑的代码。
 2.enterEntry()
-	这个接口是进入其他游戏/合集页面的。
-	SLOT不需要展示其他的入口，所以不需要调用该接口。
+  这个接口是进入其他游戏/合集页面的。
+  SLOT不需要展示其他的入口，所以不需要调用该接口。
 
 
 本周计划：
-	1.完结单游戏大厅APP、多游戏大厅APP、h5lobby大厅的工作。
-	2.选择合适的UI框架，开发toB的后台PC前端。
+  1.完结单游戏大厅APP、多游戏大厅APP、h5lobby大厅的工作。
+  2.选择合适的UI框架，开发toB的后台PC前端。
 
 1.删除游戏中的PC相关的资源，以减小压缩包的大小；
 2.需要把库文件，放到我们自己的CDN上；
@@ -247,22 +352,22 @@ RN提供给游戏的数据
 -------------------------------------
 2020/04/10 17:41:01
 今日工作
-	1.合并游戏接入APP/h5lobby的部分接口
+  1.合并游戏接入APP/h5lobby的部分接口
 
 
 统一游戏接入APP/h5lobby的接口遇到的问题：
-	1.游戏更新信息接口
-		APP版本会注册一个游戏更新信息事件，并且在游戏页面显示下载游戏进度、检查更新信息，h5lobby则不需要。
-		这个接口要求游戏侧做不同的处理。
-	2.获取用户数据接口
-		APP中获取用户数据是异步的，所以需要额外注册一个事件来获取；而h5lobby直接调同步接口即可。
-		这个接口要求游戏侧做不同的处理。
-	3.通知APP/h5lobby游戏的当前进度接口
-		游戏需要在游戏渲染结束后通知APP，而h5lobby则需要在刚执行游戏逻辑时通知。
-		这个接口要求游戏侧做不同的处理。
-	4.播放广告接口
-		APP目前是播放的GA广告，h5lobby目前暂未介入广告。
-		这个接口不清楚能否统一。
+  1.游戏更新信息接口
+    APP版本会注册一个游戏更新信息事件，并且在游戏页面显示下载游戏进度、检查更新信息，h5lobby则不需要。
+    这个接口要求游戏侧做不同的处理。
+  2.获取用户数据接口
+    APP中获取用户数据是异步的，所以需要额外注册一个事件来获取；而h5lobby直接调同步接口即可。
+    这个接口要求游戏侧做不同的处理。
+  3.通知APP/h5lobby游戏的当前进度接口
+    游戏需要在游戏渲染结束后通知APP，而h5lobby则需要在刚执行游戏逻辑时通知。
+    这个接口要求游戏侧做不同的处理。
+  4.播放广告接口
+    APP目前是播放的GA广告，h5lobby目前暂未介入广告。
+    这个接口不清楚能否统一。
 目前游戏接入APP的接口有8个，接口h5lobby的接口是5个。只有其中4个接口可以统一。
 
 
@@ -274,16 +379,16 @@ RN提供给游戏的数据
 -------------------------------------
 2020/04/09 10:28:41
 今日工作
-	1.完成游戏接入APP的部分接口。
+  1.完成游戏接入APP的部分接口。
 
 
 RN提供给游戏的数据
-	游戏更新信息
+  游戏更新信息
 
 -------------------------------------
 2020/04/08 10:08:54
 今日工作
-	1.完成app多游戏大厅的代码编写。
+  1.完成app多游戏大厅的代码编写。
 
 
 
@@ -291,53 +396,53 @@ RN提供给游戏的数据
 
 2020/04/07 09:25:32
 今日工作（4.7）
-	1.完成MultiGameAreaNoCate.js、MultiGameAreaWithCate.js等的代码编写。
+  1.完成MultiGameAreaNoCate.js、MultiGameAreaWithCate.js等的代码编写。
 
 本周工作
-	1.完成APP的开发。
-	2.完成游戏接口统一。
+  1.完成APP的开发。
+  2.完成游戏接口统一。
 
 
 
 -------------------------------------
 2020/04/03 09:50:32
 今日工作
-	1.完成LobbyPing.js、LobbyAvatar.js等的编写，修改MultiGamePageHeader.js等的修改。
-	
+  1.完成LobbyPing.js、LobbyAvatar.js等的编写，修改MultiGamePageHeader.js等的修改。
+  
 -------------------------------------
 2020/04/02 11:06:34
 今日工作
-	1.完成CateIconEntry.js、CateIconEntryList.js、GameIconEntry.js等代码
+  1.完成CateIconEntry.js、CateIconEntryList.js、GameIconEntry.js等代码
 
 -------------------------------------
 2020/04/01 09:36:56
 今日工作
-	1.编写多游戏大厅的部分代码
+  1.编写多游戏大厅的部分代码
 
 
 -------------------------------------
 2020/03/31 11:07:52
 今日工作
-	1.修改app的数据获取流程
-		从先登录，同时获取大厅数据，改为先获取大厅数据，然后才能登陆。
-	2.编写LobbyEnterGames.js、HallDataDeal.js等代码
+  1.修改app的数据获取流程
+    从先登录，同时获取大厅数据，改为先获取大厅数据，然后才能登陆。
+  2.编写LobbyEnterGames.js、HallDataDeal.js等代码
 
 -------------------------------------
 2020/03/30 11:07:52
 本周工作
-	1.完成app多游戏大厅
-	2.完成app单游戏大厅
+  1.完成app多游戏大厅
+  2.完成app单游戏大厅
 
 今日工作
-	1.app项目环境部署，解决打包时的问题。
-	2.修改app原生代码部分，去掉单游戏的游戏更新的内容。
+  1.app项目环境部署，解决打包时的问题。
+  2.修改app原生代码部分，去掉单游戏的游戏更新的内容。
 
 -------------------------------------
 2020/03/27 10:05:50
 今日工作
-	1.完成h5 lobby的返回系统
-	2.开始app多游戏页面的开发。
-	3.完成h5 lobby Hall2C_GameHallNotify的消息处理
+  1.完成h5 lobby的返回系统
+  2.开始app多游戏页面的开发。
+  3.完成h5 lobby Hall2C_GameHallNotify的消息处理
 
 /**
  * @param _otherEntryType
@@ -348,253 +453,253 @@ window.bdgame.enterEntry = function (_otherEntryType, _type);
 -------------------------------------
 2020/03/25 16:25:36
 今日工作
-	1.初步完成h5单游戏大厅的代码与调试。
+  1.初步完成h5单游戏大厅的代码与调试。
 所有界面
-	1.LM
-		LobbyMain
-	2.SGP
-		SingleGamePage
-	3.MGP
-		MultiGamesPage
-	4.SGPMG
-		SingleGamePageSingleGamePageMainGame
-	5.SGPSG
-		SingleGamePageSubGame
-	6.MGPSG
-		MultiGamesPageSubGame
+  1.LM
+    LobbyMain
+  2.SGP
+    SingleGamePage
+  3.MGP
+    MultiGamesPage
+  4.SGPMG
+    SingleGamePageSingleGamePageMainGame
+  5.SGPSG
+    SingleGamePageSubGame
+  6.MGPSG
+    MultiGamesPageSubGame
 从一个界面到另一个界面的所有可能性
-	1.LM->SGP 	
-		A.PrePageType
-			LobbyMain
-		B.OtherGameInfo
-		C.SingleGamePageMainGame
-	2.LM->MGP
-		A.PrePageType
-			LobbyMain
-		B.CateTypeArr
-	3.SGP->SGPMG
-		A.PrePageType
-			LobbyMain
-		B.OtherGameInfo
-	4.SGP->SGPSG 	RB
-		A.PrePageType
-			SingleGamePage
-	5.SGP->MGP 	RB
-		A.PrePageType
-			SingleGamePage
-		B.CateTypeArr
-	6.MGP->MGPSG	RB
-		A.PrePageType
-			MultiGamesPage
-	7.MGP->SGP
-		A.PrePageType
-			LobbyMain
-		B.OtherGameInfo
-		C.SingleGamePageMainGame
-	8.SGPSG->SGP
-		A.PrePageType
-			LobbyMain
-		B.OtherGameInfo
-	9.MGPSG->MGP	RB
-		A.PrePageType
-			SingleGamePage|LobbyMain
-		B.CateTypeArr
+  1.LM->SGP   
+    A.PrePageType
+      LobbyMain
+    B.OtherGameInfo
+    C.SingleGamePageMainGame
+  2.LM->MGP
+    A.PrePageType
+      LobbyMain
+    B.CateTypeArr
+  3.SGP->SGPMG
+    A.PrePageType
+      LobbyMain
+    B.OtherGameInfo
+  4.SGP->SGPSG  RB
+    A.PrePageType
+      SingleGamePage
+  5.SGP->MGP  RB
+    A.PrePageType
+      SingleGamePage
+    B.CateTypeArr
+  6.MGP->MGPSG  RB
+    A.PrePageType
+      MultiGamesPage
+  7.MGP->SGP
+    A.PrePageType
+      LobbyMain
+    B.OtherGameInfo
+    C.SingleGamePageMainGame
+  8.SGPSG->SGP
+    A.PrePageType
+      LobbyMain
+    B.OtherGameInfo
+  9.MGPSG->MGP  RB
+    A.PrePageType
+      SingleGamePage|LobbyMain
+    B.CateTypeArr
 需要存储的数据
-	1.PrePageType
-		LobbyMain, SingleGamePage, MultiGamesPage
-	2.OtherGameInfo
-	3.CateTypeArr
-	4.SingleGamePageMainGame
+  1.PrePageType
+    LobbyMain, SingleGamePage, MultiGamesPage
+  2.OtherGameInfo
+  3.CateTypeArr
+  4.SingleGamePageMainGame
 MGP、MGPSG
 SGP、SGPSG
 SGP、SGPMG
 SGP、MGP、MGPSG
 游戏界面需要显示的数据
-	1.是否显示ReturnBtn
-	2.ReturnBtn返回到哪里
-	3.其他游戏入口数据
+  1.是否显示ReturnBtn
+  2.ReturnBtn返回到哪里
+  3.其他游戏入口数据
 
 -------------------------------------
 2020/03/24 18:35:06
 今日工作
-	1.完成部分单游戏大厅的代码。
+  1.完成部分单游戏大厅的代码。
 
 
 farkle app的工作
-	1.完成farkle app的单游戏大厅
-		布局规则同网页版的单游戏大厅
-	2.完成farkle app的多游戏大厅
-		布局规则同网页版的多游戏大厅
+  1.完成farkle app的单游戏大厅
+    布局规则同网页版的单游戏大厅
+  2.完成farkle app的多游戏大厅
+    布局规则同网页版的多游戏大厅
 
 -------------------------------------
 2020/03/23 09:31:51
 今日工作
-	1.调试h5多游戏大厅。
-	2.完成h5多游戏大厅的功能。
+  1.调试h5多游戏大厅。
+  2.完成h5多游戏大厅的功能。
 
 
 问题
-	1 在游戏界面，网页刷新后出现报错。
-	2 farkle刷新之后游戏是否会在桌子。
+  1 在游戏界面，网页刷新后出现报错。
+  2 farkle刷新之后游戏是否会在桌子。
 
 本周工作
-	1.完成多游戏大厅的调试。
-	2.完成单游戏大厅的开发及调试。
+  1.完成多游戏大厅的调试。
+  2.完成单游戏大厅的开发及调试。
 
 我的工作
 1 h5大厅
-	1.1 单游戏大厅
-		目前完成了一个版本，但新确定的需求尚未完成（其他游戏入口相关的改动）。
-		预计2天时间完成。
-	1.2 多游戏大厅
-		已完成。
-	1.3 h5大厅的webServer
-		已完成。
+  1.1 单游戏大厅
+    目前完成了一个版本，但新确定的需求尚未完成（其他游戏入口相关的改动）。
+    预计2天时间完成。
+  1.2 多游戏大厅
+    已完成。
+  1.3 h5大厅的webServer
+    已完成。
 2 Farkle App
-	2.1 单游戏大厅
-		已完成。
-	2.2 多游戏大厅
-		未完成。
-		未确定需求：同一个app，是否即支持单游戏大厅，又支持多游戏大厅。
-		开发时间不能确定。
-	2.3 第三方app端接入
-		未完成。
-		未确定需求：第三方是否可以使用app接入平台大厅，以及如何接入大厅。
-		开发时间不能确定。
+  2.1 单游戏大厅
+    已完成。
+  2.2 多游戏大厅
+    未完成。
+    未确定需求：同一个app，是否即支持单游戏大厅，又支持多游戏大厅。
+    开发时间不能确定。
+  2.3 第三方app端接入
+    未完成。
+    未确定需求：第三方是否可以使用app接入平台大厅，以及如何接入大厅。
+    开发时间不能确定。
 3 统一App版本与h5版本的游戏接入接口
-	未完成。
-	预计3天。
+  未完成。
+  预计3天。
 4 开发toB的网页版前端
-	目前暂未确定需求。
-	开发时间不能确定。
+  目前暂未确定需求。
+  开发时间不能确定。
 
 -------------------------------------
 2020/03/20 14:23:34
 今日工作
-	1.完成多游戏大厅的代码编写。
+  1.完成多游戏大厅的代码编写。
 
 -------------------------------------
 2020/03/19 18:29:32
 今日工作
-	1.编写多游戏大厅的代码。
-		编写代码base_entry_list.js、base_img_check_entry.js、base_img_entry.js、cate_entry_list.js、cate_entry.js等。
+  1.编写多游戏大厅的代码。
+    编写代码base_entry_list.js、base_img_check_entry.js、base_img_entry.js、cate_entry_list.js、cate_entry.js等。
 
 
 
 -------------------------------------
 2020/03/18 10:18:35
 今日工作
-	1.与海尖讨论确定大厅接口。
-	2.完成大厅UI。
-	3.开始多游戏大厅的代码编写。
+  1.与海尖讨论确定大厅接口。
+  2.完成大厅UI。
+  3.开始多游戏大厅的代码编写。
 
 
 -------------------------------------
 2020/03/17 10:18:35
 今日工作
-	1.讨论并确定h5大厅的布局
-	2.发现并解决Farkle游戏里的业务逻辑的流程问题
-		与天华讨论后解决。
-	3.修改登录的参数
+  1.讨论并确定h5大厅的布局
+  2.发现并解决Farkle游戏里的业务逻辑的流程问题
+    与天华讨论后解决。
+  3.修改登录的参数
 
 单游戏大厅的布局规则
-	1.针对每一个单游戏大厅，分别给予有限的入口数量，该数量由平台配置。
-	2.入口类型可以是合集入口，也可以是游戏入口。
+  1.针对每一个单游戏大厅，分别给予有限的入口数量，该数量由平台配置。
+  2.入口类型可以是合集入口，也可以是游戏入口。
 单游戏大厅入口显示规则
-	1.优先显示category图标
-		如果category里只有一个游戏，则显示游戏图标
-	2.其次显示seperateDisplay的图标
+  1.优先显示category图标
+    如果category里只有一个游戏，则显示游戏图标
+  2.其次显示seperateDisplay的图标
 
 --------------------------------------------
 2020/03/16 09:50:35
 今日工作
-	1.基本完成h5大厅的版本
-		大厅是一个html页面，支持的功能：
-		1.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
-		1.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
-	2.完善游戏接入h5大厅、app大厅的文档
+  1.基本完成h5大厅的版本
+    大厅是一个html页面，支持的功能：
+    1.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
+    1.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
+  2.完善游戏接入h5大厅、app大厅的文档
 
 明日任务：
-	1-：多游戏大厅里分类别显示游戏；现在平台是已经支持的
-	2:-单游戏大厅里支持多个“合集”的入口。这个平台还未支持，之后会做
-	3:-当一个合集里只有一个游戏时，合集的入口显示为该游戏图标，点击该图标直接进入游戏。平台已经支持。
-	4.每个合集下面，只有一种类型的游戏。
+  1-：多游戏大厅里分类别显示游戏；现在平台是已经支持的
+  2:-单游戏大厅里支持多个“合集”的入口。这个平台还未支持，之后会做
+  3:-当一个合集里只有一个游戏时，合集的入口显示为该游戏图标，点击该图标直接进入游戏。平台已经支持。
+  4.每个合集下面，只有一种类型的游戏。
 
 本周工作
-	1.完成h5大厅的版本
-		包括两种大厅。
-	2.完善游戏接入h5大厅、app大厅的文档
-	3.完成farkle app版本的入口隐藏功能
-	4.与海尖讨论确定接下来的开发内容
+  1.完成h5大厅的版本
+    包括两种大厅。
+  2.完善游戏接入h5大厅、app大厅的文档
+  3.完成farkle app版本的入口隐藏功能
+  4.与海尖讨论确定接下来的开发内容
 
 
 -------------------------------------
 2020/03/13 14:10:13
 今日工作
-	1.调试Farkle、txsasslot游戏。
-		遇到嗲用平台接口C2Gate_EnterRoom，返回202008的错误，平台侧尚未解决。
-	2.开发第三方接入后，平台侧返回的页面是一个游戏页面的功能。
-		拆分出lobby_multigames.js、lobby_game.js
+  1.调试Farkle、txsasslot游戏。
+    遇到嗲用平台接口C2Gate_EnterRoom，返回202008的错误，平台侧尚未解决。
+  2.开发第三方接入后，平台侧返回的页面是一个游戏页面的功能。
+    拆分出lobby_multigames.js、lobby_game.js
 
-	Farkle
-		1.this.iframeBdgame.msgQueue
-		2.this.iframeBdgame.enterRoomMsg
+  Farkle
+    1.this.iframeBdgame.msgQueue
+    2.this.iframeBdgame.enterRoomMsg
 
 
 -------------------------------------
 2020/03/12 19:27:39
 今日工作
-	1.调试合集页面的游戏接入。
-	2.与马总、海尖讨论并确定第三方接入的方式。
+  1.调试合集页面的游戏接入。
+  2.与马总、海尖讨论并确定第三方接入的方式。
 
 1.第三方接入的方式已确定
-	1.1 接入方式：第三方接入后，由web侧提供一个html页面的入口给第三方。
-	1.2 该html页面支持的功能：
-		1.2.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
-		1.2.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
+  1.1 接入方式：第三方接入后，由web侧提供一个html页面的入口给第三方。
+  1.2 该html页面支持的功能：
+    1.2.1 页面显示的是一些游戏图标的合集，点击某个图标进入游戏；
+    1.2.2 页面就是一个游戏，在该游戏页面有一个入口（记为E），点击E，则进入一个游戏合集的页面（该页面功能同1.2.1），E可以隐藏；
 
 2.目前的进度
-	2.1 h5大厅版本
-		功能1.2.1正在收尾，预计明天（3.13）可以完成；
-		功能1.2.2 没有实现。预计需要2天时间完成，即3.16号完成。（会与1.2.1兼容）
-	2.2 farkle app版本
-		功能1.2.1未实现，完成需要的时间需要暂不确定。
-		功能1.2.2仅入口隐藏的功能未实现，预计0.5天时间即可完成。
+  2.1 h5大厅版本
+    功能1.2.1正在收尾，预计明天（3.13）可以完成；
+    功能1.2.2 没有实现。预计需要2天时间完成，即3.16号完成。（会与1.2.1兼容）
+  2.2 farkle app版本
+    功能1.2.1未实现，完成需要的时间需要暂不确定。
+    功能1.2.2仅入口隐藏的功能未实现，预计0.5天时间即可完成。
 
 
 当前平台整体功能和业务场景：
     1.应用场景和最终目标: 
-    	自身运营、To B两种服务方式，是以当前的平台功能衍生出两个独立的平台。（基本最终的状态就是我们要维护这两个平台系统）
-    	1.1 To B    ：提供给B端用户的基础的通用的游戏平台，B端用户通过API接入平台服务（就是完整的游戏大厅页面）。
-    	1.2 自身运营：是基于我们自己个性化的需求，打造自身的品牌，把所有自身运营的游戏业务都归并到这个平台下进行统一管理。
+      自身运营、To B两种服务方式，是以当前的平台功能衍生出两个独立的平台。（基本最终的状态就是我们要维护这两个平台系统）
+      1.1 To B    ：提供给B端用户的基础的通用的游戏平台，B端用户通过API接入平台服务（就是完整的游戏大厅页面）。
+      1.2 自身运营：是基于我们自己个性化的需求，打造自身的品牌，把所有自身运营的游戏业务都归并到这个平台下进行统一管理。
     2.当前目标：
-    	实现To B完整平台服务。
+      实现To B完整平台服务。
 
     3.To B平台整体功能和结构说明：
-    	3.1 平台服务
-    		提供整个平台业务调度和服务管理、游戏接入、建立平台统一账号体系等，并根据实际业务对外提供一序列API
-    	3.2 平台后台管理服务
-    		管理和配置平台所有基础数据、报表统计、服务管理和监控等
-    	3.3 游戏服务
-    		完成具体的游戏功能
-    	3.4 游戏大厅网站
-    		3.4.1 建立一个统一的大厅网站，兼容和支持单游戏大厅和多游戏大厅。B端用户通过平台的API，最终接入的就是这个大厅页面。
-    		3.4.2 在游戏大厅上实现一些增值业务，如广告、排行榜、兑换、任务（收集卡片奖励）等
-    	3.5 To B网站
-    		提供给B用户查询相应数据、API接入规则管理、配置游戏（与平台权限挂钩）、配置相关业务（如奖励）、配置页面相关主题排版等
+      3.1 平台服务
+        提供整个平台业务调度和服务管理、游戏接入、建立平台统一账号体系等，并根据实际业务对外提供一序列API
+      3.2 平台后台管理服务
+        管理和配置平台所有基础数据、报表统计、服务管理和监控等
+      3.3 游戏服务
+        完成具体的游戏功能
+      3.4 游戏大厅网站
+        3.4.1 建立一个统一的大厅网站，兼容和支持单游戏大厅和多游戏大厅。B端用户通过平台的API，最终接入的就是这个大厅页面。
+        3.4.2 在游戏大厅上实现一些增值业务，如广告、排行榜、兑换、任务（收集卡片奖励）等
+      3.5 To B网站
+        提供给B用户查询相应数据、API接入规则管理、配置游戏（与平台权限挂钩）、配置相关业务（如奖励）、配置页面相关主题排版等
 -------------------------------------
 2020/03/11 08:59:40
 今日工作
-	1.基本完成大厅界面。
+  1.基本完成大厅界面。
 
       <!-- onlogin="FBLogin.checkLoginState();"> -->
 
-	https://graph.facebook.com/128937725322092/picture?type=large&v=1
+  https://graph.facebook.com/128937725322092/picture?type=large&v=1
 -------------------------------------
 2020/03/10 16:17:16
 今日工作
-	1.完成h5大厅的lobby_avatar.js、lobby_img.js、lobby_money.js、lobby_ping.js代码。
-	2.与海尖、天华开会讨论平台API的修改。
+  1.完成h5大厅的lobby_avatar.js、lobby_img.js、lobby_money.js、lobby_ping.js代码。
+  2.与海尖、天华开会讨论平台API的修改。
 
 收货人: 王彪
 手机号码: 135 3087 0264
@@ -606,24 +711,24 @@ farkle app的工作
 -------------------------------------
 2020/03/09 09:30:10
 今日工作
-	1.发现并解决fetch使用https协议的NET::ERR_CERT_COMMON_NAME_INVALID错误。
-		解决方法：重新申请证书，在CommonName选项，输入localhost。
-	2.完成大厅页面的UI布局。
-	3.讨论整理标签玩法。
+  1.发现并解决fetch使用https协议的NET::ERR_CERT_COMMON_NAME_INVALID错误。
+    解决方法：重新申请证书，在CommonName选项，输入localhost。
+  2.完成大厅页面的UI布局。
+  3.讨论整理标签玩法。
 
 
 本周工作
-	完成h5大厅的开发（不包括接入google AFG、标签玩法）。
+  完成h5大厅的开发（不包括接入google AFG、标签玩法）。
 
 可以把这些功能分为四大模块：
-	1.大厅
-		包括大厅客户端、大厅webserver
-	2.游戏
-		包括游戏客户端、游戏服务端
-	3.平台
-		平台服务器
-	4.后台
-		包括后台客户端（配置页面）、后台服务器。
+  1.大厅
+    包括大厅客户端、大厅webserver
+  2.游戏
+    包括游戏客户端、游戏服务端
+  3.平台
+    平台服务器
+  4.后台
+    包括后台客户端（配置页面）、后台服务器。
 模块1是我在做；
 模块2可以让ZHR做；
 模块三是海尖在做；
@@ -635,49 +740,49 @@ farkle app的工作
 
 马总，下面这些是跟海尖讨论、整理的结果，你看看有没有问题：
 思路
-	平台侧负责触发玩法的逻辑，并通知给大厅、游戏。
-	游戏侧负责开发多个玩法，用于支撑平台侧的玩法。
-	大厅侧负责展示玩法的规则、进度等，显示给玩家看。
+  平台侧负责触发玩法的逻辑，并通知给大厅、游戏。
+  游戏侧负责开发多个玩法，用于支撑平台侧的玩法。
+  大厅侧负责展示玩法的规则、进度等，显示给玩家看。
 牵涉到四个功能方：平台（平台服务器）、后台（配置页面）、大厅（大厅客户端）、游戏（游戏客户端+游戏服务器）。
 业务流程
-	1.在后台侧配置功能的规则。
-	2.平台侧实时读取上述配置，并通知大厅、游戏侧显示。
-	3.大厅显示玩法规则、说明。
-	4.游戏侧根据配置的规则，放开或者关闭对应的玩法。
+  1.在后台侧配置功能的规则。
+  2.平台侧实时读取上述配置，并通知大厅、游戏侧显示。
+  3.大厅显示玩法规则、说明。
+  4.游戏侧根据配置的规则，放开或者关闭对应的玩法。
 以搜集玩法（记为标签A）为例，功能的开发分配如下：
-	搜集玩法的规则举例：配置标签A，即玩家通过玩一局Farkle游戏里的打地鼠玩法，获得一张卡片。5张该卡片可用于兑换某种物品。
-	1.后台
-		配置标签A，并给Farkle游戏添加该标签。
-	2.平台
-		实时读取后台的配置，然后通知大厅侧、游戏侧：Farkle游戏获得标签A。
-		处理Farkle游戏的数据，在玩家玩一局Farkle游戏的打地鼠玩法后，发一张卡片给该玩家（记录到平台的数据库中），并通知大厅侧、游戏侧。
-	3.大厅
-		收到平台的Farkle游戏的标签A消息后，在Farkle游戏的入口图标上显示标签A的icon。
-		在大厅添加搜集功能，用于给玩家展示搜集中的所有玩法、进度等。
-	4.游戏
-		预先开发打地鼠玩法，以支撑标签A玩法。
-		收到平台侧的卡片奖励消息后，展示玩家获得奖励的消息。
+  搜集玩法的规则举例：配置标签A，即玩家通过玩一局Farkle游戏里的打地鼠玩法，获得一张卡片。5张该卡片可用于兑换某种物品。
+  1.后台
+    配置标签A，并给Farkle游戏添加该标签。
+  2.平台
+    实时读取后台的配置，然后通知大厅侧、游戏侧：Farkle游戏获得标签A。
+    处理Farkle游戏的数据，在玩家玩一局Farkle游戏的打地鼠玩法后，发一张卡片给该玩家（记录到平台的数据库中），并通知大厅侧、游戏侧。
+  3.大厅
+    收到平台的Farkle游戏的标签A消息后，在Farkle游戏的入口图标上显示标签A的icon。
+    在大厅添加搜集功能，用于给玩家展示搜集中的所有玩法、进度等。
+  4.游戏
+    预先开发打地鼠玩法，以支撑标签A玩法。
+    收到平台侧的卡片奖励消息后，展示玩家获得奖励的消息。
 
 1.搜集功能。
-	平台侧配置搜集的玩法，在大厅里显示。
-	平台对游戏数据进行分析，在合适的时机，触发掉落功能，并通知大厅、游戏掉落的结果。
-	搜集玩法是可配置的，平台侧修改后，大厅、游戏侧实时进行变动。
-	搜集具有时效性、一个游戏具有多个搜集玩法。
-	类似任务功能。
+  平台侧配置搜集的玩法，在大厅里显示。
+  平台对游戏数据进行分析，在合适的时机，触发掉落功能，并通知大厅、游戏掉落的结果。
+  搜集玩法是可配置的，平台侧修改后，大厅、游戏侧实时进行变动。
+  搜集具有时效性、一个游戏具有多个搜集玩法。
+  类似任务功能。
 2.问题
-	3）BNG\Features entry bottleneck，这个不理解。
+  3）BNG\Features entry bottleneck，这个不理解。
 
 3.功能的开发分配
-	平台
-		1.搜集玩法的配置、触发及发奖逻辑。
-		2.通知大厅、游戏，搜集玩法的变动。
-	大厅
-		显示搜集的功能。
-	游戏
-		1.掉落物品所需要的玩法的开发，及收到平台消息后玩法的显示与隐藏。
-		2.显示大厅发来的通知消息，用来统一处理平台发来的消息。
-	后台
-		配置数值。
+  平台
+    1.搜集玩法的配置、触发及发奖逻辑。
+    2.通知大厅、游戏，搜集玩法的变动。
+  大厅
+    显示搜集的功能。
+  游戏
+    1.掉落物品所需要的玩法的开发，及收到平台消息后玩法的显示与隐藏。
+    2.显示大厅发来的通知消息，用来统一处理平台发来的消息。
+  后台
+    配置数值。
 
 先以一个具体问题开头：
 大厅做的一些功能，如何能在游戏中比较无缝的衔接好。比如“大厅”功能实现的集齐5张什么样卡片即可获得X奖励。
@@ -695,7 +800,7 @@ farkle app的工作
 （1）对应游戏中具体的一些参数配置如概率等。当标签激活后，游戏中的数值会跟随变化，并且游戏图标的外观会加一个视觉上的标识\特效
 （2）标签可设置时效性，如持续8小时、24小时等
 （3）一个游戏可同时激活多个标签
-	标签种类：每个标签名字待定，但功能倾向于统一每个游戏都统一。我现在能设想的是以下几点
+  标签种类：每个标签名字待定，但功能倾向于统一每个游戏都统一。我现在能设想的是以下几点
 （1）物品掉落标签==》配置每个游戏中的物品掉落。主要对应搜集的玩法。
 （2）Odds Booster标签===》对应配置游戏中的概率、RTP等
 （3）BNG\Features entry bottleneck===》对应配置游戏中特色玩法的bet，也就是说高于此bet时候feature激活。
@@ -714,19 +819,19 @@ farkle app的工作
 
 2020/03/06 15:32:36
 今日工作
-	1.添加登陆页面index.html的背景图、logo，并使用css实现自适应功能。
-	2.完成浏览器端http_fetch.js、error_code.js、LoginData.js、login_server.js等代码。
-	3.发现在https页面中，使用websocket需要wss协议的问题。
-		已跟平台侧沟通，提出提供支持wss协议的功能。
+  1.添加登陆页面index.html的背景图、logo，并使用css实现自适应功能。
+  2.完成浏览器端http_fetch.js、error_code.js、LoginData.js、login_server.js等代码。
+  3.发现在https页面中，使用websocket需要wss协议的问题。
+    已跟平台侧沟通，提出提供支持wss协议的功能。
 
 ---------------------------------------------------
 2020/03/05 16:25:56
 今日工作
-	1.配置Fb的网页版登录后台。
-		发现配置oauth的url时，需要使用域名而非ip的问题。
-	2.配置webserver的https。
-		Fb的oauth的url，需要使用https协议，而非http协议。
-	3.完成Fb登录的功能（Fb登录成功后跳转到Farkle游戏的功能除外）。
+  1.配置Fb的网页版登录后台。
+    发现配置oauth的url时，需要使用域名而非ip的问题。
+  2.配置webserver的https。
+    Fb的oauth的url，需要使用https协议，而非http协议。
+  3.完成Fb登录的功能（Fb登录成功后跳转到Farkle游戏的功能除外）。
 
 
 <div id="fb-root"></div>
@@ -738,122 +843,122 @@ farkle app的工作
 
 2020/03/04 18:12:09
 今日工作
-	1.模拟浏览器端调用，完成webserver供浏览器调用的接口logingameapp、realmtogate、adgold、gogame、hallgame的调试。
-	2.发现并解决平台api接口中，url地址的域名问题。
+  1.模拟浏览器端调用，完成webserver供浏览器调用的接口logingameapp、realmtogate、adgold、gogame、hallgame的调试。
+  2.发现并解决平台api接口中，url地址的域名问题。
 
 
 ---------------------------------------------------
 2020/03/03 09:27:46
 今日工作
-	1.完成webserver供浏览器调用的adGold、goGame、hallGames接口的代码。
+  1.完成webserver供浏览器调用的adGold、goGame、hallGames接口的代码。
 
 
 
 ---------------------------------------------------
 2020/03/02 09:03:31
 今日工作
-	1.完成error_code.js。
-	2.完成供浏览器调用的otherGameImg接口。
+  1.完成error_code.js。
+  2.完成供浏览器调用的otherGameImg接口。
 
 本周计划
-	1.完成webserver的开发。
-	2.完成部分h5客户端的开发：Fb登录、Farkle游戏侧的功能。
+  1.完成webserver的开发。
+  2.完成部分h5客户端的开发：Fb登录、Farkle游戏侧的功能。
 
 1.查看对接平台的接口是否完成 1
-	LoginGameApp、RealmToGate、HallGames、AdGold
+  LoginGameApp、RealmToGate、HallGames、AdGold
 2.确定对接浏览器的接口 0
-	1）登录界面 1
-		FB登录信息转发验证
-			/Login
-	2）Farkle游戏界面
-		h5大厅图标地址
-			/hall/otherGameImg
-		获取h5大厅数据接口
-			/hall/hallGames
-	3）h5大厅
-		点击每个h5大厅的游戏，进入的游戏url
-			/hall/goGames
-		增加金币
-			/hall/adGold
+  1）登录界面 1
+    FB登录信息转发验证
+      /Login
+  2）Farkle游戏界面
+    h5大厅图标地址
+      /hall/otherGameImg
+    获取h5大厅数据接口
+      /hall/hallGames
+  3）h5大厅
+    点击每个h5大厅的游戏，进入的游戏url
+      /hall/goGames
+    增加金币
+      /hall/adGold
 
 3.Google Ad
-	看广告
+  看广告
 ---------------------------------------------------
 2020/02/28 18:04:28
 今日工作
-	1.完成webserver调用平台的AdGold、RealmToGate、HallGames接口代码。
-	2.完成webserver供浏览器调用的login接口。
-	2.完成session的配置。
+  1.完成webserver调用平台的AdGold、RealmToGate、HallGames接口代码。
+  2.完成webserver供浏览器调用的login接口。
+  2.完成session的配置。
 
 2020/02/27 10:50:42
 今日工作
-	1.完成some_defines.js、server_util.js、http_net.js等工具类
-	2.完成webserver调用平台的LoginGameApp接口
-	
+  1.完成some_defines.js、server_util.js、http_net.js等工具类
+  2.完成webserver调用平台的LoginGameApp接口
+  
 webserver调用平台接口
-	1./api/LoginGameAPP
-	2./api/auth/RealmToGate
-	3./api/HallGames
+  1./api/LoginGameAPP
+  2./api/auth/RealmToGate
+  3./api/HallGames
 
 ---------------------------------------------------
 2020/02/26 19:57:23
 今日工作
-	1.讨论网页版接口
-	2.部署webserver环境
-	
+  1.讨论网页版接口
+  2.部署webserver环境
+  
 
 ---------------------------------------------------
 2020/02/25 10:35:47
 今日工作
-	1.确定实现h5大厅的开发方式：fairygui实现h5网页，webserver做数据处理及请求转发。
-	2.确定h5大厅的页面内容，以及业务数据流转过程。讨论确定webserver需要开发的接口。
+  1.确定实现h5大厅的开发方式：fairygui实现h5网页，webserver做数据处理及请求转发。
+  2.确定h5大厅的页面内容，以及业务数据流转过程。讨论确定webserver需要开发的接口。
 
 
 h5网页开发内容
-	1.登录界面
-		登陆界面只需要支持Facebook登录这一种方式。
-		登录成功之后，需要直接跳转到Farkle游戏（网页版）。
-	2.大厅界面
-		大厅界面展示的内容，是很多个游戏的入口icon。
+  1.登录界面
+    登陆界面只需要支持Facebook登录这一种方式。
+    登录成功之后，需要直接跳转到Farkle游戏（网页版）。
+  2.大厅界面
+    大厅界面展示的内容，是很多个游戏的入口icon。
 
 业务流程：
-	1.玩家进入登陆界面。
-	2.玩家进行FB登录。
-	3.Fb登录失败，停留在登陆界面。
-		登录成功，则需要调用webServer的登录接口，进行我们自身的平台登录。
-	4.自身平台登录验证成功后，会通过webServer返回Farkle游戏的url，然后就会做url重定向。这时玩家就进入到Farklle游戏界面了。
-	5.在Farkle游戏界面中主要包括两部分内容：a.Farkle游戏自身的功能，如Frakle游戏的四个模式信息等；b.一个大厅按钮，用于进入大厅界面，该大厅就是上面说的大厅界面。
-	6.玩家可以随意体验Farkle游戏的任意功能。
-	7.点击大厅按钮时，进入大厅界面。大厅界面需要展示的内容，通过http请求从webserver获取。
-	8.h5游戏前端与其服务器进行通信时，所依赖websocket，是公共的websocket。该websocket的地址在登录自身平台成功后返回。websocket的建立，在进入游戏之前完成即可。
-	这就是从登录到大厅界面的业务流程。至此所有的页面，都已经展示给玩家了。
+  1.玩家进入登陆界面。
+  2.玩家进行FB登录。
+  3.Fb登录失败，停留在登陆界面。
+    登录成功，则需要调用webServer的登录接口，进行我们自身的平台登录。
+  4.自身平台登录验证成功后，会通过webServer返回Farkle游戏的url，然后就会做url重定向。这时玩家就进入到Farklle游戏界面了。
+  5.在Farkle游戏界面中主要包括两部分内容：a.Farkle游戏自身的功能，如Frakle游戏的四个模式信息等；b.一个大厅按钮，用于进入大厅界面，该大厅就是上面说的大厅界面。
+  6.玩家可以随意体验Farkle游戏的任意功能。
+  7.点击大厅按钮时，进入大厅界面。大厅界面需要展示的内容，通过http请求从webserver获取。
+  8.h5游戏前端与其服务器进行通信时，所依赖websocket，是公共的websocket。该websocket的地址在登录自身平台成功后返回。websocket的建立，在进入游戏之前完成即可。
+  这就是从登录到大厅界面的业务流程。至此所有的页面，都已经展示给玩家了。
 
 浏览器端调用的接口
-	1.平台的登录接口
-		Fb登录成功后，将相关用户相关信息发送给webserver，做平台登录。
-	2.Frakle大厅的url
-		平台登录成功后，需要将Frakle大厅的url返回给浏览器。
-	3.h5大厅入口的图标icon
-		在Frakle游戏里，需要展示一个图标，用于作为h5大厅的入口。
-	4.h5大厅的入口地址
-		点击h5大厅的入口icon后，需要一个获取入口url的地址
-	6.h5大厅里的数据接口
-		接口返回的数据是，在大厅需要展示的游戏信息
-	7.h5大厅里游戏的入口icon
-		接口返回的数据是，单个游戏的url地址
+  1.平台的登录接口
+    Fb登录成功后，将相关用户相关信息发送给webserver，做平台登录。
+  2.Frakle大厅的url
+    平台登录成功后，需要将Frakle大厅的url返回给浏览器。
+  3.h5大厅入口的图标icon
+    在Frakle游戏里，需要展示一个图标，用于作为h5大厅的入口。
+  4.h5大厅的入口地址
+    点击h5大厅的入口icon后，需要一个获取入口url的地址
+  6.h5大厅里的数据接口
+    接口返回的数据是，在大厅需要展示的游戏信息
+  7.h5大厅里游戏的入口icon
+    接口返回的数据是，单个游戏的url地址
 
 浏览器同一域名下，存储cookie的数量（30-50）及大小（4K）有限制
 
 webserver接口
-	1.供浏览器端调用
-		平台登录
+  1.供浏览器端调用
+    平台登录
 
-	2.调用平台端的API
+  2.调用平台端的API
 
 发现问题：
-	1.展示游戏界面的业务流程。
-		浏览器想webserver发送平台登陆请求后，webserver会向平台发送转发验证请求。验证失败，则webserver原样返回给浏览器；验证成功，则webserver向浏览器回一个游戏的url地址。至于websocket的url地址以及所需的key信息，是不能在此时返回给浏览器。因为在网页不使用服务端渲染的模式时，此时浏览器端还没有从服务端获取html页面以及js文件，若此时数据传过来，数据没有合适的存放位置（我感觉这个数据存入cookie是不合理的）。所以应该再增加一个接口，用于给浏览器端js获取websocket的url及对应的key值。
-		进入大厅里的某个游戏，也存在同样的问题。
+  1.展示游戏界面的业务流程。
+    浏览器想webserver发送平台登陆请求后，webserver会向平台发送转发验证请求。验证失败，则webserver原样返回给浏览器；验证成功，则webserver向浏览器回一个游戏的url地址。至于websocket的url地址以及所需的key信息，是不能在此时返回给浏览器。因为在网页不使用服务端渲染的模式时，此时浏览器端还没有从服务端获取html页面以及js文件，若此时数据传过来，数据没有合适的存放位置（我感觉这个数据存入cookie是不合理的）。所以应该再增加一个接口，用于给浏览器端js获取websocket的url及对应的key值。
+    进入大厅里的某个游戏，也存在同样的问题。
 
 Login
 
@@ -861,23 +966,23 @@ webserver接口内容
 
 
 web服务器-->平台服务器
-	1.
+  1.
 1.LoginGameAPP
-	登录token
-	返回web服务器的大厅地址
+  登录token
+  返回web服务器的大厅地址
 2.登录大厅
-	验证token（平台服务器）
-	
+  验证token（平台服务器）
+  
 ---------------------------------------------------
 
 2020/02/24 10:45:32
 今日工作
-	1.整理h5game转换为wxgame文档
-	2.打包web3：彩球、走地百家乐、龙虎斗。
-	3.整理完成ios客户端需要的时间，讨论网页版大厅的实现方式。
+  1.整理h5game转换为wxgame文档
+  2.打包web3：彩球、走地百家乐、龙虎斗。
+  3.整理完成ios客户端需要的时间，讨论网页版大厅的实现方式。
 
 本周计划
-	开发网页版大厅
+  开发网页版大厅
 
 
 插件包的集成配置这一部分，ios版本的开发时间，大概需要7.5天的时间。
@@ -886,87 +991,87 @@ ios的RN环境配置、打包，原生代码，这两部分Android项目花的�
 
 
 集成的插件包（9个）
-	RN集成+原生的配置时间，0.5天/个，总共4.5天，另外其中某些包的rn里的写法，ios和andriod不同，找出+修改时间估计共需3天。
-	react-native-admob
-	react-native-gesture-handler
-	react-native-i18n
-	react-native-fs
-	react-native-fbsdk
-	react-native-device-info
-	react-native-vector-icons
-	react-native-randombytes
-	react-native-fbads
+  RN集成+原生的配置时间，0.5天/个，总共4.5天，另外其中某些包的rn里的写法，ios和andriod不同，找出+修改时间估计共需3天。
+  react-native-admob
+  react-native-gesture-handler
+  react-native-i18n
+  react-native-fs
+  react-native-fbsdk
+  react-native-device-info
+  react-native-vector-icons
+  react-native-randombytes
+  react-native-fbads
 ios的RN环境配置、打包
-	android部分，大概花了3天时间。
-	我只做过unity的ios环境打包，没有做过原生项目的打包，所以这部分的时间不能确定。
+  android部分，大概花了3天时间。
+  我只做过unity的ios环境打包，没有做过原生项目的打包，所以这部分的时间不能确定。
 原生代码部分
-	android部分，大概花了2周多的时间。
-	原生代码包括：2个Activity，1个工具类（读写文件、获取MD5值等），2个Native模块（RN下载接口、FB广告），网络请求、下载工具模块，获取后台的token模块，处理App、Farkle的更新及下载逻辑模块。
-	我没有做过ios的开发（ObjectC/swift），这部分的时间也不能确定。
+  android部分，大概花了2周多的时间。
+  原生代码包括：2个Activity，1个工具类（读写文件、获取MD5值等），2个Native模块（RN下载接口、FB广告），网络请求、下载工具模块，获取后台的token模块，处理App、Farkle的更新及下载逻辑模块。
+  我没有做过ios的开发（ObjectC/swift），这部分的时间也不能确定。
 
 ---------------------------------------------------
 2020/02/22 17:34:41
 今日工作
-	1.完成gp ad功能。
-	2.完成自动登录功能。
+  1.完成gp ad功能。
+  2.完成自动登录功能。
 
 登录成功存入的数据
-	uid、token
+  uid、token
 
 BDYXGamesData
-	1.platToken
-	2.Realm URL
-	3.userToken
-	4.uid
-	5.usertype
+  1.platToken
+  2.Realm URL
+  3.userToken
+  4.uid
+  5.usertype
 ---------------------------------------------------
 
 2020/02/21 19:04:46
 
 今日工作：
-	1.配置Google Admob，申请奖励广告。
-	2.引入react-native-admob，用于开发google视频激励广告。
-	3.发现无法打包的问题，查找解决方法，暂时没有结果，需要继续花时间解决。
+  1.配置Google Admob，申请奖励广告。
+  2.引入react-native-admob，用于开发google视频激励广告。
+  3.发现无法打包的问题，查找解决方法，暂时没有结果，需要继续花时间解决。
 ---------------------------------------------------
 2020/02/20 11:06:59
 今日工作：
-	1.添加游戏渲染结束通知接口，用于显示事先隐藏的WebView界面。
-	2.添加提供给游戏调用的播放广告接口，用于播放广告。
-	3.测试FB广告发现无法播放：缺少广告位编码。无法申请成功商务管理平台，原因未知。
-	4.开始接入Google广告。
-	
-	游戏渲染结束后，调用type为AppRequest，route为GameRendered的app接口，就会将背景图隐藏，显示游戏。
+  1.添加游戏渲染结束通知接口，用于显示事先隐藏的WebView界面。
+  2.添加提供给游戏调用的播放广告接口，用于播放广告。
+  3.测试FB广告发现无法播放：缺少广告位编码。无法申请成功商务管理平台，原因未知。
+  4.开始接入Google广告。
+  
+  游戏渲染结束后，调用type为AppRequest，route为GameRendered的app接口，就会将背景图隐藏，显示游戏。
 ---------------------------------------------------
 2020/02/19 18:37:22
 今日工作：
-	1.配置FB的开发者中心中的Farkle Mania应用。
-	2.实现APP的FB登录调起网页版的功能。
+  1.配置FB的开发者中心中的Farkle Mania应用。
+  2.实现APP的FB登录调起网页版的功能。
 
 2020/02/18 14:52:52
 ---------------------------------------------------
 今日工作
-	1.解决昨天遇到的RN缓存错误的问题。
-	2.解决打签名包遇到的资源重复、签名文件配置密钥别名的问题，并打出Android签名包。
-	3.发现保存token等信息到手机时，格式错误的问题。
+  1.解决昨天遇到的RN缓存错误的问题。
+  2.解决打签名包遇到的资源重复、签名文件配置密钥别名的问题，并打出Android签名包。
+  3.发现保存token等信息到手机时，格式错误的问题。
 
 2020/02/17 17:13:13
 
 ssr://NDUuMzIuODIuMTE0OjI4MDM6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnRsczEuMl90aWNrZXRfYXV0aDpRbVZwWkc5MWVXbDRhV0Z1TVRJei8_b2Jmc3BhcmFtPSZncm91cD1SbkpsWlZOVFVpMXdkV0pzYVdN
 
 今日工作
-	修改部分彩球及全部走地百家乐的bug，优化龙虎斗的音效反馈。
-	配置VPN环境。
+  修改部分彩球及全部走地百家乐的bug，优化龙虎斗的音效反馈。
+  配置VPN环境。
 
 本周计划
-	1.完成FB登录、弹出看广告页面的功能。
-	2.解决打包Release出现的问题。
-	3.接入Google Play的SDK。
+  1.完成FB登录、弹出看广告页面的功能。
+  2.解决打包Release出现的问题。
+  3.接入Google Play的SDK。
 
 ---------------------------------------------------
 2020/02/14 12:12:56
 今日工作：
-	1.修改部分龙虎斗的音效，优化走地的音效反馈。
-	2.优化Farkle App打开游戏慢的问题。
+  1.修改部分龙虎斗的音效，优化走地的音效反馈。
+  2.优化Farkle App打开游戏慢的问题。
 
 现在遇到了这个问题，大家有没有比较好的解决方法：
 Farkle App里，在使用react native的WebView显示游戏时，是每一个游戏分别开启一个WebView来显示的。这种方式显示游戏，会出现比较长的白屏时间。这个白屏时间主要用于启动WebView，加载并解析laya及fairygui的js资源，加载并解析游戏资源。
@@ -988,99 +1093,99 @@ react native
 
 2020/02/13 18:30:41
 今日工作
-	1.检查水果机、龙虎斗等游戏是否存在重复下注的bug。
-	2.替换彩球的所有需要修改的音效及走地百家乐的部分音效。
+  1.检查水果机、龙虎斗等游戏是否存在重复下注的bug。
+  2.替换彩球的所有需要修改的音效及走地百家乐的部分音效。
 
 ---------------------------------------------------
 2020/02/12 10:40:15
 今日工作
-	编写完成GlobalWebView的代码80%。
-	修改彩球、飞禽走兽的bug。
+  编写完成GlobalWebView的代码80%。
+  修改彩球、飞禽走兽的bug。
 
 ---------------------------------------------------
 2020/02/11 15:52:23
 FarkleApp
-	外网服务器地址地址
-		http://52.220.211.57:8080。
-	服务器路径
-		/usr/plat/test/
+  外网服务器地址地址
+    http://52.220.211.57:8080。
+  服务器路径
+    /usr/plat/test/
 今日工作
-	编写GlobalWebView代码至60%。
-	发现 非游戏页面 与 全局WebView页面 如何共存的问题，即如何在显示非游戏页面时，隐藏全局WebView页面，保证其不被销毁。
+  编写GlobalWebView代码至60%。
+  发现 非游戏页面 与 全局WebView页面 如何共存的问题，即如何在显示非游戏页面时，隐藏全局WebView页面，保证其不被销毁。
 
 ---------------------------------------------------
 2020/02/10 08:08:22
 目前的主要工作内容：
-	优化FarkleAPP打开Farkle等游戏的速度。
+  优化FarkleAPP打开Farkle等游戏的速度。
 本周预计的工作进度：
-	1.完成全局WebView(GlobalWebView)的代码工作。
-	2.将打开Farkle的游戏的WebView改成全局WebView。
-	3.将打开其他游戏的的WebView改成全局WebView。
+  1.完成全局WebView(GlobalWebView)的代码工作。
+  2.将打开Farkle的游戏的WebView改成全局WebView。
+  3.将打开其他游戏的的WebView改成全局WebView。
 今日工作：
-	编写了一部分全局WebView的代码。
+  编写了一部分全局WebView的代码。
 
 ---------------------------------------------------
 TeamViewer
-	1228428515
-	k9d17f
+  1228428515
+  k9d17f
 
 node
-	6.2.0
-	10.13.0
+  6.2.0
+  10.13.0
 
 Question
-	对从点击游戏入口图标，到正常显示游戏这段时间，详细分析每个阶段所占用的时间，然后对每个阶段做针对性的优化。
+  对从点击游戏入口图标，到正常显示游戏这段时间，详细分析每个阶段所占用的时间，然后对每个阶段做针对性的优化。
 
 开发环境
-	FairyGUI：3.10.7
-	Layabox：1.8.2
+  FairyGUI：3.10.7
+  Layabox：1.8.2
 
 FB开发者账号
-	账号：13316464053
-	密码：Beidouyixian123
-	邮箱：beidouyixian.i4player@gmail.com
-	姓：Zhang
-	名：Bruce
+  账号：13316464053
+  密码：Beidouyixian123
+  邮箱：beidouyixian.i4player@gmail.com
+  姓：Zhang
+  名：Bruce
 FB广告账号
-	账号：13342967451
-	密码：WangBiao~12
-	邮箱：wangbiao19892018@gmail.com
-	商务管理平台名称：Bdyxgamesadsmgr
+  账号：13342967451
+  密码：WangBiao~12
+  邮箱：wangbiao19892018@gmail.com
+  商务管理平台名称：Bdyxgamesadsmgr
 
 GP开发者账号
-	https://developer.android.com/distribute/console/?hl=zh-cn
-	用户名：ifuntransfer@gmail.com
-	密码：Beidouyixian123
-	电话号码：13316464053
+  https://developer.android.com/distribute/console/?hl=zh-cn
+  用户名：ifuntransfer@gmail.com
+  密码：Beidouyixian123
+  电话号码：13316464053
 admob账号
-	网址：https://apps.admob.com/
-	用户名：beidouyixian.i4player@gmail.com
-	密码：Beidouyixian123
+  网址：https://apps.admob.com/
+  用户名：beidouyixian.i4player@gmail.com
+  密码：Beidouyixian123
 我自己的FB账号
-	账号：13530870264
-	密码：666biao666
+  账号：13530870264
+  密码：666biao666
 
 http://52.220.211.57:7001/admin
 
 google play申请应用准备资源
-	1.应用名称、简短说明、完整说明；
-	2.应用相关的图片资源
-		ICON：512*512 32位PNG，禁止使用透明背景
-		屏幕截图：JPEG 或 24 位 PNG（无 alpha 透明层）。边长下限：320 像素；边长上限：3840 像素。1-8张
-		置顶大图：宽 1024 x 高 500 JPG 或 24 位 PNG（无 alpha 通道）格式
-	3.应用类型
-		游戏|应用
-	4.类别
-		如选择游戏，则分为策略、动作、赌场等。
-	5.电子邮件
-	6.隐私权政策
-		一个可用的隐私地址http://...
+  1.应用名称、简短说明、完整说明；
+  2.应用相关的图片资源
+    ICON：512*512 32位PNG，禁止使用透明背景
+    屏幕截图：JPEG 或 24 位 PNG（无 alpha 透明层）。边长下限：320 像素；边长上限：3840 像素。1-8张
+    置顶大图：宽 1024 x 高 500 JPG 或 24 位 PNG（无 alpha 通道）格式
+  3.应用类型
+    游戏|应用
+  4.类别
+    如选择游戏，则分为策略、动作、赌场等。
+  5.电子邮件
+  6.隐私权政策
+    一个可用的隐私地址http://...
 
 Farkle Manina admob（https://apps.admob.com/）
-	应用 ID:ca-app-pub-1899333947510550~7527513680
-	广告类型和展示位置:ca-app-pub-1899333947510550/9426934625
+  应用 ID:ca-app-pub-1899333947510550~7527513680
+  广告类型和展示位置:ca-app-pub-1899333947510550/9426934625
 
-	Google Mobile Ads SDK version 17.0.0
+  Google Mobile Ads SDK version 17.0.0
 
 
 
@@ -1100,25 +1205,25 @@ ERROR_CODE_NO_FILL - The ad request was successful, but no ad was returned due t
 4.昨天天华给的包，在我的手机上不能正常进入farkle游戏。原因应该还是我的手机版本（Android5.2）支持的是ES5，他给的是ES6，不兼容。这个问题在高版本android手机（Android6.0）上是没有问题的。具体是哪里的代码问题，我下午查一下。
 
 APP大厅的布局显示配置化
-	如背景图可以配置：目前可行的方式是通过接口传图片的url过来。
+  如背景图可以配置：目前可行的方式是通过接口传图片的url过来。
 
 从开发角度来看，h5game与小游戏的区别，主要有两点：
-	1.入口文件。
-		h5game的入口文件，是一个html文件，小游戏的入口文件，是game.js。
-		针对这一点，开发需要做的就是，把html的入口修改为js的入口。
-	2.运行环境的差别。
-		见https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html。
-		这一部分，对我们的游戏来说，由于我们的游戏没有直接操纵dom，所以可以说是没有区别。
+  1.入口文件。
+    h5game的入口文件，是一个html文件，小游戏的入口文件，是game.js。
+    针对这一点，开发需要做的就是，把html的入口修改为js的入口。
+  2.运行环境的差别。
+    见https://developers.weixin.qq.com/minigame/dev/guide/best-practice/adapter.html。
+    这一部分，对我们的游戏来说，由于我们的游戏没有直接操纵dom，所以可以说是没有区别。
 可以先大致了解一下，laya下新建的h5game，与通过laya打包出小游戏的项目，在目录结构上的区别，来理解这个开发上的区别。
 再去微信官方平台（https://developers.weixin.qq.com/minigame/dev/guide/）上，熟悉小游戏/小程序的基础知识。
 
 
 Fb网页版的登录
-	有效 OAuth 跳转 URI
-		配置域名可以，如https://localhost:10086/。配置IP地址则不行，如https://127.0.0.1:10086/。
+  有效 OAuth 跳转 URI
+    配置域名可以，如https://localhost:10086/。配置IP地址则不行，如https://127.0.0.1:10086/。
 
 Google Adsense
-	google有一个专门针对游戏的叫AdSense For Games，简称AFG，我们接的话是接这个。
+  google有一个专门针对游戏的叫AdSense For Games，简称AFG，我们接的话是接这个。
 
 
 

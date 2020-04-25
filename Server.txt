@@ -1,97 +1,97 @@
 Node.js
-	Two ways to do complex calculations without blocking the Event Loop
-		Partitioning, partition calculations so that each runs on the Event Loop but regularly yields other pending events.
-		Offloading, move the work off of the Event Loop onto a Worker Pool.
+  Two ways to do complex calculations without blocking the Event Loop
+    Partitioning, partition calculations so that each runs on the Event Loop but regularly yields other pending events.
+    Offloading, move the work off of the Event Loop onto a Worker Pool.
 
 
 
-	Blocking Node Event Loop:
-		REDOS, some RegExp patterns will be very slowly while the input string is big. For example, nested quantifiers like (a+)*, OR's with overlapping clauses like (a|a)*, backreferences like (a.*) \1.
-		Encryption, Compression, File system, Child process.
-		JSON.parse, JSON.stringify while the obj is big.
+  Blocking Node Event Loop:
+    REDOS, some RegExp patterns will be very slowly while the input string is big. For example, nested quantifiers like (a+)*, OR's with overlapping clauses like (a|a)*, backreferences like (a.*) \1.
+    Encryption, Compression, File system, Child process.
+    JSON.parse, JSON.stringify while the obj is big.
 
-	In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
+  In Node there are two types of threads: one Event Loop(aka the main loop, main thread, event thread, etc), and a pool of k Workers in a Worker Pool(aka the threadpool).
 
-	What code runs on the Event Loop?
-		The Event Loop executes the JavaScript callbacks registered for events, and is alse responsible for fulfilling non-blocking asynchronous requests like network I/O.
-	What code runs on the Worker Pool?
-		Node uses the Worker Pool to handle "expensive" tasks. This includes I/O for which an oprating system does not provide a non-blocking version, as well as particularly CPU-intensive tasks.
-		There are the Node module APIs that make use of this Worker Pool:
-			1.I/O-intensive
-				1.DNS:dns.lookup(), dns.lookupService().
-				2.File System: All file system API except fs.FSWatcher() and those that are explicitly sysnchronous use libuv's threadpool.
-			2.CPU-intensive
-				1.Crypto:crypto.pbkdf2(), crypto.scrypt(),crypto.randomBytes(),crypto.randomFill(),crypto.generateKeyPair().
-				2.Zlib:All zlib APIs except those that are explicitly synchronous use libuv's threadpool.
-	Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
-	Phases
-		timers; pending callbacks; idle, prepare; poll; check; close callbacks.
-		
-		timers: executes callbacks scheduled by setTimeout() and setInterval().
+  What code runs on the Event Loop?
+    The Event Loop executes the JavaScript callbacks registered for events, and is alse responsible for fulfilling non-blocking asynchronous requests like network I/O.
+  What code runs on the Worker Pool?
+    Node uses the Worker Pool to handle "expensive" tasks. This includes I/O for which an oprating system does not provide a non-blocking version, as well as particularly CPU-intensive tasks.
+    There are the Node module APIs that make use of this Worker Pool:
+      1.I/O-intensive
+        1.DNS:dns.lookup(), dns.lookupService().
+        2.File System: All file system API except fs.FSWatcher() and those that are explicitly sysnchronous use libuv's threadpool.
+      2.CPU-intensive
+        1.Crypto:crypto.pbkdf2(), crypto.scrypt(),crypto.randomBytes(),crypto.randomFill(),crypto.generateKeyPair().
+        2.Zlib:All zlib APIs except those that are explicitly synchronous use libuv's threadpool.
+  Initialize event loop, processes the provided input script, schedule timers, call process.nextTick(), then begins processing the event loop.
+  Phases
+    timers; pending callbacks; idle, prepare; poll; check; close callbacks.
+    
+    timers: executes callbacks scheduled by setTimeout() and setInterval().
 
-		pending callbacks: excutes I/O callbacks deferred to the next loop iteration.
+    pending callbacks: excutes I/O callbacks deferred to the next loop iteration.
 
-		idle, prepare: only used internally.
-		
-		poll: retrieve new I/O events; execute I/O related callbacks(almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when appropriate.
-		
-		check: setImmediate() callbacks are invoked here.
-		
-		close callbacks: some close callbacks, e.g. socket.on('close', ...).
-	timers
-		timer callbacks will excute after the threshold counted, but may be delayed by system scheduling, the running of other callbacks, etc.
-	pending callbacks
-		this phase executes callbacks for some system operations such as types of TCP errors.
-	poll
-		the poll phase has two main functions:
-			1.Calculating how long it should block and poll for I/O, then
-			2.Processing events in the poll queue.
-		When the event loop enters the poll phase and there are no timers scheduled, one of two things will happen:
-			If the poll queue is not empty, the event loop will iterate through its queue of callbacks executing them synchronously until either the queue has been exhausted, or the system-dependent hard limit is reached.
-			If the poll pueue is empty, one of two more things will happen:
-				If scripts has been scheduled by setImmediate(), the event loop will end the poll phase and continue to the check phase to execute those scheduled scripts.
-				If scripts have not been scheduled by setImmediate(), the event loop will wait for callbacks to be added to the queue, then execute them immediately.
-			Once the poll queue is empty the event loop will check for timers whose time thresholds have been reached.If one or more timers are ready, the event loop will warp back to the timers phase to execute those timers'callbacks.
-	check
-		This phase allows a person to execute callbacks immediately after the poll phase has completed.If the poll phase becomes idle and scripts have been queued with setImmediate(), the event loop may continue to the check phase rather than waiting.
-		setImmediate() is actually a special timer that runs in a separate phase of the eventloop.It uses a libuv API that schedules callbacks to execute after the poll phase has completed.	`
-	close callbacks
-		If a socket or handle is closed abruptly(e.g. socket.destory()),the 'close' event will be emitted in this phase.Otherwise it will be emitted via process.nextTick().
-	setImmediate() vs setTimeout()
-		setImmediate() is designed to execute a script once the current poll phase completes.
-		setTimeout() schedules a script to be run after a minimum threshold in ms has elapsed.
+    idle, prepare: only used internally.
+    
+    poll: retrieve new I/O events; execute I/O related callbacks(almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when appropriate.
+    
+    check: setImmediate() callbacks are invoked here.
+    
+    close callbacks: some close callbacks, e.g. socket.on('close', ...).
+  timers
+    timer callbacks will excute after the threshold counted, but may be delayed by system scheduling, the running of other callbacks, etc.
+  pending callbacks
+    this phase executes callbacks for some system operations such as types of TCP errors.
+  poll
+    the poll phase has two main functions:
+      1.Calculating how long it should block and poll for I/O, then
+      2.Processing events in the poll queue.
+    When the event loop enters the poll phase and there are no timers scheduled, one of two things will happen:
+      If the poll queue is not empty, the event loop will iterate through its queue of callbacks executing them synchronously until either the queue has been exhausted, or the system-dependent hard limit is reached.
+      If the poll pueue is empty, one of two more things will happen:
+        If scripts has been scheduled by setImmediate(), the event loop will end the poll phase and continue to the check phase to execute those scheduled scripts.
+        If scripts have not been scheduled by setImmediate(), the event loop will wait for callbacks to be added to the queue, then execute them immediately.
+      Once the poll queue is empty the event loop will check for timers whose time thresholds have been reached.If one or more timers are ready, the event loop will warp back to the timers phase to execute those timers'callbacks.
+  check
+    This phase allows a person to execute callbacks immediately after the poll phase has completed.If the poll phase becomes idle and scripts have been queued with setImmediate(), the event loop may continue to the check phase rather than waiting.
+    setImmediate() is actually a special timer that runs in a separate phase of the eventloop.It uses a libuv API that schedules callbacks to execute after the poll phase has completed. `
+  close callbacks
+    If a socket or handle is closed abruptly(e.g. socket.destory()),the 'close' event will be emitted in this phase.Otherwise it will be emitted via process.nextTick().
+  setImmediate() vs setTimeout()
+    setImmediate() is designed to execute a script once the current poll phase completes.
+    setTimeout() schedules a script to be run after a minimum threshold in ms has elapsed.
 
-		The order in which the timers are executed will vary depending on the context in which they are called. If both are called from within the main module, then timing will be bound by the performance of the process(which can be impacted by other applications running on the machine).
+    The order in which the timers are executed will vary depending on the context in which they are called. If both are called from within the main module, then timing will be bound by the performance of the process(which can be impacted by other applications running on the machine).
 
-		For example, if we run the the two functions which is not within an I/O cycle(i.e. the main module), the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process.However, if you move the two calls within an I/O cycle, the immediate callback is always executed first.
+    For example, if we run the the two functions which is not within an I/O cycle(i.e. the main module), the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process.However, if you move the two calls within an I/O cycle, the immediate callback is always executed first.
 
-		The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
-	process.nextTick() vs setImmediate()
-		process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().It is alse non-clearable.
+    The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
+  process.nextTick() vs setImmediate()
+    process.nextTick() fires immediately on the same phase.It fires more immediately than setImmediate().It is alse non-clearable.
 
-		setImmediate() fires on the following iteration or 'tick' of the event loop
+    setImmediate() fires on the following iteration or 'tick' of the event loop
 
 分布式
-	分布式事务
-		数据库本地事务
-			基础是ACID原则：A，原子性；C，一致性；I，隔离性；D，持久性。
-		分布式事务
-			基础是CAP原则：C，一致性；A，可用性；P，分区容错性。由于C、A、P三者不可共有，考虑到网络的问题，根据经验，一般只能选择CP或AP架构。
-			BASE是对AP的扩展。B，Basically Available；S，Soft state；E，Eventually consistent。
+  分布式事务
+    数据库本地事务
+      基础是ACID原则：A，原子性；C，一致性；I，隔离性；D，持久性。
+    分布式事务
+      基础是CAP原则：C，一致性；A，可用性；P，分区容错性。由于C、A、P三者不可共有，考虑到网络的问题，根据经验，一般只能选择CP或AP架构。
+      BASE是对AP的扩展。B，Basically Available；S，Soft state；E，Eventually consistent。
 
 跨进程
-	用redis或消息队列
+  用redis或消息队列
 
 Session
-	?
+  ?
 
 
 nvm
-	nvm ls
-		查看所有的node版本
-	nvm use <v>
-		使用v版本的node
-	nvm install <v>
-		安装某版本
-	nvm uninstall <v>
-		卸载某版本
+  nvm ls
+    查看所有的node版本
+  nvm use <v>
+    使用v版本的node
+  nvm install <v>
+    安装某版本
+  nvm uninstall <v>
+    卸载某版本
