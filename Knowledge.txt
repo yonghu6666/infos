@@ -362,9 +362,17 @@ Git
     $ echo "path2/" >> .git/info/sparse-checkout
     $ git pull origin master
 
-keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
+密钥
+  keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
-keytool -exportcert -alias my-key-alias -keystore D:\workspace\Web\hellcase\ShellApp\BDYXGames\android\app\my-release-key.keystore | openssl sha1 -binary | openssl base64
+  keytool -exportcert -alias my-key-alias -keystore D:\workspace\Web\hellcase\ShellApp\BDYXGames\android\app\my-release-key.keystore | openssl sha1 -binary | openssl base64
+
+  生成密钥
+    keytool -genkeypair -alias key0 -keystore googleplay-farilemania.keystore -validity 10950
+  将密钥文件迁移为行业标准格式PKCS12
+    keytool -importkeystore -srckeystore googleplay-farilemania.keystore -destkeystore PKCS12-googleplay-farilemania.keystore -deststoretype pkcs12
+  生成证书
+    keytool -exportcert -keystore googleplay-farilemania.keystore -file googleplay-farilemania.cer -alias key0
 
 WebSocket
   ReadyState：
