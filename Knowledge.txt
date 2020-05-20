@@ -393,6 +393,12 @@ WebSocket
     关于一个被封锁的网站为什么无法载入，您可能会得到一个不明确或误导的解释。
 
 Unity
+  coroutine
+    The rules are:
+    - if you yield a YieldInstruction - like WaitForSeconds or a custom one - the coroutine waits until that returns false for
+    keepWaiting
+    - if you yield an IEnumerator or a StartCoroutine, you start that coroutine, and your current coroutine waits until the inner coroutine is done.
+    - if you yield anything else, you wait a single frame.
   paths(1.WinEditor;2.Android;3.IOS)
     Application.dataPath
       1./Assets(D:/workspace/Unity/BaseXlua/Code/Assets)
