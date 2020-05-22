@@ -29,10 +29,22 @@ WORK
     2.2 打开app，卡住界面，显示0%
     2.3 webserver更新图片后，app加载时，获取到的仍是更新前的图片，而不是更新的图片
 -------------------------------------
+2020/05/21 08:46:10
+Unity APP的开发工作暂停了，改为与海尖对接Web Lobby的新增功能。这可能会导致Unity APP的完成时间延迟。
 今日工作
-  1.
+  1.修改WebLobby的用户登录接口代码。
+  2.完成WebLobby的平台服务器的消息推包业务。
+    推送消息：AC、Kick、HD、GD。
 
 
+-------------------------------------
+今日工作
+  1.完成部分单个游戏展示页面的编码
+  2.打包发现手机上不能正常运行protobuf-net的问题
+  3.与海尖对接web lobby
+
+Microsoft.CSharp.dll路径
+D:\Develop\Unity\2018.4.21f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Microsoft.CSharp.dll
 -------------------------------------
 今日工作
   1.完成多游戏大厅合集页面
