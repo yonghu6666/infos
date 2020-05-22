@@ -1,0 +1,215 @@
+adb 
+  adb -s yourdeviceId install yourapp
+  adb -s yourdeviceId uninstall yourappId
+
+react native
+  npm cache clean --force
+  react-native start
+    启动调试服务器
+
+  react-native run-android
+    react-native run-android --deviceId yourdeviceId
+    adb reverse tcp:8081 tcp:8081
+      adb -s 8fdb0742 reverse tcp:8081 tcp:8081
+      adb -s emulator-5554 reverse tcp:8081 tcp:8081
+  release版本
+    cd android
+    gradlew clean
+    gradlew assembleRelease
+  navigation
+    this.props.navigation.navigate('GamePane', {
+                  webType: 1, 
+                  webURL: this.appRuleURL,
+              });
+    this.props.navigation.state.params.webType;
+    
+    react-native run-android --deviceId 8fdb0742
+    react-native run-android --deviceId emulator-5554
+  添加包
+    1) react-native-fs  
+      npm install react-native-fs --save
+    2) native-base
+      npm install native-base --save
+    3) react-navigation
+      npm install react-navigation --save
+    4) 拷贝
+      拷贝文件夹./node_modules/native-base/src/theme到./app/plugins下，并改名为native-base_theme
+    5) react-native-i18n
+      npm install react-native-i18n --save
+      react-native link react-native-i18n
+    5) react-native-fbsdk
+      npm install react-naitve-fbsdk --save
+      react-native link react-naitve-fbsdk
+    6) react-native-fbads
+      npm install react-naitve-fbads --save
+      react-native link react-naitve-fbads
+    7) react-native-swiper
+      npm install react-native-swiper --save
+    8) react-native-root-toast
+      npm install react-native-root-toast --save
+
+    npm uninstall react-native-whc-toast --save
+    
+    
+    npm install xxx --save
+    react-native link xxx
+    react-native unlink xxx
+    npm uninstall --save xxx
+    
+  FB等第三方登录，需要获取的信息
+    userID(134116137729302)、lastRefreshtime、expirationTime、accessToken、userImgURL
+    
+    获取头像
+      https://graph.facebook.com/134116137729302/picture
+      https://graph.facebook.com/134116137729302/picture?type=large
+    获取name
+      https://graph.facebook.com/me?access_token=
+      https://graph.facebook.com/me?fields=email,name,friends&access_token=
+  project problems
+    1)React-Native Error: Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
+      open node_modules\react-native\scripts\launchPackager.bat
+      // delete this line
+      node "%~dp0..\cli.js" start 
+      Add this line
+      node "%~dp0..\cli.js" start --projectRoot ../../../
+    
+    2)thinkjs memory leak
+    (node:68000) 
+    
+      this.setMaxListeners(30);
+    D:\workspace\Web\hellcase\CmsWing\node_modules\think-websocket-ws\index.js L82
+  icon 不显示图标
+    close running packager
+    run react-native link react-native-vector-icons
+    run react-native start --reset-cache
+    Finally use react-native run-android
+
+  生成release包的方法
+    进入项目根目录下的android目录，执行命令：
+      react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/android/index.android.bundle --assets-dest ./bundles/android
+  Unable to resolve module `./index` from `\node_modules\react-native\scripts/.`
+    Update node_modules\react-native\scripts\launchPackager.bat file.
+      @echo off
+      title Metro Bundler
+      call .packager.bat
+
+      :: delete this line
+      node "%~dp0..\cli.js" start 
+
+      :: Add this line
+      node "%~dp0..\cli.js" start --projectRoot ../../../ 
+
+      pause
+      exit
+    We are giving project root path to Metro instance here
+
+  react-native-vector-icons自定义图标
+    9.1 把iconfont.css放入\react-native-vector-icons\Fonts
+    9.2 react-native-vector-icons\glyphmaps中加入iconfont.json
+    9.3 \react-native-vector-icons中加入iconfont.js
+    9.4 在需要使用的地方，添加代码:
+      import MyIcons from 'react-native-vector-icons/iconfont';
+      ...
+      <MyIcons name='duihuan' size={26} color='#cccccc'/> 
+  Questions
+    1.ReferenceError: ReferenceError: React is not defined
+      使用Component组件时，需要同时引入React组件
+      import React, { Component } from "react";
+  使用props做数据流动时，可以把当前组件的state传递下去。这样，当前组件的state变化后，子组件也可以获取变化后的state数据。
+    Question：
+      在子组件的render中获取其自身的state后，如果父组件的state变化，会重新渲染子组件吗
+  RN 缺点
+    1.布局
+      RN的css语法，是CSS标准语法的一个子集。
+    2.限制
+      不支持Android九点切图。
+V8
+  GC主要做三件事：
+    1.区分活着的、死亡的对象；
+    2.重新利用死亡对象占用的内存；
+    3.压紧、去分片内存。
+
+浏览器
+  内核
+    渲染引擎
+      Blink
+        Google Chrome，Edge，Opera
+      Webkit
+        Safari
+      Gecko
+        Firefox
+      Trident
+        IE，360，搜狗等
+    JS引擎
+      V8
+        Chrome
+      Nitro?JavaScriptCore
+        Safari
+      TraceMonkey
+        Firefox
+      Chakra
+        Edge
+  Tasks and Microtasks
+    Tasks execute in order, and the browser may render between them.
+    Microtasks execute in order, and are executed:
+      1.after every callback, as long as no other JavaScript is mid_execution.
+      2.at the end of each task.
+this in JS
+
+
+nunjucks
+  {##}，会注释其中包含的nunjucks代码和h5代码
+  <!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
+
+h5
+  游戏全屏按钮
+  Laya框架是支持全屏功能的，但是存在一些限制，如不支持Firefox浏览器的全屏功能。所以考虑用原生H5来实现。
+  思路比较简单：在游戏UI的上层，添加按钮。按钮添加事件，实现全屏、退出全屏功能。
+  遇到的问题：
+    添加按钮之后，向下拖动按钮时，会触发浏览器的下拉刷新事件。解决办法：在按钮的样式里添加
+    overscroll-behavior: none;，并在拖动事件里添加evt.preventDefault();，阻止事件在冒泡阶段向外传递。
+JQuery
+  jquery
+  $(#id)，#取的是id
+  $(.class)，.取的是class
+  $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
+
+CSS
+  引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
+  选择器
+    ' ' 后代选择器，所包含的所有层级的元素，都会被选择
+    '>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
+    '~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
+    '+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
+  position
+    absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
+    fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
+    relative 生成相对的元素，相对于其正常位置进行定位。
+postMessage
+  它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
+  otherWindow.postMessage(message, tarOrigin, [transfer])
+    otherWindow，其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames。
+    message，将要发送到其他window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
+    targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
+    transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
+CORS
+  跨域资源共享
+  该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
+  跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
+    1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
+    2.Web字体(CSS中通过@font-face使用跨域字体资源)，因此网站就可以发布TrueType字体资源，并只允许已授权网站进行跨站调用。
+    3.WebGL贴图。
+    4.使用drawImage将Image/video画面绘制到Canvas。
+  跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
+跨域请求方案
+  协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
+  JSONP
+    DOM元素的src属性，能够绕过同源策略。这类元素包括：img、link、script、iframe等。JSONP就是使用script元素实现的。
+    实现流程：web端声明一个回调函数，创建一个script元素，将回调函数的名称作为url的参数，赋值给script元素的src属性。服务端收到请求后，把收到的函数名和客户端需要的数据拼接成一个字符串，通过http协议传递给web端。
+  CORS
+    仅仅依靠web端，是不能实现CORS的。它需要服务端设置Access-Control-Allow-Origin，改参数表示哪些域名可以访问当前服务器的资源。
+  postMessage
+    
+  nginx
+    反向代理
+  websocket
