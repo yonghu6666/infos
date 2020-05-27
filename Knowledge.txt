@@ -351,8 +351,6 @@ Git
   windows文件与unix格式文件互转
     dos2unix
     unix2dos 
-  长期保持密码
-    git config --global credential.helper store
   仅克隆指定分支的指定文件夹
     $ git init <project>
     $ cd <project>

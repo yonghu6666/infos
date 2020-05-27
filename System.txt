@@ -15,8 +15,8 @@ linux
     $：到行尾
   netstat
     根据进程名查端口号
-    netstat -tunlp |grep PID
-    netstat -nap |grep PID
+    netstat -tunlp |grep port
+    netstat -nap |grep port
   统计行数
     wc -l
   
@@ -73,5 +73,5 @@ windows
     netstat -ano|findstr "8080"
 
 RN中注冊一個方法后，在NativeModules調用多次報錯：
-DeviceEventEmiter 
-  Illegal callback invocation from native module. This callback type only permits a single invocation from native code.
+  DeviceEventEmiter 
+    Illegal callback invocation from native module. This callback type only permits a single invocation from native code.
