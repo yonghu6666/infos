@@ -1,5 +1,6 @@
 
 react native
+
 	npm cache clean --force
 	react-native start
 		启动调试服务器
@@ -82,6 +83,9 @@ react native
 		run react-native link react-native-vector-icons
 		run react-native start --reset-cache
 		Finally use react-native run-android
+		3)注冊一個方法后，在NativeModules調用多次報錯：
+		  DeviceEventEmiter 
+		    Illegal callback invocation from native module. This callback type only permits a single invocation from native code.
 
 	生成release包的方法
 		进入项目根目录下的android目录，执行命令：
