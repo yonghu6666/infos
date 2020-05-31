@@ -2062,3 +2062,5 @@ Unity for lobby
       b.打包成Android App Bundle，但大小不超过150M。
         Android App Bundle是优化的APK，其中仅包含运行应用所需的代码和资源。
     详细内容见：https://developer.android.com/google/play/expansion-files
+
+google adsense
