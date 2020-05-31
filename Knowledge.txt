@@ -359,6 +359,9 @@ Git
     $ echo "path1/" >> .git/info/sparse-checkout
     $ echo "path2/" >> .git/info/sparse-checkout
     $ git pull origin master
+  avoid enter passphrase everytime on window：
+    1.eval `ssh-agent -s`
+    2.ssh-add ~/.ssh/*_rsa
 
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
