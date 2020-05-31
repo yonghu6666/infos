@@ -362,6 +362,7 @@ Git
   avoid enter passphrase everytime on window：
     1.eval `ssh-agent -s`
     2.ssh-add ~/.ssh/*_rsa
+    only valid on current git bash window
 
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
