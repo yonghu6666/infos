@@ -258,7 +258,7 @@ Git
       添加被修改的文件，新文件和被删除的文件。git add -all的缩写
   git branch
     git branch <branchname>
-      没有branchname，为查看分支；否则为创建新的分支
+      有branchname，为查看分支；否则为创建新的分支
     git push origin [branchname]:[branchname]
       将新创建的分支branchname提交到远程
     git branch -a
@@ -267,6 +267,10 @@ Git
       查看远程分支
     git branch -d <branchName>
       删除本地分支
+    git branch -vv 
+      查看本地分支与远端分支的关联关系
+    git branch --set-upstream-to=origin/<YOUR_Branch>
+      将本地分支关联到远端分支
   git checkout 
     git checkout <branch>
       切换到branch分支
