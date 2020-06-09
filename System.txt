@@ -35,6 +35,8 @@ linux
     ge：移动光标到上一个单词的词尾
     ^：到行首
     $：到行尾
+    dw：删除光标之后的单词剩余部分
+    d$：删除光标之后的该行剩余部分
   netstat
     根据进程名查端口号
     netstat -tunlp |grep port
@@ -67,9 +69,7 @@ linux
 
     iptables -L -n -v
 
-  service iptables start
-  dw：删除光标之后的单词剩余部分
-  d$：删除光标之后的该行剩余部分
+    service iptables start
 
   主机使用情况
     top  -p PID
