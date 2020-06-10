@@ -93,4 +93,5 @@ windows
       -p -parent 需要时生成父目录，如：mkdir -p bundles/android/bundles
   netstat
     netstat -ano|findstr "8080"
-
+  hosts
+    C:\Windows\System32\drivers\etc\hosts
