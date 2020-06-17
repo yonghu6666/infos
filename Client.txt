@@ -1,3 +1,117 @@
+js this(?)
+
+js 闭包
+  函数对其周围状态（lexical environment，词法环境）的引用捆绑在一起构成闭包(closure)。也就是说，闭包可以让你从内部函数访问外部函数作用域。在JavaScript中，每当函数被创建，就会在函数生成时生成闭包。
+  词法作用域
+  
+  闭包
+    闭包是由函数以及声明该函数的词法环境组合而成的。该环境包含了这个闭包创建时作用域内的任何局部变量。
+js 函数
+  函数声明（函数语句）
+    function name([param[, param[, ... param]]]) {statements}
+    一个函数最多有255个参数
+  函数表达式(function expression)
+    var myFunction = function name([param[, param[, ... param]]]) {statements}
+    name
+      函数名，可以省略，当省略函数名时，该函数就成为了匿名函数。
+    函数表达式不会提升，所以不能再定义之前调用。一个函数最多有255个参数。
+    当函数只使用一次时，通常使用IIFE(Immediately Invokable Function Expressions)，即立即执行函数。IIFE是在函数声明后立即调用的函数表达式。
+  函数生成器声明（function*语句）(?)
+    function* name([param[, param[, ...param]]]) {statements}
+    函数声明的特殊语法
+  函数生成器表达式（function*表达式）(?)
+    function* [name]([param] [, param] [..., param]) {statements}
+    构造函数表达式和函数声明类似，并且有着相同的语法
+  箭头函数表达式(=>)
+    ([param][,param]) => {statements}
+    param => expression
+    param
+      参数名称。零参数需要用()表示，只有一个参数时不需要括号（如foo => 1）。
+    statements or expression
+      多个声明statements需要用大括号括起来，而单个表达式则不需要。表达式expression也是该函数的隐式返回值。
+  Function构造函数
+    new Function (arg1, arg2, ... argN, functionBody)
+    arg1, arg2, ... argN
+      函数使用零个或多个名称作为正式的函数名称。每一个必须是一个符合有效的JavaScript标志符规则的字符串，或用逗号分隔的字符串列表，如"x", "the Value"或"a, b"。
+    functionBody
+      一个构成函数定义的，包含JavaScript声明语句的字符串。
+    如new Function('x', 'y', 'return x * y');
+    不推荐使用Function构造函数创建函数，因为它需要的函数体作为字符串可能会阻止一些JS引擎优化，也会引起其他问题。(?)
+  生成器函数的构造函数
+    new GeneratorFunction (arg1, arg2, ... argN, functionBody)
+    不推荐使用构造器函数的构造函数创建函数，因为它需要的函数体作为字符串可能会阻止一些JS引擎优化，也会引起其他问题。(?)
+
+  函数名不能被改变，但函数的变量却能够被再分配。函数名只能在函数体内使用。倘若在函数体外使用函数名，将会导致错误（如果函数之前是通过一个var语句声明的则是undefined）。
+  可以使用typeof操作符检测一个函数是否存在。
+
+浏览器 iframe内存回收
+  回收方法：
+    清理iframe
+    PC
+      chrome
+        需要清理父窗口中，引用了iframe内部的引用数据类型的变量
+        不需要清理iframe内部创建的引用数据类型的变量
+        不需要清理iframe内部对闭包中暴露出的函数的引用
+        不需要清理iframe内部引用的父窗口的变量
+      firefox
+        需要清理父窗口中，引用了iframe内部的引用数据类型的变量
+        需要清理内部创建的引用数据类型的变量
+        需要清理对闭包中暴露出的函数的引用
+        不需要清理iframe内部引用的父窗口的变量
+      Opera
+        需要清理父窗口中，引用了iframe内部的引用数据类型的变量
+        不需要清理iframe内部创建的引用数据类型的变量
+        不需要清理iframe内部对闭包中暴露出的函数的引用
+        不需要清理iframe内部引用的父窗口的变量
+
+      Safari
+        暂未整理
+  Mobile
+    使用erada-memory进行测试，发现修改js中变量的大小时，显示内存均为10M，不可用
+    先在PC端解决iframe内存释放问题，然后再在手机端查看，是否存在相应的问题。
+    以下以打开、关闭20次iframe操作为样本，查看手机内存变化
+    chrome
+      根据样本操作之后的内存表现，规则同其PC浏览器
+    firefox
+      eruda-memory不支持该浏览器
+    opera
+      根据样本操作之后的内存表现，规则同其PC浏览器
+    Huawei
+
+    Xiaomi
+      根据样本操作之后的内存表现，规则同其PC浏览器
+    Safari on iOS
+
+    AndroidWebView
+
+    WKWebview
+
+浏览器 内核
+  渲染引擎
+    Blink
+      Google Chrome，Edge，Opera
+    Webkit
+      Safari
+    Gecko
+      Firefox
+    Trident
+      IE，360，搜狗等
+  JS引擎
+    V8
+      Chrome
+    Nitro?JavaScriptCore
+      Safari
+    TraceMonkey
+      Firefox
+    Chakra
+      Edge
+浏览器 Tasks and Microtasks
+  Tasks execute in order, and the browser may render between them.
+  Microtasks execute in order, and are executed:
+    1.after every callback, as long as no other JavaScript is mid_execution.
+    2.at the end of each task.
+
+
 adb 
   adb -s yourdeviceId install yourapp
   adb -s yourdeviceId uninstall yourappId
@@ -129,34 +243,6 @@ V8
     2.重新利用死亡对象占用的内存；
     3.压紧、去分片内存。
 
-浏览器
-  内核
-    渲染引擎
-      Blink
-        Google Chrome，Edge，Opera
-      Webkit
-        Safari
-      Gecko
-        Firefox
-      Trident
-        IE，360，搜狗等
-    JS引擎
-      V8
-        Chrome
-      Nitro?JavaScriptCore
-        Safari
-      TraceMonkey
-        Firefox
-      Chakra
-        Edge
-  Tasks and Microtasks
-    Tasks execute in order, and the browser may render between them.
-    Microtasks execute in order, and are executed:
-      1.after every callback, as long as no other JavaScript is mid_execution.
-      2.at the end of each task.
-this in JS
-
-
 nunjucks
   {##}，会注释其中包含的nunjucks代码和h5代码
   <!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
@@ -201,6 +287,7 @@ CORS
     3.WebGL贴图。
     4.使用drawImage将Image/video画面绘制到Canvas。
   跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
+
 跨域请求方案
   协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
   JSONP
