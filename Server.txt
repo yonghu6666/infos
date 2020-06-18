@@ -1,4 +1,6 @@
 Node.js
+  jsdom
+    js的html解析器
   Two ways to do complex calculations without blocking the Event Loop
     Partitioning, partition calculations so that each runs on the Event Loop but regularly yields other pending events.
     Offloading, move the work off of the Event Loop onto a Worker Pool.

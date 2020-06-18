@@ -209,44 +209,6 @@ Code Practice
     Bussiness
       业务类，通过DataManager操作Data类
 
-pomelo框架
-  1.h5游戏打包成微信小游戏
-  main.js
-  config.js
-  msgHandler.js
-
-  LeaderBroad.js
-  communicate
-
-  升级fairygui，更新fairy.main.js。fairygui编辑器的全局设置时，取消压缩描述文件勾选，选中使用二进制格式的勾选。
-
-  动效处理
-    trans = obj.getTransition("moveIn");
-    for (var m = 0, lenM = trans._items.length; m < lenM; m ++) {
-      item = trans._items[m];
-      // item.endValue.f1 = point.x;
-      // item.endValue.f2 = point.y;
-      item.value.f1 = point.x;
-      item.value.f2 = point.y;
-    }
-
-  fairygui.GearBase
-
-  1.环境
-    laya2.0.2
-    fairygui 3.10.7
-  2.库文件
-    laya相关的库文件，使用2.0版本的
-    fairygui.min.js，使用最新版本
-    pomelo框架中自带的build.js，需要屏蔽jQuery部分的功能
-  3.流程
-    入口文件是game.js，且加载js文件存在顺序。所以引入的时候，需要按照执行顺序进行引入。
-    修改main.js、config.js、msgHandler.js，以微信小游戏支持的方式导出（module.exports）
-    其余的js文件：1.全局变量不能使用var修饰；2.非全局变量，以微信小游戏支持的方式导出
-  4.不支持的功能
-    不支持BOM、DOM操作
-  fairygui的部分功能不支持，目前已知的有：fairygui.GearBase功能、通过代码控制动效的位移功能、长列表功能
-
 Svn 
   checkout不包括源文件根目录
     svn co svn://gitee.com/jing_wei/chess/Baccarat/game/.
