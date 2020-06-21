@@ -237,7 +237,9 @@ Git
       删除本地分支
     git branch -vv 
       查看本地分支与远端分支的关联关系
-    git branch --set-upstream-to=origin/<YOUR_Branch>
+    git branch --set-upstream-to=origin/<YOUR_BRANCH>
+    (git branch --set-upstream-to origin/<YOUR_BRANCH>
+    git branch -u origin/<YOUR_BRANCH>)
       将本地分支关联到远端分支
   git checkout 
     git checkout <branch>
@@ -276,6 +278,7 @@ Git
     git log -n filename
       显示最近的n条记录
   git pull 
+    git pull <remote> <branch>
     git pull origin master --allow-unrelated-histories
       refusing to merge unrelated histories
   git remote -v
