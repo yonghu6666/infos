@@ -3,7 +3,7 @@ Read Twice
   C21 timeout and retransmition of TCP
 
 
-_|20.06.25_1_P263|20.06.23_0_P260|20.06.22_2_P256
+_|20.06.28_0_P264|20.06.25_1_P263|20.06.23_0_P260|20.06.22_2_P256
 _|20.06.21_0_P254|20.06.19_0_P252|20.06.17_0_P250
 _|20.06.11_1_P248|20.06.10_0_P246|20.06.08_2_P243
 _|20.06.05_0_P240|20.06.04_1_P236|20.06.03_1_P232|20.06.01_1_P229
@@ -35,6 +35,8 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
 
 【27】.TCP的未来和性能
   路径MTU发现
+  TCP的时间戳选项的PAWS(Protection Against Wrapped Sequence numbers)算法
+    保护回绕的序号
 
 【26】.TCP的保活定时器
 	保活不是TCP规范中的一部分。Host Requirements RFC提供了3个不使用保活定时器的理由：
