@@ -1,19 +1,22 @@
-作为请求方的第一个应答的ACK报文，当接收方的可用缓存区大小大于0，且小于接收方缓存区大小的一半时，其win大小，有时为接收方可用缓存区的大小；而有时又为0？（例子可见图22-3中报文段13、15）
+net protocal
+  作为请求方的第一个应答的ACK报文，当接收方的可用缓存区大小大于0，且小于接收方缓存区大小的一半时，其win大小，有时为接收方可用缓存区的大小；而有时又为0？（例子可见图22-3中报文段13、15）
+
+  IP网际协议中，在没有发生错误的情况下，接收方计算的数据包首部检验和的结果，为什么是全1？
+
+  带宽时延乘积与窗口大小的计算关联
+
+  校验和的计算方法：16bit字的二进制反码。
+
+  TCP RTO计算
+
 
 WebAssembly
 
 Fluter
 
-TCP RTO计算
-
-usage: git log directory
-带宽时延乘积与窗口大小的计算关联
-
 内存数据的连续读写
 
 深层神经网络
-
-校验和的计算方法：16bit字的二进制反码。
 
 C#接口中定义参数和返回值都为泛型的方法
 
@@ -22,12 +25,8 @@ C#接口中定义参数和返回值都为泛型的方法
 快速选择
   https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9
 
-ET框架，TestComponent的命名空间为ETHotfix时，其System类为什么不生效？
-
 前端webp支持方案？
   WKWebView、Safari浏览器、某些类型的浏览器不支持webp格式，如何实现这些浏览器对webp的支持？
-
-IP网际协议中，在没有发生错误的情况下，接收方计算的数据包首部检验和的结果，为什么是全1？
 
 ioc容器的实现原理及源码
 
@@ -277,6 +276,10 @@ Git
       显示所有记录
     git log -n filename
       显示最近的n条记录
+    git log -- <subdict>
+      显示根目录下的某个子路径的提交记录
+    git log -n -- <subdict>
+      显示根目录下的某个子路径的最近n条提交记录
   git pull 
     git pull <remote> <branch>
     git pull origin master --allow-unrelated-histories
@@ -317,10 +320,6 @@ Git
       取消忽略的某个文件
   检查与git的连接
     ssh -v git@github.com
-  git设置下载的文件自动转换CRLF
-    git config --global core.autocrlf false
-  git检查换行符
-    git config --global core.safecrlf true
   windows文件与unix格式文件互转
     dos2unix
     unix2dos 
