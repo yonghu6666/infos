@@ -3,6 +3,7 @@ Read Twice
   C21 timeout and retransmition of TCP
 
 
+_|20.07.09_2_P271|20.07.06_1_P268
 _|20.06.29_0_P265
 _|20.06.28_0_P264|20.06.25_1_P263|20.06.23_0_P260|20.06.22_2_P256
 _|20.06.21_0_P254|20.06.19_0_P252|20.06.17_0_P250
@@ -38,6 +39,17 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
   路径MTU发现
   TCP的时间戳选项的PAWS(Protection Against Wrapped Sequence numbers)算法
     保护回绕的序号
+  窗口扩大选项
+    窗口扩大选项使TCP的窗口定义从16bit增加到32bit。
+    这个选项只能够出现在一个SYN报文段中，因此当连接建立起来后，在每个方向的扩大因子是固定的。
+  时间戳选项
+    接收方更新时间戳算法：1)TCP跟踪下一个ACK中将要发送的时间戳的值（一个名为tsrecent的变量），以及最后发送的ACK中的确认序号（一个名为lastack的变量）。这个序号就是接收方期望的序号；2)当一个包含有字节号lastack的报文段到达时，则该报文段中的时间戳被保存在tsrecent中；3)无论何时发送一个时间戳选项，tsrecent就作为时间戳回显应答字段被发送，而序号字段被保存在lastack中。
+  PAWS
+    防止回绕的序号
+    接收方将时间戳视为序列号的一个32bit的扩展。PAWS算法不需要在发送方和接收方之间进行任何形式的时间同步。接收方所需要的就是时间戳的值应该单调递增，并且每个窗口至少增加1。
+  T/TCP
+    为事务用的TCP扩展
+    SPT，Server Processing Time，服务器处理请求的时间
 
 【26】.TCP的保活定时器
 	保活不是TCP规范中的一部分。Host Requirements RFC提供了3个不使用保活定时器的理由：
@@ -78,7 +90,7 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
     RTT估计器：R = αR + (1 - α)M
     α是一个推荐值为0.9的平滑因子，M为刚得到的RTT。
   重传超时时间(Retransmission Timeout, RTO)
-    RTO：RTO = Rβ
+    RTO = Rβ
     β是一个推荐值为2的时延离散因子。
     在往返时间变化起伏很大时，基于均值和方差来计算RTO，将比用均值的常数倍数来计算RTO，能提供更好的响应。
   根据每个RTT测量M的公式

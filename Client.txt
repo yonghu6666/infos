@@ -1,3 +1,6 @@
+HTML
+  标签
+
 小程序 运行环境
   在 iOS 上，小程序逻辑层的 javascript 代码运行在 JavaScriptCore 中，视图层是由 WKWebView 来渲染的，环境有 iOS8、iOS9、iOS10；
   在 Android 上，
