@@ -125,6 +125,16 @@ adb
   adb -s yourdeviceId install yourapp
   adb -s yourdeviceId uninstall yourappId
 
+react
+  ant design pro数据流转：
+    View层dispatch操作action –> 
+    触发models层effect中相应方法 –> 
+    触发call发起services层请求，获取接口数据 –> 
+    触发put发起reducer处理相应的action更新数据 –> 
+    更新model层中state –> 
+    触发view层的render方法进行重新渲染 –> 
+    页面更新
+
 react native
   npm cache clean --force
   react-native start

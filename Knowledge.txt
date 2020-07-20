@@ -33,46 +33,6 @@ ioc容器的实现原理及源码
 随机数的周期性
     随机函数生成的数，是否存在周期性
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Unity
-  6.Canvas Scaler
-    UI Scale Mode
-      Constant Pixel Size：UI元素的位置和大小会被指定为屏幕上的像素。
-      Scale With Screen Size：UI元素的位置和大小，被指定为Reference Resolution分辨率下的像素值。
-      Constant Physical Size：UI元素的位置和大小，会被指定为物理单元，例如毫米。
-      480 / (640 / 480) = n
-      480 / n = 640 / 480
-  5.anchors
-    anchored to the center of the parent rectangle. keep a constant offset from the center.
-  4.Transparent Queue
-    渲染顺序
-      4.1.SortingLayer and Order in Layer
-      4.2.Specify Render Queue
-        在Material或Shader中设置Render Queue。
-      4.3.Distance to Camera
-        Perspective，透视模式。按照Renderer到摄像机位置的距离进行渲染。
-        Orthographic，正交模式。
-      4.4.Sorting Group
-      4.5.Material/Shader
-      4.6.A Tiebreaker occurs when multiple Renderers have the same sorting priorities.
-
-  3.Order in Layer
-    控制相同SortingLayer的对象的渲染顺序。
-
-  2.SortingLayer
-    控制对象的渲染顺序。
-    通过Render Queue指定Renderers的渲染顺序。主要有Opaque quene和Transparent queue。2D Renderers主要使用Transparent queue。
-      
-  1.Layer
-    常用于摄像机渲染，灯光照射，射线检测，碰撞检测。
-      摄像机渲染，在Camera组件的CullingMask中勾选的部分，才会被渲染。MainCamera对象中，即使不勾选UI层，UI层也会被渲染。
-    灯光照射?
-
-    射线检测
-      在Physics.Raycast()中传入检测的层即可。
-    碰撞检测
-      在Project Setting->Physics中设置各个层之间的碰撞检测。
-vultr
-
 命名规范
   1.js
     项目名
@@ -127,6 +87,7 @@ Data Structure and Algrithm
 Big Endian
   数据传输时，先传输高字节，再传输低字节，这种传输次序称为big endian。又称为网络字节序。
 浮点数的误差问题
+  Decimal(?)
   1.某些小数，用二进制表示，本身就是无限循环小数。
     例如十进制0.2，换算成二进制是0.0011 0011 ...(0011无限循环)
     在计算机中，无论是32bit存储，还是64bit存储，或者是定点、浮点表示，都存在一定的舍入误差。这跟是不是浮点数没有直接关联。
@@ -367,6 +328,43 @@ WebSocket
     关于一个被封锁的网站为什么无法载入，您可能会得到一个不明确或误导的解释。
 
 Unity
+  Transparent Queue
+    渲染顺序
+      SortingLayer and Order in Layer
+      Specify Render Queue
+        在Material或Shader中设置Render Queue。
+      Distance to Camera
+        Perspective，透视模式。按照Renderer到摄像机位置的距离进行渲染。
+        Orthographic，正交模式。
+      Sorting Group
+      Material/Shader
+      A Tiebreaker occurs when multiple Renderers have the same sorting priorities.
+  Canvas Scaler
+    UI Scale Mode
+      Constant Pixel Size：UI元素的位置和大小会被指定为屏幕上的像素。
+      Scale With Screen Size：UI元素的位置和大小，被指定为Reference Resolution分辨率下的像素值。
+      Constant Physical Size：UI元素的位置和大小，会被指定为物理单元，例如毫米。
+      480 / (640 / 480) = n
+      480 / n = 640 / 480
+  anchors
+    anchored to the center of the parent rectangle. keep a constant offset from the center.
+
+  Order in Layer
+    控制相同SortingLayer的对象的渲染顺序。
+
+  SortingLayer
+    控制对象的渲染顺序。
+    通过Render Queue指定Renderers的渲染顺序。主要有Opaque quene和Transparent queue。2D Renderers主要使用Transparent queue。
+      
+  Layer
+    常用于摄像机渲染，灯光照射，射线检测，碰撞检测。
+      摄像机渲染，在Camera组件的CullingMask中勾选的部分，才会被渲染。MainCamera对象中，即使不勾选UI层，UI层也会被渲染。
+    灯光照射?
+
+    射线检测
+      在Physics.Raycast()中传入检测的层即可。
+    碰撞检测
+      在Project Setting->Physics中设置各个层之间的碰撞检测。
   coroutine
     The rules are:
     - if you yield a YieldInstruction - like WaitForSeconds or a custom one - the coroutine waits until that returns false for
