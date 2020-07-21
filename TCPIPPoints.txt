@@ -2,7 +2,8 @@ Read Twice
   C18 connection and termination of TCP
   C21 timeout and retransmition of TCP
 
-_|20.07.19_0_P274P274|20.07.15_0_P273
+_|20.07.21_0_P278
+_|20.07.19_0_P274|20.07.15_0_P273
 _|20.07.09_2_P271|20.07.06_1_P268
 _|20.06.29_0_P265
 _|20.06.28_0_P264|20.06.25_1_P263|20.06.23_0_P260|20.06.22_2_P256
@@ -36,7 +37,17 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
 
 
 【28】.简单网络管理协议
-  
+  SNMP
+  SNMP协议分为三部分：公共SNMP首部，get/set首部，get/set变量部分。
+  公共SNMP首部：版本（0）；共同体；PDU类型（0-3）。get/set首部：请求标识；差错状态（0-5）；差错索引。get/set变量部分：名称；值；名称；值...。
+  PDU
+    协议数据单元，也就是分组。
+    PDU类型：0，get-request；1，get-next-request；2，get-response；3，set-request；4，trap。
+    PDU的值为4时，除了SNMP首部的协议内容，分为trap首部、有意义的变量。trap首部：企业；代理地址；trap类型（0-6）；特定代码；时间戳。有意义的变量：名称；值；名称；值...。
+    差错状态说明：0，noError，没有错误；1，tooBig，代理进程无法把响应放在一个SNMP消息中发送；2，noSuchName，操作一个不存在的变量；3，badValue，set操作的值或语义有错误；4，readOnly，管理进程试图修改一个只读变量；5，genErr，其他错误。
+  MIB
+    管理信息库，所有代理进程包含的、并且能够被管理进程进行查询和设置的信息的集合。
+
 
 
 【27】.TCP的未来和性能
