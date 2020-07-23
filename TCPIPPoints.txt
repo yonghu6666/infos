@@ -2,7 +2,7 @@ Read Twice
   C18 connection and termination of TCP
   C21 timeout and retransmition of TCP
 
-_|20.07.22_0_P279|20.07.21_0_P278
+_|20.07.23_1_P283|20.07.22_0_P279|20.07.21_0_P278
 _|20.07.19_0_P274|20.07.15_0_P273
 _|20.07.09_2_P271|20.07.06_1_P268
 _|20.06.29_0_P265
@@ -47,6 +47,8 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
     差错状态说明：0，noError，没有错误；1，tooBig，代理进程无法把响应放在一个SNMP消息中发送；2，noSuchName，操作一个不存在的变量；3，badValue，set操作的值或语义有错误；4，readOnly，管理进程试图修改一个只读变量；5，genErr，其他错误。
   MIB
     管理信息库，所有代理进程包含的、并且能够被管理进程进行查询和设置的信息的集合。
+  SMI 
+    管理信息机构，关于MIB的一套公用的结构和表示符号。
   UDP组下的简单变量
     udpInDatagrams，counter，UDP数据报输入数；
     udpNoPorts，counter，没有发送到有效端口的UDP数据报个数；
@@ -55,8 +57,18 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
   udpTable中的变量
     udpLocalAddress，IpAddress，监听进程的本地IP地址。0.0.0.0代表接收任何接口的数据报；
     udpLocalPort，[0..65535]，监听进程的本地端口号。
+  分组的所有数据路径都是被计数的。
+  实例标识
+    简单变量
+      对简单变量的处理方法，是通过在其对象标识后添加“.0”来处理的
+    表格
 
-
+    字典式排序
+      MIB中按照对象标识进行排序时，有一个隐含的排序规则。MIB表格是根据其对象标识按照字典的顺序进行排序的。
+      在表格中，一个给定变量的所有实例都在下个变量的所有实例之前显示。即表格的操作顺序是“先列后行”的次序。
+      表格中对行的排序和表格中索引的值有关。
+    如何从SNMP代理进程处获取变量的值
+      用ISODE系统中的snmpi软件查询。
 【27】.TCP的未来和性能
   路径MTU发现
   TCP的时间戳选项的PAWS(Protection Against Wrapped Sequence numbers)算法
