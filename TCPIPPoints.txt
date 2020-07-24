@@ -2,7 +2,7 @@ Read Twice
   C18 connection and termination of TCP
   C21 timeout and retransmition of TCP
 
-_|20.07.23_1_P283|20.07.22_0_P279|20.07.21_0_P278
+_|20.07.24_0_P288|20.07.23_1_P283|20.07.22_0_P279|20.07.21_0_P278
 _|20.07.19_0_P274|20.07.15_0_P273
 _|20.07.09_2_P271|20.07.06_1_P268
 _|20.06.29_0_P265
@@ -69,6 +69,18 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
       表格中对行的排序和表格中索引的值有关。
     如何从SNMP代理进程处获取变量的值
       用ISODE系统中的snmpi软件查询。
+  管理信息库
+    system组
+    interface组
+    at组
+      地址转换组
+    ip组
+      定义了多个简单变量和3个表格变量
+      表格变量包括：IP地址表、IP路由表、地址转换表。
+    icmp组
+    tcp组
+    接口MTU
+    路由表
 【27】.TCP的未来和性能
   路径MTU发现
   TCP的时间戳选项的PAWS(Protection Against Wrapped Sequence numbers)算法
