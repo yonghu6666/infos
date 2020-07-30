@@ -3,7 +3,7 @@ Read Twice
   C21 timeout and retransmition of TCP
 
 
-_|20.07.28_1_P290
+_|20.07.30_2_P298|20.07.29_1_P294|20.07.28_1_P290
 _|20.07.24_0_P288|20.07.23_1_P283|20.07.22_0_P279|20.07.21_0_P278
 _|20.07.19_0_P274|20.07.15_0_P273
 _|20.07.09_2_P271|20.07.06_1_P268
@@ -36,6 +36,13 @@ _|P53_0_19.09.29|P50_0_19.09.27|P46_1_19.09.26|P39_1_19.09.25|P35_1_19.09.24|P32
 _|P22_0_19.09.11|P21_0_19.09.10|P17|P14_0|P10_19.09.01
 _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，Last Paragraph.
 
+
+
+
+【29】.远程登录
+  Telnet
+    telecommunication network protocol，电信网络协议
+  Rlogin
 
 
 【28】.简单网络管理协议
@@ -82,7 +89,7 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
     icmp组
       icmp组包含4个普通计数器变量：ICMP报文的输出和输入数量以及ICMP差错报文的输入和输出数量；22个其他ICMP报文数量的计数器：11个是输出计数器，另外11个是输入计数器。
     tcp组
-      14个简单变量；表格变量：即TCP连接表，包括5个变量，连接状态、本地IP地址、本地端口号、远端IP地址、远端端口号。
+      14个简单变量；表格变量：即TCP连接表。
       TCP连接表：
         tcpConnState，[1，12]，可读可写。连接状态：1=CLOSED,2=LISTEN,3=SYS_SEND,4=SYS_RCVD,5=ESTABLISHED,6=FIN_WAIT,7=FIN_WAIT,8=CLOSED_WAIT,9=LAST_ACK,10=CLOSING,11=TIME_WAIT,12=DELETE TCB。管理进程对此变量可以设置的唯一值就是12（例如，立即终止次连接）
         tcpConnLocalAddress，IpAddress，本地IP地址。0.0.0.0代表监听进程愿意在任何接口接收连接。
@@ -91,6 +98,8 @@ _，sequence；.，unsequences; 0，First Paragraph；1，First Chapter；2，La
         tcpConnRemPort，[1...65535]，远程端口号。
     接口MTU
     路由表
+    Trap
+      trap类型：0，coldStart，代理进程对自己初始化；1，warmStart，代理进程对自己重新初始化；2，linkDown，一个接口已经从工作状态改变为故障状态，报文中的第一个变量标识此接口；3，linkUp，一个接口已经从故障状态改变为工作状态，报文中的第一个变量标识此接口；4，authenticationFailure，从SNMP管理进程收到无效共同体的报文；5，egpNeighborLoss，一个EGP临站已变为故障状态，报文中的第一个变量包含此临站的IP地址；6，enterpriceSpecific，在这个特定的代码字段中查找trap信息。
 【27】.TCP的未来和性能
   路径MTU发现
   TCP的时间戳选项的PAWS(Protection Against Wrapped Sequence numbers)算法
