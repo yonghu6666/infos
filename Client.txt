@@ -199,6 +199,13 @@ adb
   adb -s yourdeviceId uninstall yourappId
 
 react
+  life-cycle functions
+    static getDerivedStateFromProps(props, state);
+      在组件实例化之后以及重新渲染之前调用。
+
+    getSnapshotBeforeUpdate(prevProps, prevState);
+      在更新之前（如：更新DOM之前）被调用。
+
   ant design pro数据流转：
     View层dispatch操作action –> 
     触发models层effect中相应方法 –> 
@@ -207,6 +214,8 @@ react
     更新model层中state –> 
     触发view层的render方法进行重新渲染 –> 
     页面更新
+
+
 
 react native
   npm cache clean --force
