@@ -362,6 +362,24 @@ JQuery
   $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
 CSS
+  水平居中的方法
+    行内元素（display: inline）
+      设置text-align: center;实现
+    定宽块状元素（display: block）
+      设置左右margin的值为auto实现：margin: 0 auto;实现
+    不定宽块状元素
+      1)改变块状元素的display属性为inline，并给父级设置text-align: center来实现
+        <div style="text-align: center;">
+          <div style="display: inline;">不定宽元素的水平居中</div>
+        </div>
+      2)利用绝对定位，让元素向右偏移50%，并向左偏移自身的50%
+        <div style="position: absolute; left: 50%; transform: translateX(-50%);">不定宽元素的水平居中</div>
+      3)利用flex实现水平居中
+        <div style="display: flex;">
+          <div style="margin: 20px auto;">不定宽元素的水平居中</div>
+        </div>
+        <div style="width: fit-content; margin-left: auto; margin-right: auto;">不定宽元素的水平居中</div>
+
   引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
   选择器
     ' ' 后代选择器，所包含的所有层级的元素，都会被选择
