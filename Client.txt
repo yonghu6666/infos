@@ -7,6 +7,15 @@ HTML
   旧版本，小程序逻辑层的 javascript 代码运行中 X5 JSCore 中，视图层是由 X5 基于 Mobile Chrome 57 内核来渲染的；
   新版本，小程序逻辑层的 javascript 代码运行在 V8 中，视图层是由自研 XWeb 引擎基于 Mobile Chrome 67 内核来渲染的；
   在 开发工具上，小程序逻辑层的 javascript 代码是运行在 NW.js 中，视图层是由 Chromium 60 Webview 来渲染的
+js 类型判断(?)
+  typeof
+  instanceof
+  Object.prototype.toString.call()
+  Object.prototype.isPrototypeOf()
+  Object.getPrototype()
+  is
+
+
 js 运算符
   汇总表
     优先级                       运算类型                        关联性                       运算符
