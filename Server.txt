@@ -73,6 +73,12 @@ Node.js
 
     setImmediate() fires on the following iteration or 'tick' of the event loop
 
+  node-gyp
+    if not defined npm_config_node_gyp
+      npm install node-gyp -g
+
+      npm config set node_gyp "C:\Program Files\nodejs\node_global\node_modules\node-gyp\bin\node-gyp.js"
+        node_gyp的安装地址
 分布式
   分布式事务
     数据库本地事务

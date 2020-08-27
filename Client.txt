@@ -158,17 +158,14 @@ js 函数
       Safari
         暂未整理
   Mobile
-    使用erada-memory进行测试，发现修改js中变量的大小时，显示内存均为10M，不可用
     先在PC端解决iframe内存释放问题，然后再在手机端查看，是否存在相应的问题。
     以下以打开、关闭20次iframe操作为样本，查看手机内存变化
     chrome
       根据样本操作之后的内存表现，规则同其PC浏览器
     firefox
-      eruda-memory不支持该浏览器
+      根据样本操作之后的内存表现，规则同其PC浏览器
     opera
       根据样本操作之后的内存表现，规则同其PC浏览器
-    Huawei
-
     Xiaomi
       根据样本操作之后的内存表现，规则同其PC浏览器
     Safari on iOS
@@ -416,6 +413,7 @@ Cookie
     Path标识指定了主机下的哪些路径可以接收Cookie（该URL路径必须存在于请求URL中）。以字符%x2F("/")作为路径分隔符，子路径也会被匹配。如设置Path=/docs，则以下路径都会被匹配：/docs、/docs/Web/、/docs/Web/HTTP。
 CORS
   跨域资源共享
+  浏览器会限制发起跨站请求，或者是跨站请求被正常发起，但返回结果被浏览器拦截。
   该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
   跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
     1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
