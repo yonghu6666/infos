@@ -103,3 +103,13 @@ nvm
     安装某版本
   nvm uninstall <v>
     卸载某版本
+
+nginx
+  nginx -t -c conf/nginx.conf
+    查看windows下nginx的配置是否正确命令
+  start nginx
+    启动nginx命令
+  nginx -s reload
+    重新加载nginx的配置
+  nginx -s quit
+    关闭nginx

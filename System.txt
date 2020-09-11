@@ -40,7 +40,7 @@ linux
   netstat
     根据进程名查端口号
     netstat -tunlp |grep port
-    netstat -nap |grep port
+    netstat -anp |grep port
   统计行数
     wc -l
   
