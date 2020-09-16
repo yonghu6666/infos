@@ -1,3 +1,7 @@
+Data URI Limits
+  Firefox Not Limited at 2020/09/16 09:07:23.
+  
+
 HTML
   标签
 
@@ -220,7 +224,6 @@ react
     更新model层中state –> 
     触发view层的render方法进行重新渲染 –> 
     页面更新
-
 
 
 react native
