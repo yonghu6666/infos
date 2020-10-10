@@ -1,4 +1,10 @@
 linux
+  ls 
+    ls -lsh
+
+    ls -lrt
+  grep -n 'querystr' <filename>
+    在文件中查找字符串
   curl  
     请求Web服务器的命令行工具。
     不带任何参数
