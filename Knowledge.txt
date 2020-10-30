@@ -284,11 +284,15 @@ Git
       取消忽略的某个文件
     git update-index --no-assume-unchanged <file>
       取消忽略的某个文件
-  检查与git的连接
-    ssh -v git@github.com
+  avoid enter passphrase everytime on window：
+    1.eval `ssh-agent -s`
+    2.ssh-add ~/.ssh/*_rsa
+    only valid on current git bash window
   windows文件与unix格式文件互转
     dos2unix
     unix2dos 
+  检查与git的连接
+    ssh -v git@github.com
   仅克隆指定分支的指定文件夹
     $ git init <project>
     $ cd <project>
@@ -297,11 +301,16 @@ Git
     $ echo "path1/" >> .git/info/sparse-checkout
     $ echo "path2/" >> .git/info/sparse-checkout
     $ git pull origin master
-  avoid enter passphrase everytime on window：
-    1.eval `ssh-agent -s`
-    2.ssh-add ~/.ssh/*_rsa
-    only valid on current git bash window
-
+  忽略提交文件
+    1 在Git的设置中指定排除文件
+      这种方式是临时指定该项目的行为，编辑项目根目录下的.git/info/exclude文件，并添加需要忽略提交的文件即可。这里指定的忽略文件的根目录是项目根目录。
+      该方式不可提交到公有仓库中。
+    2 在项目某个目录下创建.gitignore文件
+      该方式会提交到公有仓库中。
+    3 定义全局的.gitignore文件
+      在任意位置创建.gitignore文件，然后通过命令设置
+        git config --global core.excludesfile <filePath>
+      该方式不可提交到公有仓库中。
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
