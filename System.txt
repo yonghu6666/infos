@@ -1,8 +1,15 @@
 linux
   ls 
-    ls -lsh
-
-    ls -lrt
+    -h
+      human readable，即把文件大小按照K、M等显示
+    -l 
+      按照文件名从a-z排序显示详细信息
+    -r
+      反向排序，如文件名按照z-a排序，文件大小按从小到大排序
+    -S
+      按照文件大小，从大到小排序
+    -t
+      按照时间从近到远排序
   grep -n 'querystr' <filename>
     在文件中查找字符串
   curl  

@@ -144,6 +144,8 @@ Heap、Stack
     一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，将队列中的事件放到执行栈中依次执行。
     主线程从任务队列中读取事件，这个过程是循环不断的。
 mongodb
+  3 命令行连接
+    mongo --port 27017
   2.概念
     db
     collection
@@ -313,6 +315,19 @@ Git
       在任意位置创建.gitignore文件，然后通过命令设置
         git config --global core.excludesfile <filePath>
       该方式不可提交到公有仓库中。
+  本地新项目上传到git
+    进入工程根目录
+      git init
+    添加所有代码到本地仓库
+      git add .
+    提交本地仓库
+      git commit -am 'first init project'
+    添加远程仓库地址
+      git remote add origin xxxxxxxx
+    将远程仓库和本地仓库合并统一
+      git pull --rebase origin master
+    推送本地代码到远程分支
+      git push origin master
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
@@ -324,7 +339,8 @@ Git
     keytool -importkeystore -srckeystore googleplay-farilemania.keystore -destkeystore PKCS12-googleplay-farilemania.keystore -deststoretype pkcs12
   生成证书
     keytool -exportcert -keystore googleplay-farilemania.keystore -file googleplay-farilemania.cer -alias key0
-
+  对.keystore进行签名：
+    keytool -list -v -keystore test.keystore
 WebSocket
   ReadyState：
     0 CONNECTING Socket has been created. The connection is not yet open.
