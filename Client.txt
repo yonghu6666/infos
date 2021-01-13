@@ -4,6 +4,22 @@ Data URI Limits
 
 HTML
   标签
+  行内元素
+    HTML的行内元素，只占据它对应标签的边框所包含的空间。
+    行内元素与块级元素对比 
+      一般情况下，行内元素只能包含数据和其他行内元素。
+      而块级元素可以包含行内元素和其他块级元素。这种结构上的包含继承区别可以使块级元素创建比行内元素更“大型”的接口。
+      默认情况下，行内元素不会以新行开始，而块级元素会新起一行。
+    行内元素列表
+      b, big, i, small, tt;
+      abbr, acronym, cite, code, dfn, em, kdb, strong, samp, var;
+      a, bdo, br, img, map, object, q, script, span, sub, sup;
+      button, input, label, select, textarea;
+  块级元素
+    块级元素占据其父元素（容器）的整个空间，因此创建了一个快。通常浏览器会在块级元素前后另起一个新行。
+    块级元素只能出现在<body>元素内。
+    块级元素列表
+      <address>; <article>(h5); <aside>(h5); <audio>(h5); <blockquote>; <canvas>(h5); <dd>; <div>; <dl>; <fieldset>; <figcaption>(h5); <figure>(h5); <footer>(h5); <form>; <h1>, <h2>, <h3>, <h4>, <h5>, <h6>; <header>(h5); <hgroup>(h5); <hr>; <noscript>; <ol>; <output>(h5); <p>; <pre>; <section>(h5); <table>; <tfoot>; <ul>; <video>;
 
 小程序 运行环境
   在 iOS 上，小程序逻辑层的 javascript 代码运行在 JavaScriptCore 中，视图层是由 WKWebView 来渲染的，环境有 iOS8、iOS9、iOS10；
@@ -250,6 +266,17 @@ adb
   adb -s yourdeviceId uninstall yourappId
 
 react
+  diff算法
+    对比不同类型的元素
+      当节点为不同类型的元素时，移除原有的节点树并创建新的树。
+    对比同一类型的元素
+      对比两个相同类型的React元素，React会保留DOM节点，仅比对及更新有改变的属性。
+    对比同类型的组件元素
+      当一个组件更新时，组件实例保持不变，React将更新该组件实例的props，以跟最新的元素保持一致。
+    对子节点进行递归
+      在默认条件下，当递归 DOM 节点的子元素时，React 会同时遍历两个子元素的列表；当产生差异时，生成一个 mutation。
+    Keys
+      当子元素拥有 key 时，React 使用 key 来匹配原有树上的子元素以及最新树上的子元素。
   life-cycle functions
     static getDerivedStateFromProps(props, state);
       在组件实例化之后以及重新渲染之前调用。
@@ -412,6 +439,9 @@ JQuery
   $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
 CSS
+  盒模型
+    Margin area, Border area, Padding area, Content area.
+    width, height是指定Content Area的。
   水平居中的方法
     行内元素（display: inline）
       设置text-align: center;实现
