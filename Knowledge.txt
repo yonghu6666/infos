@@ -1,4 +1,5 @@
-test
+js
+  防抖与节流
 IEEE-754浮点数表示法
 html、css、JavaScript
 React、Redux
@@ -209,8 +210,8 @@ Git
       删除本地分支
     git branch -vv 
       查看本地分支与远端分支的关联关系
-    git branch --set-upstream-to=origin/<YOUR_BRANCH>
-    (git branch --set-upstream-to origin/<YOUR_BRANCH>
+    git branch --set-upstream-to=origin/<REMOTE_BRANCH>
+    (git branch --set-upstream-to origin/<REMOTE_BRANCH>
     git branch -u origin/<YOUR_BRANCH>)
       将本地分支关联到远端分支
   git checkout 
@@ -261,6 +262,8 @@ Git
     查看远程仓库地址
   git rm text.txt
     删除文件
+  git show commitid [FileName]
+    查看某次提交的详细信息，文件名代表查看指定文件
   git stash
     git stash 
       储藏修改的文件
