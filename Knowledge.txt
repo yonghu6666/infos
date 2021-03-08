@@ -221,6 +221,8 @@ Git
       回退本地修改的文件
     git checkout .
       恢复所有被修改的文件
+    git checkout -b dev origin/dev
+      将远程分支检出为本地的一个分支并切换到该分支
   git clone
     git clone <repository> [YOUR_REPOSITORY_NAME]
       克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
