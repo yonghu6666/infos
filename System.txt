@@ -94,6 +94,8 @@ windows
   自定义短语
     sj
       %yyyy%/%MM%/%dd% %HH%:%mm%:%ss%
+      %yyyy%.%MM%.%dd% %HH%:%mm%:%ss%
+      %yy%.%MM%.%dd%
   flush dns
     ipconfig /flushdns
   cmd命令
