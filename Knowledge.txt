@@ -335,6 +335,15 @@ Git
       git pull --rebase origin master
     推送本地代码到远程分支
       git push origin master
+  合并分支
+    dev为待合并分支，test为目的分支
+    1 先提交dev分支的所有修改
+    2 git checkout test
+      git merge dev
+      git status
+      git pull
+      git push
+      git checkout dev
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 
