@@ -361,6 +361,7 @@ postMessage
     targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
     transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
 Cookie
+  浏览器同一域名下，存储cookie的数量（30-50）及大小（4K）有限制
   会话Cookie，浏览器关闭之后自动删除。
   持久Cookie，仅在达到过期时间后被删除。
   设置HttpOnly的Cookie，无法通过js获取，仅能发送给服务端。
