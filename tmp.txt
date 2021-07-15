@@ -5,3 +5,23 @@ Question
 
 
 
+
+var ts = [
+    'img',
+    'video',
+    'iframe',
+    'embed',
+    'object',
+    '[style*="background:url"]',
+    '[style*="background-image:url"]',
+    '[style*="background: url"]',
+    '[style*="background-image: url"]',
+    '[style*="background-image"][style*="image-set"]',
+];
+ts = 'body,' + ts.join(',') + '{filter:invert(100%);}'
+    + ts.map(function (p) { return ts.map(function (p2) { return p + ' ' + p2 }).join(',') }).join(',') + '{filter:invert(0%);}'
+    + 'body{background-color:rgba(0,0,0,0.9382)!important;}:root,html{background-color:rgba(0,0,0,0)!important;}';
+ 
+var css = document.createElement('style');
+css.innerHTML = ts;
+document.body.appendChild(css);
