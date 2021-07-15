@@ -1,4 +1,9 @@
 
+2021/07/15 14:02:51
+redux
+  dispatch(action) -> store
+  store -> Reducer
+  store -> render
 
 2021/07/14 10:41:18
 1 学习区块链技术
@@ -56,13 +61,19 @@
 
 
 --------------------------------
+arithmetic
+  n. 算术，算法；数字
 consistency
   n. [计] 一致性；稠度；相容性
+correspond
+  vi. 符合，一致；相应；通信
 curate
   v. 筹办展出；组织演出
   adj.仔细挑选并展览的
 distribute
   vt. 分配；散布；分开；把…分类
+hence
+  adv. 因此；今后
 hatch
   n. 孵化；舱口
   vt. 孵；策划
@@ -70,6 +81,10 @@ hatch
 imperative
   adj. 必要的，不可避免的；紧急的；命令的，专横的；势在必行的；[语]祈使的
   n. 必要的事；命令；需要；规则；[语]祈使语气
+incognito
+  adj. 伪装的，隐姓埋名的
+  adv. 隐瞒身份地，化名地
+  n. 虚假身份
 infrastructure
   n. 基础设施；公共建设；下部构造
 insufficient
@@ -89,6 +104,13 @@ neural
 phase
   n. 月相；时期，阶段
   vt. 分阶段进行；使定相
+served
+  v. 服务（serve的过去分词）；服役；招待；发球
+slippage
+  n. 滑移；滑动；下降
+specific
+  adj. 特殊的，特定的；明确的；详细的；[药] 具有特效的
+  n. 特性；细节；特效药
 stake
   n. 桩，棍子；赌注；火刑；奖金
   vt. 资助，支持；系…于桩上；把…押下打赌
@@ -98,5 +120,11 @@ stale
   vi. 变陈旧；撒尿；变得不新鲜
   vt. 使变旧；变得不新鲜
   n. 尿
+tuple
+  n. [计] 元组，重数
+violate
+  vt. 违反；侵犯，妨碍；亵渎
 visual
   adj. 视觉的，视力的；栩栩如生的
+workthrough
+  n. 预排，预排工作
