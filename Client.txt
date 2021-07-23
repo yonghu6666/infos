@@ -1,7 +1,6 @@
 Data URI Limits
   Firefox Not Limited at 2020/09/16 09:07:23.
-  
-
+ 
 HTML
   标签
   行内元素
@@ -321,38 +320,6 @@ JQuery
   $(.class)，.取的是class
   $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
-CSS
-  盒模型
-    Margin area, Border area, Padding area, Content area.
-    width, height是指定Content Area的。
-  水平居中的方法
-    行内元素（display: inline）
-      设置text-align: center;实现
-    定宽块状元素（display: block）
-      设置左右margin的值为auto实现：margin: 0 auto;实现
-    不定宽块状元素
-      1)改变块状元素的display属性为inline，并给父级设置text-align: center来实现
-        <div style="text-align: center;">
-          <div style="display: inline;">不定宽元素的水平居中</div>
-        </div>
-      2)利用绝对定位，让元素向右偏移50%，并向左偏移自身的50%
-        <div style="position: absolute; left: 50%; transform: translateX(-50%);">不定宽元素的水平居中</div>
-      3)利用flex实现水平居中
-        <div style="display: flex;">
-          <div style="margin: 20px auto;">不定宽元素的水平居中</div>
-        </div>
-        <div style="width: fit-content; margin-left: auto; margin-right: auto;">不定宽元素的水平居中</div>
-
-  引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
-  选择器
-    ' ' 后代选择器，所包含的所有层级的元素，都会被选择
-    '>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
-    '~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
-    '+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
-  position
-    absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
-    fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
-    relative 生成相对的元素，相对于其正常位置进行定位。
 postMessage
   它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
   otherWindow.postMessage(message, tarOrigin, [transfer])
