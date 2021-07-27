@@ -4,6 +4,7 @@ TODO
 6 浏览器运行机制
 5 学习flex: grid布局
 4 复习react组件的生命周期
+  React.createRef()
   将其与hooks的生命周期做对比
   学习fiber
 3 盒模型
@@ -16,9 +17,15 @@ TODO
 
 
 --------------------------------
+accommodate
+  vt. 容纳；使适应；供应；调解
+  vi. 适应；调解
 align
   vt. 使结盟；使成一行；匹配
   vi. 排列；排成一行
+altogether
+  adv. 完全地；总共；总而言之
+  n. 整个；裸体
 arithmetic
   n. 算术，算法；数字
 candidate
@@ -48,6 +55,10 @@ deposit
 derive
   vt. 源自；得自；获得
   vi. 起源
+dimention
+  n. 方面;[数] 维；尺寸；次元；容积
+  adj. 规格的
+  vt. 标出尺寸
 distinct
   adj. 明显的；独特的；清楚的；有区别的
 distinction
@@ -56,16 +67,24 @@ distribute
   vt. 分配；散布；分开；把…分类
 exhaustive
   adj. 详尽的；彻底的；消耗的
+explicitly
+  adv. 明确地；明白地
 fabric
   n. 织物；布；组织；构造；建筑物
 fractional
   adj. 部分的；[数] 分数的，小数的
-hence
-  adv. 因此；今后
+frustrating
+  adj. 令人沮丧的
+  v. 使沮丧（frustrate的ing形式）
 hatch
   n. 孵化；舱口
   vt. 孵；策划
   vi. 孵化
+hence
+  adv. 因此；今后
+hoist
+  v. 升起，吊起；抬高，举起
+  n. 起重机；吊车；升降机；升起，增加；信号旗；旗宽
 imperative
   adj. 必要的，不可避免的；紧急的；命令的，专横的；势在必行的；[语]祈使的
   n. 必要的事；命令；需要；规则；[语]祈使语气
@@ -73,6 +92,9 @@ incognito
   adj. 伪装的，隐姓埋名的
   adv. 隐瞒身份地，化名地
   n. 虚假身份
+individual
+  adj. 个人的；个别的；独特的
+  n. 个人，个体
 infrastructure
   n. 基础设施；公共建设；下部构造
 insufficient
@@ -81,6 +103,8 @@ ledger
   n. 总账，分户总账；[会计] 分类账；账簿；底账；（手脚架上的）横木
 liquidity
   n. 流动性；流动资产；[金融] 偿债能力
+manner
+  n. 方式；习惯；种类；规矩；风俗
 memorize
   vt. 记住，背熟；记忆
 mental
@@ -121,6 +145,13 @@ phase
 portion
   n. 部分；一份；命运
   vt. 分配；给…嫁妆
+requisite
+  adj. 必备的，必不可少的；需要的
+  n. 必需品
+revert
+  vi. 回复；重提；返祖遗传；归还
+  vt. 使恢复原状
+  n. 恢复原状者
 saw
   n. 锯；格言
   v. 锯；锯成；用锯；乱剪；拉锯似的来回移动
