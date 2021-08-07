@@ -538,7 +538,6 @@ react native
     1.布局
       RN的css语法，是CSS标准语法的一个子集。
     2.限制
-<<<<<<< HEAD
       不支持Android九点切图。
 V8
   GC主要做三件事：
@@ -655,6 +654,4 @@ XSS
   postMessage
     
   websocket
-=======
-      不支持Android九点切图。
->>>>>>> 839a210086352d731ebf1e6ccefddbee26785a3a
+      
