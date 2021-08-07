@@ -1,7 +1,6 @@
+js
+  防抖与节流
 IEEE-754浮点数表示法
-html、css、JavaScript
-React、Redux
-webpack
 net protocal
   作为请求方的第一个应答的ACK报文，当接收方的可用缓存区大小大于0，且小于接收方缓存区大小的一半时，其win大小，有时为接收方可用缓存区的大小；而有时又为0？（例子可见图22-3中报文段13、15）
 
@@ -208,8 +207,8 @@ Git
       删除本地分支
     git branch -vv 
       查看本地分支与远端分支的关联关系
-    git branch --set-upstream-to=origin/<YOUR_BRANCH>
-    (git branch --set-upstream-to origin/<YOUR_BRANCH>
+    git branch --set-upstream-to=origin/<REMOTE_BRANCH>
+    (git branch --set-upstream-to origin/<REMOTE_BRANCH>
     git branch -u origin/<YOUR_BRANCH>)
       将本地分支关联到远端分支
   git checkout 
@@ -217,6 +216,10 @@ Git
       切换到branch分支
     git checkout md5str filename/directory/*
       回退本地修改的文件
+    git checkout .
+      恢复所有被修改的文件
+    git checkout -b dev origin/dev
+      将远程分支检出为本地的一个分支并切换到该分支
   git clone
     git clone <repository> [YOUR_REPOSITORY_NAME]
       克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
@@ -260,6 +263,8 @@ Git
     查看远程仓库地址
   git rm text.txt
     删除文件
+  git show commitid [FileName]
+    查看某次提交的详细信息，文件名代表查看指定文件
   git stash
     git stash 
       储藏修改的文件
@@ -330,6 +335,15 @@ Git
       git pull --rebase origin master
     推送本地代码到远程分支
       git push origin master
+  合并分支
+    dev为待合并分支，test为目的分支
+    1 先提交dev分支的所有修改
+    2 git checkout test
+      git merge dev
+      git status
+      git pull
+      git push
+      git checkout dev
 密钥
   keytool -exportcert -alias androiddebugkey -keystore "C:\Users\86135\.android\debug.keystore" | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" sha1 -binary | "D:\Develop\openssl-0.9.8e_X64\bin\openssl" base64
 

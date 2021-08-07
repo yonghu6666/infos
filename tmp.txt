@@ -1,0 +1,51 @@
+10.31 -- 11:10
+
+Question
+  1.内网环境，app能否访问绑定未认证的ssl证书的https请求。 1
+  
+display: flex;
+display: inline-flex;
+
+flex-direction: row | row-reverse | column | column-reverse;
+flex-wrap: nowrap | wrap;
+flex-flow: row | row-reverse | column | column-reverse   nowrap | wrap;
+flex: [flex-grow] [flex-shrink] [flex-basic];
+
+flex-basic: 指定元素在主轴方向上的初始大小
+flex-grow: 元素的拉伸值。父容器的剩余空间的多少应该分配给该元素。
+flex-shrink: 元素的收缩规则。仅当默认宽度的和大于容器的时候才会收缩。
+
+
+
+align-items，交叉轴
+    stretch
+    flex-start
+    flex-end
+    center
+justify-content，主轴
+    stretch
+    flex-start
+    flex-end
+    center
+    space-between
+    space-around
+
+var ts = [
+    'img',
+    'video',
+    'iframe',
+    'embed',
+    'object',
+    '[style*="background:url"]',
+    '[style*="background-image:url"]',
+    '[style*="background: url"]',
+    '[style*="background-image: url"]',
+    '[style*="background-image"][style*="image-set"]',
+];
+ts = 'body,' + ts.join(',') + '{filter:invert(100%);}'
+    + ts.map(function (p) { return ts.map(function (p2) { return p + ' ' + p2 }).join(',') }).join(',') + '{filter:invert(0%);}'
+    + 'body{background-color:rgba(0,0,0,0.9382)!important;}:root,html{background-color:rgba(0,0,0,0)!important;}';
+ 
+var css = document.createElement('style');
+css.innerHTML = ts;
+document.body.appendChild(css);

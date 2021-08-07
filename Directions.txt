@@ -1,3 +1,16 @@
+
+
+
+react(React Hooks, Redux, ant design, ), jquery, JavaScript, CSS3（less、sass）, h5;
+bootstrap, echarts;
+webpack;
+TypeScript;
+前端安全, 前端性能, 前端自动化测试;
+调试, 抓包工具;
+Flutter;
+
+数据结构与算法
+
 前端基础知识：
 	(1)css的盒模型(老生常谈)，BFC的理解，选择器,层级上下文，三栏布局多种实现(position,flex,float等)，自适应布局rem原理(如何兼容不同手机dpi)，font-size10px如何实现、移动端一像素、媒体查询等等比较基础的问题，都是知识点。
 	(2)html方面基本问很少，这个重要程度没什么, 也就是一些标签语义化理解，和h5新特性，storage/cookie
