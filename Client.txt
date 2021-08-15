@@ -539,3 +539,119 @@ react native
       RN的css语法，是CSS标准语法的一个子集。
     2.限制
       不支持Android九点切图。
+V8
+  GC主要做三件事：
+    1.区分活着的、死亡的对象；
+    2.重新利用死亡对象占用的内存；
+    3.压紧、去分片内存。
+
+nunjucks
+  {##}，会注释其中包含的nunjucks代码和h5代码
+  <!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
+
+h5
+  游戏全屏按钮
+  Laya框架是支持全屏功能的，但是存在一些限制，如不支持Firefox浏览器的全屏功能。所以考虑用原生H5来实现。
+  思路比较简单：在游戏UI的上层，添加按钮。按钮添加事件，实现全屏、退出全屏功能。
+  遇到的问题：
+    添加按钮之后，向下拖动按钮时，会触发浏览器的下拉刷新事件。解决办法：在按钮的样式里添加
+    overscroll-behavior: none;，并在拖动事件里添加evt.preventDefault();，阻止事件在冒泡阶段向外传递。
+JQuery
+  jquery
+  $(#id)，#取的是id
+  $(.class)，.取的是class
+  $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
+
+CSS
+  盒模型
+    Margin area, Border area, Padding area, Content area.
+    width, height是指定Content Area的。
+  布局方式
+    固定布局、响应式布局、自适应布局、流式布局 TODO
+  水平居中的方法
+    行内元素（display: inline）
+      设置text-align: center;实现
+    定宽块状元素（display: block）
+      设置左右margin的值为auto实现：margin: 0 auto;实现
+    不定宽块状元素
+      1)改变块状元素的display属性为inline，并给父级设置text-align: center来实现
+        <div style="text-align: center;">
+          <div style="display: inline;">不定宽元素的水平居中</div>
+        </div>
+      2)利用绝对定位，让元素向右偏移50%，并向左偏移自身的50%
+        <div style="position: absolute; left: 50%; transform: translateX(-50%);">不定宽元素的水平居中</div>
+      3)利用flex实现水平居中
+        <div style="display: flex;">
+          <div style="margin: 20px auto;">不定宽元素的水平居中</div>
+        </div>
+        <div style="width: fit-content; margin-left: auto; margin-right: auto;">不定宽元素的水平居中</div>
+    box-sizing
+      content-box，默认值。如果设置一个元素的宽度为100px，那么这个元素的内容区会有100px宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。
+      border-box，告诉浏览器要设置的边框和内边距的值是包含在width内的。也就是说，如果你将一个元素的width设为100px，那么这100px会包含他的border和padding，内容区的实际宽度是width减去（border+padding）的值。
+      
+  引入的非同源的服务器端的CSS文件，background里使用非同源的服务器端的资源时，显示异常。
+  选择器
+    ' ' 后代选择器，所包含的所有层级的元素，都会被选择
+    '>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
+    '~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
+    '+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
+  position
+    absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
+    fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
+    relative 生成相对的元素，相对于其正常位置进行定位。
+postMessage
+  它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
+  otherWindow.postMessage(message, tarOrigin, [transfer])
+    otherWindow，其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames。
+    message，将要发送到其他window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
+    targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
+    transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
+Cookie
+  会话Cookie，浏览器关闭之后自动删除。
+  持久Cookie，仅在达到过期时间后被删除。
+  设置HttpOnly的Cookie，无法通过js获取，仅能发送给服务端。
+  作用域
+    Domain、Path标识了Cookie的作用域。
+    Domain标识指定了哪些主机可以接受Cookie。如果不指定，默认为当前文档的主机（不包括子域名）。如果制定了Domain，则一般包含子域名。如，设置Domain=mozilla.org，则Cookie也包含在子域名中（如developer.mozilla.org）。
+    Path标识指定了主机下的哪些路径可以接收Cookie（该URL路径必须存在于请求URL中）。以字符%x2F("/")作为路径分隔符，子路径也会被匹配。如设置Path=/docs，则以下路径都会被匹配：/docs、/docs/Web/、/docs/Web/HTTP。
+CORS
+  跨域资源共享
+  浏览器会限制发起跨站请求，或者是跨站请求被正常发起，但返回结果被浏览器拦截。
+  该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
+  跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
+    1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
+    2.Web字体(CSS中通过@font-face使用跨域字体资源)，因此网站就可以发布TrueType字体资源，并只允许已授权网站进行跨站调用。
+    3.WebGL贴图。
+    4.使用drawImage将Image/video画面绘制到Canvas。
+  跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
+CSRF
+  cross-site request forgery，跨站请求伪造，也被称为one click attack/session riding，缩写为CSRF/XSRF。
+  例子：
+    登录了网站http://www.mybank.com，并可以通过http://www.mybank.comTransfer.php?toBankId=xx&money=xxx的方式转账
+    此时便可以通过欺骗方式进行转账操作，如<img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
+  防御策略
+    验证HTTP Referer字段
+      根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。服务端可以根据请求中的Referer值判断，是否是当前网站发来的请求。
+    在请求地址中添加token并验证
+      黑客很难伪造token，并且token不存储于cookie中，这样就避免了cookie被盗用的风险。
+    在HTTP头中自定义属性并验证
+      把token放入HTTP头中自定义的属性。通过XMLHttpRequest这个类，可以一次性给所有该类请求添加token这个HTTP头属性，并把token值放入其中。
+Token
+  Refresh Token
+    用户登录之后，服务端会返回两个token：Access Token、Refresh Token。Access Token的有效期较短，Refresh Token的有效期较长。在Access Token失效后，客户端通过Refresh Token获取新的Access Token和Refresh Token，如果Refresh Token也失效了，则只能重登录。
+XSS
+  Cross-site scripting，跨域脚本攻击。
+
+跨域请求方案
+  协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
+  JSONP
+    DOM元素的src属性，能够绕过同源策略。这类元素包括：img、link、script、iframe等。JSONP就是使用script元素实现的。
+    实现流程：web端声明一个回调函数，创建一个script元素，将回调函数的名称作为url的参数，赋值给script元素的src属性。服务端收到请求后，把收到的函数名和客户端需要的数据拼接成一个字符串，通过http协议传递给web端。
+  CORS
+    仅仅依靠web端，是不能实现CORS的。它需要服务端设置Access-Control-Allow-Origin，该参数表示哪些域名可以访问当前服务器的资源。
+  nginx
+    反向代理
+  postMessage
+    
+  websocket
+      
