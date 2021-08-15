@@ -1,7 +1,7 @@
 
 
 
-react(React Hooks, Redux, ant design, ), jquery, JavaScript, CSS3（less、sass）, h5;
+react(React Hooks, Redux, react-router, ant design, ), jquery, JavaScript, CSS3（less、sass）, h5;
 bootstrap, echarts;
 webpack;
 TypeScript;
