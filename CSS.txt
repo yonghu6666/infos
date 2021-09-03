@@ -540,6 +540,24 @@ P015_20210501_2
         1.6.3 问号(?)表示前面的值或分组是可选的。
         1.6.4 大括号里的一对数({M,N})表示前面的值或分组至少重复M次，最多N次。
 
+position
+  absolute，元素被从正常文档流中移出，且在页面布局中不会为该元素保留空间。它的位置相对于position不为static的最近的祖先元素，或者是最初的包含块（<html>元素所在的区域）。它的margins不会合并。
+  relative，元素会依据正常文档流放置，并且将top、right、bottom、left相对于自身偏移。偏移不会影响其他任何元素。因此，页面中给与这个元素的空间与position为static时是一样的。该属性对table-*-group、table-row、table-column、table-cell、table-caption元素是无效的。
+  fixed，元素会从正常文档流中移除，并且在页面布局中不会为该元素创建空间。它的位置是相对于veiwport创建的初始包含块。当该元素的祖先指定了不为none的transform, perspective, 或者filter属性时，这个祖先就是包含块。它的最终位置取决于top, right, bottom, left。
+  sticky，
+  static，默认值。元素根据正常文档流布局。top、right、bottom、left、z-index失效。
+
+存在上下文栈的情况
+  <html>: document的根元素
+  position: absolute | relative，并且z-index不为auto
+  position: fixed | sticky
+  flex、gird容器的子元素，z-index不为auto
+  opacity小于1的元素
+  包含以下属性，且值不是none的元素：transform, filter, perspective, clip-path, mask/mask-image/mask-border
+  -webkit-overflow-scrolling值为touch的元素
+  元素属性min-blend-mode的值不是normal的元素
+  isolation值为isolate的元素
+  
 
 CSS盒模型
   CSS中组成一个块级盒子的元素：Margin box, Border box, Padding box, Content box(大小可以通过设置width和height控制).
@@ -591,7 +609,3 @@ width, clientWidth, innerWidth, offsetWidth, scrollWidth
   '>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
   '~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
   '+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
-position
-  absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
-  fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
-  relative 生成相对的元素，相对于其正常位置进行定位。

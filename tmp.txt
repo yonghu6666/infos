@@ -56,3 +56,16 @@ ts = 'body,' + ts.join(',') + '{filter:invert(100%);}'
 var css = document.createElement('style');
 css.innerHTML = ts;
 document.body.appendChild(css);
+
+
+电费
+8.10
+    242.92
+物业费
+8.12
+    327.76
+7.12
+    314.3
+
+
+5100 + 242.92 + 327.76 + 314.3 = 5,984.98

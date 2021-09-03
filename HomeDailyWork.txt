@@ -12,13 +12,14 @@ TODO
   React.createRef()
   将其与hooks的生命周期做对比
   学习fiber
+  高阶组件
 3 盒模型
   盒模型
   弹性盒子布局
   display: flex|block|inline
   外边距折叠规则
 2 DAG，有向无环图
-1 复习Promise知识点
+1 复习Promise、async-await知识点
 
 
 --------------------------------
@@ -55,6 +56,10 @@ awkward
 beneath
   prep. 在……之下；（对某人来说）不够好，不相称；低于，次于
   n. 在下方，在底下
+blend
+  vt. 混合
+  vi. 混合；协调
+  n. 混合；掺合物
 blink
   vt. 眨眼；使…闪烁
   vi. 眨眼；闪烁
@@ -106,10 +111,14 @@ derive
 derived
   adj. 导出的；衍生的，派生的
   v. 从……衍生出，源于；（从……中）得到，提取；导出（derive 的过去式和过去分词）
+deviation
+  n. 偏差；误差；背离
 dimension
   n. 方面;[数] 维；尺寸；次元；容积
   adj. 规格的
   vt. 标出尺寸
+dimensional
+  adj. 空间的；尺寸的
 discrete
   adj. 离散的，不连续的
   n. 分立元件；独立部件
@@ -134,6 +143,8 @@ emphasize
   vt. 强调，着重
 erroneous
   adj. 错误的；不正确的
+establish
+  v. 建立，创立；确立；获得接受；查实，证实
 exhaustive
   adj. 详尽的；彻底的；消耗的
 explicitly
@@ -168,6 +179,8 @@ hence
 hoist
   v. 升起，吊起；抬高，举起
   n. 起重机；吊车；升降机；升起，增加；信号旗；旗宽
+graphical
+  adj. 绘画的；计算机图形的； 用图（或图表等）表示的；（与）视觉艺术（有关）的
 impact
   n. 巨大影响；撞击；冲撞
   vt. 挤入，压紧；撞击；对…产生影响
@@ -186,8 +199,12 @@ individual
   n. 个人，个体
 infrastructure
   n. 基础设施；公共建设；下部构造
+inhibit
+  vt. 抑制；禁止
 insufficient
   adj. 不足的；不能胜任的，缺乏能力的
+interpolation
+  n. 插入；篡改；填写；插值
 intergration
   n. 集成；综合
 intrinsic
@@ -196,6 +213,8 @@ jam
   n. 果酱；拥挤；困境；扣篮
   vt. 使堵塞；挤进，使塞满；混杂；压碎
   vi. 堵塞；轧住
+lacuna
+  n. 空隙；空白；（生物）腔隙
 ledger 
   n. 总账，分户总账；[会计] 分类账；账簿；底账；（手脚架上的）横木
 legacy
@@ -223,6 +242,9 @@ mutability
   n. 易变性；性情不定；突变性
 mutation
   n. 突变；变化；元音变化
+nasty
+  adj. 极差的；恶心的；恶意的；有害的；严重的（伤、疾病）；粗鲁的，下流的；可恶的；难对付的
+  n. 令人不快的人（或物）；可恶；恐怖录像或影片
 neat
   adj. 灵巧的；整洁的；优雅的；齐整的；未搀水的；平滑的
 nevertheless 
@@ -238,6 +260,11 @@ omit
 overkill
   n. 过犹不及，过分行为；超量毁伤
   v. 过度地杀伤
+overlap
+  v. 与……重叠，与……互搭；（职责等）部分地重叠，部分地相同；在时间上部分地重叠，同时发生
+  n. 重叠的部分，互搭量；共同的兴趣（或责任等）；（两事发生的）重叠时间，交接时期
+parenthese
+  n. 括号；圆括号
 passive
   adj. 被动的，消极的；被动语态的
   n. 被动语态
@@ -255,9 +282,18 @@ phase
 portion
   n. 部分；一份；命运
   vt. 分配；给…嫁妆
+presence
+  n. 存在；出席；参加；风度；仪态
+primary
+  adj. 主要的；初级的；基本的
+  n. 原色；最主要者
+primarily
+  adv. 首先；主要地，根本上
 propertion
   n. 比例，占比；部分；面积；均衡
   vt. 使成比例；使均衡；分摊
+occupy
+  vt. 占据，占领；居住；使忙碌
 recipient
   n. 容器，接受者；容纳者
   adj. 容易接受的；容纳的
@@ -277,6 +313,8 @@ saw
 sawtooth
   adj. 有锯齿的；（波形）锯齿状的
   n. 锯齿，锐齿
+scenario
+  n. 方案；情节；剧本；设想
 semantic
   adj. 语义的；语义学的
 served
@@ -299,6 +337,9 @@ slippage
 specific
   adj. 特殊的，特定的；明确的；详细的；[药] 具有特效的
   n. 特性；细节；特效药
+splitting
+  adj. （头痛）欲裂的；极快的；滑稽的
+  v. 裂开；（人群）分成多组；
 stake
   n. 桩，棍子；赌注；火刑；奖金
   vt. 资助，支持；系…于桩上；把…押下打赌
@@ -308,16 +349,24 @@ stale
   vi. 变陈旧；撒尿；变得不新鲜
   vt. 使变旧；变得不新鲜
   n. 尿
+sticky
+  adj. 粘的；粘性的
 stretch
   v. （柔软或弹性物）伸展；拉紧；（使）过分延长；（资金、资源）足够；大量要求；（使）最大限度利用（才能）；夸大；延续
   n. （四肢或身体的）舒展；（肌肉的）伸张；（材料或服装的）伸展力；困难的任务；（陆地或水域）连绵的一片；（时间）连续的一段；（非正式）服刑期；（赛马跑道的）终点直道；抢风航行的距离；（非正式）加长机动车
   adj. 弹性的，可拉伸的
+stumble
+  vi. 踌躇，蹒跚；失足；犯错
+  vt. 使…困惑；使…绊倒
+  n. 绊倒；蹒跚而行
 subscription
   n. 捐献；订阅；订金；签署
 subsequent
   adj. 随后的
 sufficient
   adj. 足够的；充分的
+suspense
+  n. 悬念；悬疑；焦虑；悬而不决
 terminology
   n. 术语，术语学；用辞
 theoretically
@@ -327,6 +376,10 @@ thereof
 toggle
   n. 拴扣；切换键，开关；套索钉
   v. 切换；拴牢，系紧
+traverse
+  v. 穿过；来回移动；反驳；阻挠；详细研究；旋转
+  n. 穿过；横挡；（大炮等的）横转装置；测量导线；（壕沟的）土护墙
+  adj. 横贯的
 tuple
   n. [计] 元组，重数
 verbose
