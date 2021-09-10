@@ -206,6 +206,10 @@ hatch
   n. 孵化；舱口
   vt. 孵；策划
   vi. 孵化
+headline
+  n. 大标题；（the headlines）新闻提要，头条新闻
+  vt. 给……加标题；大力宣传
+  n. 是（音乐会或演出的）主角
 hence
   adv. 因此；今后
 hoist
