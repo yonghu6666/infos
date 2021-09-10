@@ -9,6 +9,7 @@ TODO
 6 浏览器运行机制
 5 学习flex: grid布局
 4 复习react组件的生命周期
+  hooks函数(useReducer)
   React.createRef()
   将其与hooks的生命周期做对比
   学习fiber
@@ -31,6 +32,13 @@ adjacent
 adopt
   vt. 采取；接受；收养；正式通过
   vi. 采取；过继
+aggregate
+  n. 合计；集合体；总计；集料
+  adj. 聚合的；集合的；合计的
+  v. 集合；聚集；合计
+agnostic
+  n. 不可知论者
+  adj. 不可知论的；怀疑的
 align
   vt. 使结盟；使成一行；匹配
   vi. 排列；排成一行
@@ -67,6 +75,10 @@ blink
 candidate
   n. 候选人，候补者；应试者
   vi. 成为新牧师的候选人
+chunk
+  n. 厚块，大块；<非正式>相当大的量；[语言]话语组成部分；矮胖的人或物
+  vt. 将……分成数份；<非正式>扔，抛；[语言][心理学]将（相关条目或单词）组合或分类；[计]切割（数据）
+  vi. <北美>发出“砰啷”声
 closure
   n. 关闭；终止，结束
   vt. 使终止
@@ -85,6 +97,10 @@ correspond
 cue
   n. 提示，暗示；线索
   vt. 给…暗示
+culmination
+  n. 顶点；高潮
+cumulative
+  adj. 累积的
 curate
   v. 筹办展出；组织演出
   adj.仔细挑选并展览的
@@ -128,6 +144,9 @@ discriminate
 dismiss
   vt. 解散；解雇；开除；让...离开；不予理会、不予考虑
   vi. 解散
+distill
+  vt. 提取；蒸馏；使滴下
+  vi. 蒸馏；滴下；作为精华产生
 distinct
   adj. 明显的；独特的；清楚的；有区别的
 distinction
@@ -139,12 +158,23 @@ downward
   adv. 向下
 drastically
   adv. 彻底地；激烈地
+elimination
+  n. 消除；淘汰；除去
 emphasize
   vt. 强调，着重
+encapsulate
+  vt. 压缩；将…装入胶囊；将…封进内部；概述
+  vi. 形成胶囊
+enforce
+  vt. 实施，执行；强迫，强制
+enhance
+  vt. 提高；加强；增加
 erroneous
   adj. 错误的；不正确的
 establish
   v. 建立，创立；确立；获得接受；查实，证实
+eventually
+  adv. 最后，终于
 exhaustive
   adj. 详尽的；彻底的；消耗的
 explicitly
@@ -170,6 +200,8 @@ frustrating
 fundamental
   adj. 基本的，根本的
   n. 基本原理；基本原则
+generic
+  adj. 类的；一般的；属的；非商标的
 hatch
   n. 孵化；舱口
   vt. 孵；策划
@@ -190,10 +222,14 @@ imperative
   n. 必要的事；命令；需要；规则；[语]祈使语气
 implication
   n. 含义；暗示；牵连，卷入；可能的结果，影响
+implicit
+  adj. 含蓄的；暗示的；盲从的
 incognito
   adj. 伪装的，隐姓埋名的
   adv. 隐瞒身份地，化名地
   n. 虚假身份
+indicate
+  vt. 表明；指出；预示；象征
 individual
   adj. 个人的；个别的；独特的
   n. 个人，个体
@@ -203,6 +239,10 @@ inhibit
   vt. 抑制；禁止
 insufficient
   adj. 不足的；不能胜任的，缺乏能力的
+interact
+  vt. 互相影响；互相作用
+  vi. 互相影响；互相作用
+  n. 幕间剧；幕间休息
 interpolation
   n. 插入；篡改；填写；插值
 intergration
@@ -223,6 +263,9 @@ liquidity
   n. 流动性；流动资产；[金融] 偿债能力
 luminosity
   n. [光][天] 光度；光明；光辉
+mandatory
+  adj. 强制的；托管的；命令的
+  n. 受托者
 manner
   n. 方式；习惯；种类；规矩；风俗
 memorize
@@ -306,6 +349,8 @@ revert
   vi. 回复；重提；返祖遗传；归还
   vt. 使恢复原状
   n. 恢复原状者
+robust
+  adj. 强健的；健康的；粗野的；粗鲁的
 saw
   n. 锯；格言
   v. 锯；锯成；用锯；乱剪；拉锯似的来回移动
