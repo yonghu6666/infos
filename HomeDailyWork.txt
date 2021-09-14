@@ -191,6 +191,9 @@ extract
   n. 摘录，引文；榨出物，汁
 fabric
   n. 织物；布；组织；构造；建筑物
+fallback
+  n. 应急计划，应变计划；减少，削减；储备物，备用物；退路；可依靠之物
+  adj. 退守的；应变的
 fiat
   n. 命令；许可；政法
   vt. 批准；颁布
@@ -209,6 +212,8 @@ fundamental
   n. 基本原理；基本原则
 generic
   adj. 类的；一般的；属的；非商标的
+granularity
+  n. 间隔尺寸，[岩] 粒度
 hatch
   n. 孵化；舱口
   vt. 孵；策划
@@ -311,6 +316,9 @@ notary
   n. （法）公证人
 notation
   n. 符号；乐谱；注释；记号法
+obstruct
+  vt. 妨碍；阻塞；遮断
+  vi. 阻塞；设障碍
 occupy
   vt. 占据，占领；居住；使忙碌
 omit
@@ -355,6 +363,8 @@ primarily
 propertion
   n. 比例，占比；部分；面积；均衡
   vt. 使成比例；使均衡；分摊
+punctuation
+  n. 标点；标点符号
 quotation
   n. [贸易] 报价单；引用语；引证
 recipient
