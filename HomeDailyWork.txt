@@ -1,6 +1,7 @@
 
 TODO
 8 CSS
+  伪类、伪元素
   垂直居中
   水平居中
   :first-child、::first-child区别
@@ -59,6 +60,9 @@ arbitrary
   adj. [数] 任意的；武断的；专制的
 arithmetic
   n. 算术，算法；数字
+audit
+  n. 审计，稽核；查账；审查，检查；（系统的）调查，评估；审核结论，审计结论，稽核结论
+  v. 审计，稽核；查账；进行财务审查；系统检查；内部审计；（北美）旁听（大学课程）
 awkward
   adj. 尴尬的；笨拙的；棘手的；不合适的
 beneath
@@ -94,6 +98,9 @@ convey
   vt. 传达；运输；让与
 correspond
   vi. 符合，一致；相应；通信
+cosmatic
+  adj. 美容的；化妆用的
+  n. 化妆品；装饰品
 cue
   n. 提示，暗示；线索
   vt. 给…暗示
@@ -241,6 +248,8 @@ infrastructure
   n. 基础设施；公共建设；下部构造
 inhibit
   vt. 抑制；禁止
+instruct
+  vt. 指导；通知；命令；教授
 insufficient
   adj. 不足的；不能胜任的，缺乏能力的
 interact
@@ -302,6 +311,8 @@ notary
   n. （法）公证人
 notation
   n. 符号；乐谱；注释；记号法
+occupy
+  vt. 占据，占领；居住；使忙碌
 omit
   vt. 省略；遗漏；删除；疏忽；没做；<废>无视；<废>放弃
 overkill
@@ -326,6 +337,11 @@ perpendicular
 phase
   n. 月相；时期，阶段
   vt. 分阶段进行；使定相
+polish
+  v. 抛光，擦亮；修改，润色；（使）完美，改进
+  n. 磨光，擦亮；擦亮剂；打磨光滑的面；完美，娴熟；优雅，精良
+  n. （Polish）波兰人；波兰语
+  adj. （Polish）波兰的
 portion
   n. 部分；一份；命运
   vt. 分配；给…嫁妆
@@ -339,8 +355,8 @@ primarily
 propertion
   n. 比例，占比；部分；面积；均衡
   vt. 使成比例；使均衡；分摊
-occupy
-  vt. 占据，占领；居住；使忙碌
+quotation
+  n. [贸易] 报价单；引用语；引证
 recipient
   n. 容器，接受者；容纳者
   adj. 容易接受的；容纳的
