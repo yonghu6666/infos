@@ -63,6 +63,8 @@ arithmetic
 audit
   n. 审计，稽核；查账；审查，检查；（系统的）调查，评估；审核结论，审计结论，稽核结论
   v. 审计，稽核；查账；进行财务审查；系统检查；内部审计；（北美）旁听（大学课程）
+awesome
+  adj. 令人敬畏的；使人畏惧的；可怕的；极好的
 awkward
   adj. 尴尬的；笨拙的；棘手的；不合适的
 beneath
@@ -86,6 +88,8 @@ chunk
 closure
   n. 关闭；终止，结束
   vt. 使终止
+compliant
+  adj. 顺从的；服从的；应允的
 consistency
   n. [计] 一致性；稠度；相容性
 constituent
@@ -160,6 +164,9 @@ distinction
   n. 区别；差别；特性；荣誉、勋章
 distribute
   vt. 分配；散布；分开；把…分类
+dive
+  v. 潜水，下潜；跳水；（飞机或鸟）俯冲；冲，奔，扑；突降，暴跌；迅速将手伸入；假摔
+  n. 潜水，下潜；跳水；俯冲；冲，扑；突降，暴跌；假摔；低级酒吧
 downward
   adj. 向下的，下降的
   adv. 向下
@@ -457,6 +464,8 @@ traverse
   adj. 横贯的
 tuple
   n. [计] 元组，重数
+unclaimed
+  adj. 无人认领的
 verbose
   adj. 冗长的；啰嗦的
 versus
