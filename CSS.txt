@@ -540,12 +540,34 @@ P015_20210501_2
         1.6.3 问号(?)表示前面的值或分组是可选的。
         1.6.4 大括号里的一对数({M,N})表示前面的值或分组至少重复M次，最多N次。
 
+stacking context
+  形成一个stacking context的条件
+    document的根元素(<html>);
+    元素的position属性是absolute、relative，且z-index属性不为auto；
+    元素的position属性是fixed、sticky；
+    flex容器的子元素，且该元素的z-index属性不为auto；
+    grid容器的子元素，且该元素的z-index属性不为auto；
+    元素的opacity属性小于1；
+    元素的mix-blend-mode属性不为normal；
+    元素的以下属性不为none：transform、filter、perspective、clip-path、mask/mask-image/mask-border；
+    元素的isolation属性为isolate；
+    元素的-webkit-overflow-scrolling属性是touch；
+    元素的will-change属性指定了能够创建stacking context的任意非初始化值；
+    元素的contain属性值为layout、paint或者是包含它们中的任意一个的组合属性。
+
 position
-  absolute，元素被从正常文档流中移出，且在页面布局中不会为该元素保留空间。它的位置相对于position不为static的最近的祖先元素，或者是最初的包含块（<html>元素所在的区域）。它的margins不会合并。
-  relative，元素会依据正常文档流放置，并且将top、right、bottom、left相对于自身偏移。偏移不会影响其他任何元素。因此，页面中给与这个元素的空间与position为static时是一样的。该属性对table-*-group、table-row、table-column、table-cell、table-caption元素是无效的。
-  fixed，元素会从正常文档流中移除，并且在页面布局中不会为该元素创建空间。它的位置是相对于veiwport创建的初始包含块。当该元素的祖先指定了不为none的transform, perspective, 或者filter属性时，这个祖先就是包含块。它的最终位置取决于top, right, bottom, left。
-  sticky，
+  types of positioning
+    positioned element，指元素计算后的position是relative、absolute、fixed、sticky中的一种。
+    relatively positioned element，指元素计算后的position是relative。top、bottom属性指定相对于自身正常位置的垂直偏移，left、right属性指定水平偏移。
+    absolutely positioned element，指元素计算后的position是absolute或者fixed。top、right、bottom、left属性指定相对于元素的containing block边缘的偏移量。Containing block是指positioned element的祖先元素。如果这个元素有margins，它们会被添加到偏移中。这个元素会为其内容区构建一个BFC。
+    sticky positioned element，指元素计算后的position是sticky。一般情况下，他是被当作relatively positioned元素。
+  absolute，元素被从正常文档流中移出，且在页面布局中不会为该元素保留空间。它的位置与position不为static的最近的祖先元素，或者是最初的包含块（<html>元素所在的区域）相关。它的margins不会合并。如果元素的z-index属性不是auto，那么它会创建一个新的stacking context。
+  relative，元素会依据正常文档流放置，并且将top、right、bottom、left相对于自身偏移。偏移不会影响其他任何元素。因此，页面中给与这个元素的空间与position为static时是一样的。该属性对table-*-group、table-row、table-column、table-cell、table-caption元素是无效的。当z-index属性不为auto时，它会创建一个新的stacking context。
+  fixed，元素会从正常文档流中移除，并且在页面布局中不会为该元素创建空间。它的位置是相对于veiwport创建的初始包含块。当该元素的祖先指定了不为none的transform, perspective, 或者filter属性时，这个祖先就是包含块。它的最终位置取决于top, right, bottom, left。它会创建一个新的stacking context。在打印文档流中，这个元素在每一页的位置都相同。
+  sticky，元素会根据正常文档流放置，并根据它最近的滚动祖先和包含块，包括表相关的元素，通过top、right、bottom、left进行偏移。偏移对其他的元素不产生任何影响。这个元素会创建一个新的stacking context。
   static，默认值。元素根据正常文档流布局。top、right、bottom、left、z-index失效。
+
+  大多数情况下，宽高设置为auto的absoluted positioned elements的尺寸，会与其内容区的尺寸相同。当指定它的top、bottom属性，且不指定height属性时，这种元素会填充可用的垂直空间。同理，如果指定它的left、width属性，且不指定width属性时，这种元素会填充可用的水平空间。当不出现上述的情况时，如果同时设置了top、bottom，top有效；如果同时指定了left、right，ltr时left有效，rtl时right有效。
 
 存在上下文栈的情况
   <html>: document的根元素
