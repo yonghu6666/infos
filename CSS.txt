@@ -555,6 +555,17 @@ stacking context
     元素的will-change属性指定了能够创建stacking context的任意非初始化值；
     元素的contain属性值为layout、paint或者是包含它们中的任意一个的组合属性。
 
+存在上下文栈的情况
+  <html>: document的根元素
+  position: absolute | relative，并且z-index不为auto
+  position: fixed | sticky
+  flex、gird容器的子元素，z-index不为auto
+  opacity小于1的元素
+  包含以下属性，且值不是none的元素：transform, filter, perspective, clip-path, mask/mask-image/mask-border
+  -webkit-overflow-scrolling值为touch的元素
+  元素属性min-blend-mode的值不是normal的元素
+  isolation值为isolate的元素
+  
 position
   types of positioning
     positioned element，指元素计算后的position是relative、absolute、fixed、sticky中的一种。
@@ -568,18 +579,6 @@ position
   static，默认值。元素根据正常文档流布局。top、right、bottom、left、z-index失效。
 
   大多数情况下，宽高设置为auto的absoluted positioned elements的尺寸，会与其内容区的尺寸相同。当指定它的top、bottom属性，且不指定height属性时，这种元素会填充可用的垂直空间。同理，如果指定它的left、width属性，且不指定width属性时，这种元素会填充可用的水平空间。当不出现上述的情况时，如果同时设置了top、bottom，top有效；如果同时指定了left、right，ltr时left有效，rtl时right有效。
-
-存在上下文栈的情况
-  <html>: document的根元素
-  position: absolute | relative，并且z-index不为auto
-  position: fixed | sticky
-  flex、gird容器的子元素，z-index不为auto
-  opacity小于1的元素
-  包含以下属性，且值不是none的元素：transform, filter, perspective, clip-path, mask/mask-image/mask-border
-  -webkit-overflow-scrolling值为touch的元素
-  元素属性min-blend-mode的值不是normal的元素
-  isolation值为isolate的元素
-  
 
 CSS盒模型
   CSS中组成一个块级盒子的元素：Margin box, Border box, Padding box, Content box(大小可以通过设置width和height控制).
