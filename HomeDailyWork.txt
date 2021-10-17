@@ -558,6 +558,10 @@ revert
   vi. 回复；重提；返祖遗传；归还
   vt. 使恢复原状
   n. 恢复原状者
+revoke
+  vt. 撤回，取消；废除
+  vi. 有牌不跟
+  n. 有牌不跟
 robust
   adj. 强健的；健康的；粗野的；粗鲁的
 routine
