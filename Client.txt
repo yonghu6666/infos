@@ -383,6 +383,15 @@ adb
   adb -s yourdeviceId uninstall yourappId
 
 react
+  batch updates
+    React 18以前，React Event Handlers中的更新(setState)会被批处理(batch updates)，即只触发一次render。Promises, setTimeout, native event handlers以及其他的事件不会被react批处理。
+  Handing Event 
+    React Handing Event与Dom Handing Event之间的区别
+      语法区别：
+        React Handing Event的命名是驼峰命名法；Dom Handing Event的是小写的。
+        JSX中使用Event Handler时传递的是方法名；Dom中是string。
+        React只能明确调用preventDefault()才能阻止事件的默认行为；Dom中通过return false;就行了。
+
   diff算法
     对比不同类型的元素
       当节点为不同类型的元素时，移除原有的节点树并创建新的树。
@@ -417,6 +426,7 @@ react
     更新model层中state –> 
     触发view层的render方法进行重新渲染 –> 
     页面更新
+  
 
 react native
   npm cache clean --force
