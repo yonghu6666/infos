@@ -206,7 +206,7 @@ P015_20210501_2
         6.2.3 让字体更细
             lighter
     6.3 字体大小
-        font-size： xx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | <length> | <percentager> | inherit
+        font-size： xx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | <length> | <percentage> | inherit
         初始值：medium
         百分比：根据父元素的字体大小来计算
         计算值：绝对长度

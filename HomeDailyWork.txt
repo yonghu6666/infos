@@ -2,6 +2,7 @@
 TODO
 9 ReactDOM.flushSync()
 8 CSS
+  float
   伪类、伪元素
   垂直居中
   水平居中
@@ -453,6 +454,9 @@ intergration
 intermediary
   adj. 中间的，过渡的
   n. 调解人，中间人；媒介
+interpolate
+  vt. 篡改；插入新语句
+  vi. 插入；篡改
 interpolation
   n. 插入；篡改；填写；插值
 intersect
@@ -607,6 +611,9 @@ polished
 portion
   n. 部分；一份；命运
   vt. 分配；给…嫁妆
+precede
+  v. 处在……之前，先于；在……之前做（或说）；比……更重要，比……（级别）更高
+  vi. 领先，在前面
 precision
   n. 精度，[数] 精密度；精确
   adj. 精密的，精确的
