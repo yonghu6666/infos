@@ -74,6 +74,8 @@ abbreviation
   n. 缩写；缩写词
 abscissa
   n. [数][天] 横坐标；横线
+acceleration
+  n. 加速，加快；（车辆）加速能力，加速幅度；加速度
 accommodate
   vt. 容纳；使适应；供应；调解
   vi. 适应；调解
@@ -169,6 +171,9 @@ clash
   n. 冲突，交战；争论，争执；交锋，比赛；分歧，差异；（金属的）撞击声；（时间上的）冲突，撞期；（颜色、图案等的）不相配
   v. 迥然不同，抵触；冲突，交战；争论，争执；（时间上）相冲突，同时发生；（颜色、图案等）不协调，不相配；（体育）交锋，对阵；（使）撞击发出铿锵声
   vt. 使碰撞作声
+clockwise
+  adj. 顺时针方向的
+  adv. 顺时针方向地
 closure
   n. 关闭；终止，结束
   vt. 使终止
@@ -177,11 +182,15 @@ coexist
 collapse
   v. 倒塌，塌下；崩溃，瓦解；突然倒下，昏倒；瘫倒；突然贬值，暴跌；萎陷，瘪掉；折叠
   n. 倒塌，塌陷；突然失败，崩溃；病倒，垮掉；突然贬值，暴跌
+commutative
+  adj. 交换的，交替的；（一般）代替的
 compliant
   adj. 顺从的；服从的；应允的
 compose
   v. 组成，构成；作曲；撰写（信、诗或演讲稿）；使镇静，使平静；为（照片、图像）构图；排版，排稿
   vi. 组成；作曲；排字
+composition
+  n. 成分构成，成分；（音乐、艺术、诗歌的）作品；创作，作曲；构图；作文
 compound
   n. [化学] 化合物；混合物；复合词；有围栏（或围墙）的场地（内有工厂或其他建筑群）
   adj. 复合的；混合的
@@ -211,6 +220,8 @@ correspond
 cosmatic
   adj. 美容的；化妆用的
   n. 化妆品；装饰品
+counter-clockwise
+  adj. 逆时针方向的
 cross
   n. 交叉，十字；十字架，十字形物
   vi. 交叉；杂交；横过
@@ -230,6 +241,11 @@ curve
   n. 曲线，弧线；转弯，弯道；图表曲线；曲线球；（女子身体的）曲线
   v. （使）弯曲，（使）呈曲线形
   adj. 弯曲的，曲线形的
+customized
+  adj. 定制的；用户化的
+  v. 订制，订做，改制（customize 的过去式和过去分词）
+denote
+  v. 标志，预示；表示，意指
 dense
   adj. 稠密的；浓密的，浓重的；密度大的；（文字）难懂的；愚钝的，笨拙的
 density
@@ -248,6 +264,10 @@ defer
   vt. 使推迟；使延期
 definite
   adj. 清晰的，明晰的；确定的，不会改变的；肯定的，一定的
+deform
+  vt. 使变形；使成畸形
+  vi. 变形；变畸形
+  adj. 畸形的；丑陋的
 delegate
   n. 代表，会议代表；委员会成员
   v. 授（权），把……委托给他人；委派……为代表，任命
@@ -298,6 +318,9 @@ downward
   adv. 向下
 drastically
   adv. 彻底地；激烈地
+elapse
+  v. 消逝
+  n. 时间的流逝
 elegant
   adj. 高雅的，优雅的；讲究的；简炼的；简洁的
 elimination
@@ -348,6 +371,9 @@ federation
 fiat
   n. 命令；许可；政法
   vt. 批准；颁布
+finate
+  adj. 有限的，有限制的；限定的
+  n. 有限之物
 flexible
   adj. 灵活的；柔韧的；易弯曲的
 flip
@@ -438,6 +464,8 @@ infrastructure
   n. 基础设施；公共建设；下部构造
 inhibit
   vt. 抑制；禁止
+instantaneous
+  adj. 瞬间发生的，瞬间完成的
 instruct
   vt. 指导；通知；命令；教授
 insufficient
@@ -479,6 +507,8 @@ lexical
 leverage
   n. 手段，影响力；杠杆作用；杠杆效率
   v. 利用；举债经营
+liberty
+  n. 自由，自由权；（某种）合法权利；冒犯行为（或言语），失礼；意志自由，选择自由；<非正式> 自以为是的言语，专断的行动；（水手的）上岸休假
 likewise
   adv. 同样地，类似地；（表示感觉相同）我也是，我有同感；也，还
 liquidity
