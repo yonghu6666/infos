@@ -1,30 +1,30 @@
 
 TODO
-9 ReactDOM.flushSync()
-8 CSS
+* ReactDOM.flushSync()
+* V8中js的执行机制
+* 浏览器运行机制
+* 复习react组件的生命周期
+  hooks函数(useReducer, useLayoutEffect)
+  React.createRef()
+  将其与hooks的生命周期做对比
+  学习fiber
+  高阶组件
+* CSS
+  学习flex: grid布局
+  盒模型
+  弹性盒子布局
+  display: flex|block|inline
+  外边距折叠规则
+  BFC
   float
   伪类、伪元素
   垂直居中
   水平居中
   :first-child、::first-child区别
   position: relative
-7 V8中js的执行机制
-6 浏览器运行机制
-5 学习flex: grid布局
-4 复习react组件的生命周期
-  hooks函数(useReducer, useLayoutEffect)
-  React.createRef()
-  将其与hooks的生命周期做对比
-  学习fiber
-  高阶组件
-3 盒模型
-  盒模型
-  弹性盒子布局
-  display: flex|block|inline
-  外边距折叠规则
-  BFC
-2 DAG，有向无环图
-1 复习Promise、async-await知识点
+  canvas/webgl
+* DAG，有向无环图
+* 复习Promise、async-await知识点
 
 js
   防抖与节流
@@ -131,6 +131,8 @@ awesome
   adj. 令人敬畏的；使人畏惧的；可怕的；极好的
 awkward
   adj. 尴尬的；笨拙的；棘手的；不合适的
+basis
+  n. 基础，要素；基准，方式；理由，根据；主要成分（或部分）
 beneath
   prep. 在……之下；（对某人来说）不够好，不相称；低于，次于
   n. 在下方，在底下
@@ -147,6 +149,9 @@ blink
 blur
   n. 模糊不清的事物；模糊的记忆，记不清的事情；污迹
   v. （使）看不清楚，记不清；（使）难以区分；玷污
+bounce
+  v. 弹起，反弹；跳动，蹦；（使）上下晃动；（用膝盖）颠动（孩子）；蹦蹦跳跳地去；拒付，退回（支票等）；退回（电子邮件）；驱逐，解雇；（向某人）透露主意（以试探其反应）；反复跳槽，来回往返某地；（光线或声音）反射；撞击，碰撞
+  n. 弹跳，跳动；弹性，弹力；活力，精力；（头发的）弹性，蓬松；突然的增长
 bracket
   n. 支架，墙上凸出的托架；括号；等级，范围
   vt. 括在一起；把…归入同一类；排除
@@ -155,6 +160,10 @@ breadth
 candidate
   n. 候选人，候补者；应试者
   vi. 成为新牧师的候选人
+cascade
+  n. 小瀑布，瀑布状物；串联
+  vi. 像瀑布般大量倾泻下来
+  vi. 像瀑布般悬挂着
 carrot
   n. 胡萝卜；诱饵
 chunk
@@ -223,6 +232,8 @@ convey
   vt. 传达；运输；让与
 correspond
   vi. 符合，一致；相应；通信
+corresponding
+  adj. 相应的，相关的
 cosmatic
   adj. 美容的；化妆用的
   n. 化妆品；装饰品
@@ -329,6 +340,9 @@ downward
   adv. 向下
 drastically
   adv. 彻底地；激烈地
+ease
+  n. 容易；舒适，自在
+  v. 减轻，缓和，放松；缓缓移动；使容易；降低；使离职；熟悉
 elapse
   v. 消逝
   n. 时间的流逝
@@ -359,6 +373,10 @@ erroneous
   adj. 错误的；不正确的
 establish
   v. 建立，创立；确立；获得接受；查实，证实
+even
+  adj. 平坦的，水平的；平静的，平和的；平齐的，挨着的；无变化的，平稳的；势均力敌的，不相上下的；双数的，偶数的；平等的，公平的；不变的，恒定的；（某事发生的概率）对半的，各半的；扯平的，互不相欠的；匀称的，同样大小的；正好的，不多不少的
+  adv. 甚至，即使；更加，愈加；其实，实际上
+  v. 使相等，使平均；变平坦；使变平，使平整
 eventually
   adv. 最后，终于
 exceed
@@ -469,6 +487,9 @@ incognito
   adj. 伪装的，隐姓埋名的
   adv. 隐瞒身份地，化名地
   n. 虚假身份
+indent
+  v. 缩排；印凹痕；切割成锯齿状；定货，申请；将（一式两份的文件）以锯齿线裁成两份（以便验证真伪）
+  n. 征用令；缩进；订货单；凹痕；契约
 independent
   adj. 自治的，独立的；自立的，自力更生的；公正的，不受他人影响的；分离的，单独的；私营的；无党派的；有主见的，有独立见解的
   n. 独立自主者，独立团体；无党派政治家；公理会教友
@@ -501,6 +522,10 @@ intergration
 intermediary
   adj. 中间的，过渡的
   n. 调解人，中间人；媒介
+intermediate
+  adj. 居中的，中间的；中等程度的，中级的
+  n. 中级水平者，中级学生；中间事物；（化合物）中间体
+  v. 充当调解人，斡旋
 interpolate
   vt. 篡改；插入新语句
   vi. 插入；篡改
@@ -532,6 +557,8 @@ likewise
   adv. 同样地，类似地；（表示感觉相同）我也是，我有同感；也，还
 liquidity
   n. 流动性；流动资产；[金融] 偿债能力
+longhand
+  n. 普通书写（速记或打字）；普通写法
 luminosity
   n. [光][天] 光度；光明；光辉
 majority
@@ -609,6 +636,9 @@ occasionally
   adv. 偶尔；间或
 occupy
   vt. 占据，占领；居住；使忙碌
+odd
+  adj. 奇怪的，反常的；偶然出现的，偶尔发生的；奇形怪状的，各种各样的；不成对的，不同类的；奇数的；可得到的，可用的；少量的，不重要的；（尤指在双方至少各进一球的情况下）一球险胜的
+  adv. （用于数字后）大约，左右
 omit
   vt. 省略；遗漏；删除；疏忽；没做；<废>无视；<废>放弃
 ordinate
@@ -645,6 +675,8 @@ periodically
   adv. 定期地；周期性地；偶尔；间歇
 periphery
   n. 外围，边缘；圆周；圆柱体表面
+permutation
+  n. [数] 排列；[数] 置换
 perpendicular
   adj. 垂直的，正交的；直立的；陡峭的
   n. 垂直线，垂线；垂直的位置
