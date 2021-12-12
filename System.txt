@@ -1,4 +1,21 @@
 linux
+  Mount an NFTS partition with read-only access
+    Before mounting, identify it
+      sudo parted -l
+    Create Mount Point 
+      sudo mkdir /mnt/ntfs
+    Mount NTFS Partition '/dev/sdb2' to ubuntu dir '/mnt/ntfs'
+      sudo mount -t ntfs /dev/sdb2 /mnt/ntfs
+    Use the disk free tool to check the details of all filesystems and verity you mounted the patition successfully
+      df -hT
+    Umount
+      sudo umount /dev/sdb2
+  Mount an NTFS partition with read-write access
+    sudo apt install fuse
+    sudo apt install ntfs-3g
+    sudo mount -t ntfs-3g /dev/sdb2/ /mnt/ntfs/
+    df -hT
+    sudo umount /dev/sdb2  
   ls 
     -h
       human readable，即把文件大小按照K、M等显示
