@@ -547,6 +547,9 @@ P015_20210501_2
         1.6.3 问号(?)表示前面的值或分组是可选的。
         1.6.4 大括号里的一对数({M,N})表示前面的值或分组至少重复M次，最多N次。
 
+fit-content()
+  可以理解为：min(maximum size, max(minimum size, argument))
+
 stacking context
   形成一个stacking context的条件
     document的根元素(<html>);
@@ -637,3 +640,18 @@ width, clientWidth, innerWidth, offsetWidth, scrollWidth
   '>' 子选择器（不能有层级间隔，即只能选择所包含的第一层的元素，第二层及更深的层级不能被选择）
   '~' 兄弟选择器，选择位于其后面的元素，且具有相同的父元素
   '+' 相邻兄弟选择器，只选择紧接在后面的元素，且而二者具有相同的父元素
+
+MDN value definition syntax
+  Combinaters：
+    空格：组成部分(Components)是强制的，且应该按照当前顺序出现；
+    &&：Components是强制的，但可以以任意顺序出现；
+    ||：至少出现一个Components，可以以任意顺序出现；
+    |：只能出现其中一个Components；
+    []：把Components分组以改变优先级；
+  Multipliers
+    *：出现0次或多次；
+    +：出现1次或多次；
+    ?：出现0次或1次；
+    {A, B}：最少出现A次，最多出现B次；
+    #：出现1次或多次，且以‘,’分割；
+    !：组中的值最少出现1次；
