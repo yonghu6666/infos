@@ -555,6 +555,8 @@ hyperactivity
 hybrid
   n. 混合物；杂种；混合动力车，油电混合车；混合词，混种词
   adj. 混合的；杂种的，杂交成的
+ident
+  n. 识别，鉴别
 identical
   adj. 完全相同的；同一的；（双胞胎）同卵的；恒等的
   n. 完全相同的事物
@@ -1057,6 +1059,8 @@ tenary
   adj. [数] 三元的，三重的；[数] 三进制的；第三的
 theoretically
   adv. 理论地；理论上
+thereby
+  adv. 因此，从而
 thereof
   adv. 它的；由此；在其中；关于…；将它
 threshold
