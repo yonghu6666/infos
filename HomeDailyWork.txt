@@ -1,14 +1,16 @@
 
 TODO
-* ReactDOM.flushSync()
-* V8中js的执行机制
-* 浏览器运行机制
-* 复习react组件的生命周期
+* explorer
+  浏览器运行机制
+  V8中js的执行机制
+* react
+  复习react组件的生命周期
   hooks函数(useReducer, useLayoutEffect)
   React.createRef()
   将其与hooks的生命周期做对比
   学习fiber
   高阶组件
+  ReactDOM.flushSync()
 * CSS
   学习flex: grid布局
   盒模型
@@ -23,8 +25,10 @@ TODO
   :first-child、::first-child区别
   position: relative
   canvas/webgl
-* DAG，有向无环图
-* 复习Promise、async-await知识点
+* algorithm
+  DAG，有向无环图
+* js
+  复习Promise、async-await知识点
 
 js
   防抖与节流
