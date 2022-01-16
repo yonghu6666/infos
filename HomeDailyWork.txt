@@ -473,6 +473,8 @@ ergonomic
   adj. 人类环境改造学的；人类工程学的
 erroneous
   adj. 错误的；不正确的
+essentially
+  adv. 本质上，根本上；大体上，基本上
 establish
   v. 建立，创立；确立；获得接受；查实，证实
 estate
@@ -715,6 +717,8 @@ interpolation
 intersect
   vi. 相交，交叉
   vt. 横断，横切；贯穿
+intricate
+  adj. 错综复杂的；难理解的，难学会的
 intrinsic
   adj. 本质的，固有的
 jam
