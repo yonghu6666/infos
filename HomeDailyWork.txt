@@ -44,6 +44,7 @@ net protocal
 
   TCP RTO计算
 
+web-vitals: CLS, cumulative layout shift; LCP, layout contentful paint; FID, fisrt input delay.
 
 WebAssembly
 
@@ -72,6 +73,21 @@ ioc容器的实现原理及源码
 
 随机数的周期性
     随机函数生成的数，是否存在周期性
+
+
+--------------------------------
+
+{
+    "server":["[::0]","0.0.0.0"],
+    "mode":"tcp_and_udp",
+    "server_port":142,
+    "local_port":1080,
+    "password":"dPuIQYm9Kjmub5uCf+qZMbA8194mbn3M",
+    "timeout":20,
+    "method":"chacha20-ietf-poly1305",
+    "use_syslog": true
+}
+
 
 --------------------------------
 abbreviation
@@ -428,6 +444,9 @@ dive
   n. 潜水，下潜；跳水；俯冲；冲，扑；突降，暴跌；假摔；低级酒吧
 division
   n. 分开，分配；除法；部门；分歧，不和；分界线；（军队编制中的）师；（英国议会的）分组表决；（足球等体育运动中联赛的）级
+dominant
+  adj. 占支配地位的，占优势的；（基因）显性的
+  n. 显性（性状），显性基因
 downright
   adj. （坏事或令人不快之事）彻头彻尾的；（人的举止或行为）直率的；径直前进的
   adv. 向下；完全地，彻底地；径直向前地；立即
@@ -572,6 +591,8 @@ foundation
   n. 地基，基础；基本原理，根据；基金会；建立，创办；（化妆打底用的）粉底霜
 fractional
   adj. 部分的；[数] 分数的，小数的
+fragile
+  adj. 易碎的，易损的；不牢固的，易被摧毁的；纤巧美丽的；虚弱的，体弱的
 frontier
   n. 边境，国界；(常sing.) 西部边疆，边远地区；（尤指知识的）前沿，新领域；西部边疆，边远地区
   adj. 边境的，边疆的
@@ -971,6 +992,8 @@ procedure
   n. 手续，步骤；（商业、法律或政治上的）程序；外科手术；（电脑的）应用程式
 prone
   adj. 有做……倾向的，易于……的；俯卧的，趴着的；（前臂姿势）手心向下的
+propagation
+  n. （动植物等的）繁殖，增殖；（观点、理论等的）传播；（运动、光线、声音等的）传送
 propertion
   n. 比例，占比；部分；面积；均衡
   vt. 使成比例；使均衡；分摊
@@ -1035,6 +1058,8 @@ requisite
 reserve
   v. 预订（座位等）；储备；拥有（某种权利）；留出（一部分稍后使用）；用于（特定场合）；暂不作（判断或决定）；把……专门留给；弥撒后保留部分圣餐
   n. 储备（量）；自然保护区；居住地；预备队；预备役部队；缄默；保留意见；储备金；（拍卖中的）底价；（印染中的）防染本色区
+resilient
+  adj. （人或动物）对困境有承受力的，有复原力的；（物质或物体）有弹性的，有回弹力的
 respectively
   adv. 分别地，依次地
 revenue
