@@ -89,6 +89,19 @@ ioc容器的实现原理及源码
 }
 
 
+{
+    "server":["[::0]","0.0.0.0"],
+    "mode":"tcp_and_udp",
+    "server_port":142,
+    "local_port":1080,
+    "password":"a4mbn3M",
+    "timeout":20,
+    "method":"chacha20-ietf-poly1305",
+    "use_syslog": true
+}
+
+
+
 --------------------------------
 abbreviation
   n. 缩写；缩写词
@@ -654,6 +667,8 @@ honor
 hood
   n. （衣服上的）兜帽，风帽；头巾，面罩；（设备或机器的）防护罩，罩；汽车发动机罩；（炉灶上方的）排风罩，抽油烟罩；<英>（汽车、婴儿车等）可折叠车篷；<美>恶棍，暴徒；<美>贫民区，贫困社区；羽冠，垂兜，颈部皮褶；（野芝麻等植物的）盔状花冠；学位连领帽（表示学位种类）；（猎鹰）（鹰的）皮头罩
   vt. 加罩于，覆盖
+hydration
+  n.[化学]水合作用
 hyperactivity
   n. 极度活跃；活动过度
 hybrid
@@ -892,6 +907,10 @@ omit
   vt. 省略；遗漏；删除；疏忽；没做；<废>无视；<废>放弃
 ordinate
   n. 纵坐标
+orient
+  v.朝向，面对，使适合；定向放置（某物）；确定方位，认识方向（orient oneself）；引导；使熟悉，帮助适应
+  n.<旧>东方，东亚诸国(the Orient)；（优质珍珠的）光泽；优质珍珠
+  adj.<文>东方的，东方国家的；（尤指宝石）光彩夺目的；（太阳等）冉冉上升的，（白昼的光亮等）渐渐变强的
 outcome
   n. 结果，效果
 overfire
@@ -1102,6 +1121,10 @@ scratch
   vi. 抓；搔；发刮擦声；勉强糊口；退出比赛
 semantic
   adj. 语义的；语义学的
+sentry
+  n.哨兵；岗哨
+  vi.放哨
+  vt.设岗哨
 serialize
   vt. 连载，使连续
 served
