@@ -29,9 +29,10 @@ TODO
   DAG，有向无环图
 * js
   复习Promise、async-await知识点
-
-js
   防抖与节流
+* network
+  how to cancel a http request 
+
 IEEE-754浮点数表示法
 net protocal
   作为请求方的第一个应答的ACK报文，当接收方的可用缓存区大小大于0，且小于接收方缓存区大小的一半时，其win大小，有时为接收方可用缓存区的大小；而有时又为0？（例子可见图22-3中报文段13、15）
@@ -53,8 +54,6 @@ Fluter
 内存数据的连续读写
 
 深层神经网络
-
-C#接口中定义参数和返回值都为泛型的方法
 
 快速排序
   https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
@@ -1250,8 +1249,6 @@ synthetic
   n. 合成物，合成纤维（织物）
 tedious
   adj. 冗长的，单调乏味的
-terminology
-  n. 术语，术语学；用辞
 template
   n. 模板，样板
 temporary
@@ -1259,6 +1256,11 @@ temporary
   n. 临时雇员，临时工
 tenary
   adj. [数] 三元的，三重的；[数] 三进制的；第三的
+terminology
+  n. 术语，术语学；用辞
+tether
+  n. 系链；拴绳
+  v. （用绳或链）拴住
 theoretically
   adv. 理论地；理论上
 thereby
