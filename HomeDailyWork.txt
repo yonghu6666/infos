@@ -45,7 +45,10 @@ net protocal
 
   TCP RTO计算
 
-web-vitals: CLS, cumulative layout shift; LCP, layout contentful paint; FID, fisrt input delay.
+web-vitals: CLS, cumulative layout shift; LCP, largest contentful paint; FID, fisrt input delay.
+
+web降级方案，如图片的降级
+图片渐进式渲染
 
 WebAssembly
 
@@ -114,6 +117,8 @@ acceleration
 accommodate
   vt. 容纳；使适应；供应；调解
   vi. 适应；调解
+accompany
+  v. 陪伴，陪同；伴随，与……一起发生；为……伴奏（或伴唱）；附带，补充
 accumulative
   adj. 累积的，逐渐增加的
 adjacent
@@ -515,8 +520,12 @@ enforce
   vt. 实施，执行；强迫，强制
 enhance
   vt. 提高；加强；增加
+enormous
+  adj. 巨大的，极大的；<古>凶暴的，极恶的
 enshrine
   vt. 铭记，珍藏；把…置于神龛内；把…奉为神圣
+entrepeneur
+  n. 企业家，创业者；主办者，提倡者
 epilepsy
   n. 癫痫，癫痫症
 ergonomic
@@ -790,6 +799,8 @@ jam
   n. 果酱；拥挤；困境；扣篮
   vt. 使堵塞；挤进，使塞满；混杂；压碎
   vi. 堵塞；轧住
+jank
+  adj. 质量极差的；不可靠的；多余的；无意义的；愚蠢的
 juxtpose
   vt. 并列；并置
 juxtaposition
@@ -862,6 +873,8 @@ migrate
   vt. 使移居；使移植
 mislead
   v. 误导，将……引入歧途
+mitigate
+  v. <正式>减轻，缓和
 mix
   v. （使）混合，（使）调和；使结合，组合；调制，配制；混合录音；（尤指与不相熟的人）交往，相处；不合，不相容；<非正式>打起来，争吵起来
   n. 混合体；（制作糕点、调味汁等的）混合原料，混合配料；（特定社会或团体内）各色人混杂的一群；（人群、混合物的）成分比例；混音，混录；乐曲组合，连奏；叠化图像，叠化声音
@@ -1245,6 +1258,8 @@ substituted
   v. 代替；用……代替（substitute 的过去式）
 sufficient
   adj. 足够的；充分的
+suite
+  n. 套房，套间；一套家具；组曲；（程序）组，套；一套产品；（君主或高官的）（一批）随员；（地质）系列矿石（或岩石、化石）
 supersude
   vt. 取代，代替；紧接着……而到来
   vi. 推迟行动
@@ -1316,15 +1331,15 @@ unclaimed
 underlying
   adj. 根本的，潜在的；表面下的，下层的；（数量或水平）实际的；（数量或水平）实际的；优先的
   v. 位于……的下面；构成……的基础（underlie的现在分词形式）
-enderneath
+underneath
   prep. 在……底下；在书页下面；在……表象下；（部分或全部）在衣服下面；（掩盖）在（另一物体）下面；（人）本质上
   adv. 在……底下；在书页下面；在……表象下；（部分或全部）在衣服下面；（掩盖）在（另一物体）下面；（人）本质上
   n. 下面，底部
   adj. 下面的，底层的
-entrepeneur
-  n. 企业家，创业者；主办者，提倡者
 uphold
   v. 支持，维护（法规、制度或原则）；认可，维持（法院原判）；鼓励；举起
+utilize
+  v. 利用，使用
 vanilla
   n. 香草精，香子兰精；香草冰淇淋；香草冰淇淋色，浅奶黄色；香子兰，香果兰，香夹兰
   adj. 香草味的；无特色的，普通的
