@@ -1,64 +1,10 @@
+ChaChaGames
+  解决了市场界面，使用flex横向布局不固定容器高度时，右侧元素高度锚定左侧元素偶尔失效的问题：失效的原因是左侧部分的网络请求偶尔会落后于右侧部分的数据请求，导致右侧部分先渲染而无法锚定左侧高度。解决办法：左侧部分的网络请求的响应到达后，重新绘制右侧区域。
+Sumswap交易系统
+  
+  开发自动化工具，处理lingui的多语言插件的po文件。即增量式提取po文件中的多语言数据至excel，并将翻译后的excel数据转成js，然后替换po文件的带翻译部分。
 
-
-Question
-  1.内网环境，app能否访问绑定未认证的ssl证书的https请求。 1
-   
-display: flex;
-display: inline-flex;
-
-flex-direction: row | row-reverse | column | column-reverse;
-flex-wrap: nowrap | wrap;
-flex-flow: row | row-reverse | column | column-reverse   nowrap | wrap;
-flex: [flex-grow] [flex-shrink] [flex-basic];
 
 flex-basic: 指定元素在主轴方向上的初始大小
 flex-grow: 元素的拉伸值。父容器的剩余空间的多少应该分配给该元素。
 flex-shrink: 元素的收缩规则。仅当默认宽度的和大于容器的时候才会收缩。
-
-
-
-align-items，交叉轴
-    stretch
-    flex-start
-    flex-end
-    center
-justify-content，主轴
-    stretch
-    flex-start
-    flex-end
-    center
-    space-between
-    space-around
-
-var ts = [
-    'img',
-    'video',
-    'iframe',
-    'embed',
-    'object',
-    '[style*="background:url"]',
-    '[style*="background-image:url"]',
-    '[style*="background: url"]',
-    '[style*="background-image: url"]',
-    '[style*="background-image"][style*="image-set"]',
-];
-ts = 'body,' + ts.join(',') + '{filter:invert(100%);}'
-    + ts.map(function (p) { return ts.map(function (p2) { return p + ' ' + p2 }).join(',') }).join(',') + '{filter:invert(0%);}'
-    + 'body{background-color:rgba(0,0,0,0.9382)!important;}:root,html{background-color:rgba(0,0,0,0)!important;}';
- 
-var css = document.createElement('style');
-css.innerHTML = ts;
-document.body.appendChild(css);
-
-
-电费
-8.10
-    242.92
-物业费
-8.12
-    327.76
-7.12
-    314.3
-
-
-5100 + 242.92 + 327.76 + 314.3 = 5,984.98
