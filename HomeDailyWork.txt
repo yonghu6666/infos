@@ -45,7 +45,7 @@ net protocal
 
   TCP RTO计算
 
-web-vitals: CLS, cumulative layout shift; LCP, largest contentful paint; FID, fisrt input delay.
+web-vitals: CLS, cumulative layout shift，累积布局偏移（视觉稳定性）; LCP, largest contentful paint，最大内容绘制（加载性能）; FID, fisrt input delay，首次输入延迟（交互性）。
 
 web降级方案，如图片的降级
 图片渐进式渲染
@@ -158,6 +158,9 @@ ampersand
 annotate
   vi. 注释；给…作注释或评注
   vt. 注释；作注解
+approach
+  v. 靠近，临近；接洽，交谈；对付，处理；近似，接近于
+  n. 方法，态度；靠近，接近；接洽，要求；通道，路径；进场着陆；近似物
 approximate
   adj. 近似的，大概的
   v. 接近，近似；粗略估计
@@ -494,6 +497,8 @@ eager
 ease
   n. 容易；舒适，自在
   v. 减轻，缓和，放松；缓缓移动；使容易；降低；使离职；熟悉
+ecommerce
+  n. 电子商务（electronic commerce）
 elaborate
   adj. 复杂的，详尽的；精心制作的
   v. 详细说明，详尽阐述；精心制作
@@ -661,6 +666,9 @@ glance
   n. 一瞥，很快的一看；（光的）闪烁，闪耀；（板球）斜击；（铅、铜或其他金属的）辉矿类，硫化矿类；<文>（光的）闪烁，闪耀
 governance
   n. 管理；统治；支配
+grab
+  v. 攫取，抓住；（尤指匆忙地）取，吃，喝；霸占，强夺；利用，抓住（机会）；引人注意，吸引
+  n. 攫取，赚取；抓具，抓斗；抓取（或截获、采集）的图像
 gradual
   adj. 逐渐的，渐进的；平缓的，不陡的
   n. 弥撒升阶圣歌集
@@ -1037,6 +1045,9 @@ precedence
 precision
   n. 精度，[数] 精密度；精确
   adj. 精密的，精确的
+preempt
+  v.优先购买；[建]预先占用
+  n.[经]抢先占有
 premutation
   n. [数] 排列；[数] 置换
 prepend
@@ -1109,6 +1120,8 @@ receipt
 recipient
   n. 容器，接受者；容纳者
   adj. 容易接受的；容纳的
+rectify
+  v. <正式>纠正，矫正；整流，把（交流电）转变成直流电；蒸馏；求曲线的直线等长
 recursion
   n. [数] 递归，循环；递归式
 reinforce

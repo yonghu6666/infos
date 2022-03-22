@@ -92,7 +92,6 @@ Heap、Stack
       undefined, null, boolean, number, string, symbol
     Heap
       无序的存储非基础数据类型的数据。
-
     Stack
       存储变量、基础数据类型、指向堆里的数据结构的地址的指针。
       函数是放在栈里的，函数执行的时候，在栈里执行。

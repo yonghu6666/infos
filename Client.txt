@@ -326,6 +326,30 @@ postMessage
     message，将要发送到其他window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
     targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
     transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
+浏览器缓存机制
+  即HTTP缓存机制，是根据HTTP报文的缓存标识进行控制。
+  根据是否需要向服务器重新发起http请求将缓存过程分为两个部分：强制缓存，协商缓存。
+  强制缓存规则：当浏览器向服务器发送请求的时候，服务器会将缓存规则放入HTTP响应的报文的HTTP头中，控制强制缓存的字段包括Expires和Cache-Control，其中Cache-Control的优先级比Expires高。
+  强制缓存
+    Expires
+      Expires是HTTP/1.0控制网页缓存的字段，其值为服务器返回该请求的结果缓存的到期时间，即再次发送请求时，如果客户端的时间小于Expires的值，直接使用缓存结果。
+    Cache-Control
+      在HTTP/1.1中，Cache-Control是最重要的规则，主要用于控制页面缓存，主要取值为：
+        public：所有内容都将被缓存（客户端和代理服务器都可以缓存）
+        private：所有内容只有客户端可以缓存，Cache-Control的默认值
+        no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定
+        no-store：所有内容都不会被缓存
+        max-age=xxx(seconds)：缓存内容将在xxx秒后失效
+  协商缓存
+    强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存。
+    Last-Modified/If-Modified-Since
+      Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间。
+      If-Modified-Since是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段告诉服务器该资源上次请求返回的最后被修改时间。
+    Etag/If-Node-Match
+      Etag是服务器响应请求时，返回当前资源文件的一个唯一标识符（Apache中，ETag的默认值是对文件的索引节INode，大小Size，最后修改时间MTime进行Hash后得到的）。
+      If-None-Match是客户端再次发起请求时，携带上次请求返回的唯一标识Etag值，通过此字段告诉服务器该资源上一次请求返回的唯一标识符。
+  强制缓存优先于协商缓存进行，若强制缓存生效则直接使用缓存，否则进行协商缓存。
+
 Cookie
   浏览器同一域名下，存储cookie的数量（30-50）及大小（4K）有限制
   会话Cookie，浏览器关闭之后自动删除。
@@ -335,6 +359,7 @@ Cookie
     Domain、Path标识了Cookie的作用域。
     Domain标识指定了哪些主机可以接受Cookie。如果不指定，默认为当前文档的主机（不包括子域名）。如果制定了Domain，则一般包含子域名。如，设置Domain=mozilla.org，则Cookie也包含在子域名中（如developer.mozilla.org）。
     Path标识指定了主机下的哪些路径可以接收Cookie（该URL路径必须存在于请求URL中）。以字符%x2F("/")作为路径分隔符，子路径也会被匹配。如设置Path=/docs，则以下路径都会被匹配：/docs、/docs/Web/、/docs/Web/HTTP。
+
 CORS
   跨域资源共享
     浏览器会限制发起跨站请求，或者是跨站请求被正常发起，但返回结果被浏览器拦截。
@@ -357,6 +382,14 @@ CORS
     postMessage
       
     websocket
+XSS
+  Cross-site scripting，跨域脚本攻击。望页面里插入恶意Script代码，当用户浏览该页面时，嵌入web里面的Script代码会被执行，从而达到恶意攻击用户的目的。
+  XSS分为存储型，反射型，DOM型。
+  存储型：恶意代码是存储在服务器中。用户访问页面时，触发代码执行。这种XSS比较危险，容易造成蠕虫，盗窃cookie。
+  反射型：欺骗用户点击恶意链接，从而触发XSS代码。大多用来盗取用户的cookie信息。
+  DOM型：通过url传入参数去控制触发，其实也属于反射型。
+  防御策略
+    对用户的输入（和URL参数）进行过滤，对输出进行html转义。
 
 CSRF
   cross-site request forgery，跨站请求伪造，也被称为one click attack/session riding，缩写为CSRF/XSRF。
@@ -373,8 +406,6 @@ CSRF
 Token
   Refresh Token
     用户登录之后，服务端会返回两个token：Access Token、Refresh Token。Access Token的有效期较短，Refresh Token的有效期较长。在Access Token失效后，客户端通过Refresh Token获取新的Access Token和Refresh Token，如果Refresh Token也失效了，则只能重登录。
-XSS
-  Cross-site scripting，跨域脚本攻击。
 
 
 adb 
@@ -558,13 +589,6 @@ nunjucks
   {##}，会注释其中包含的nunjucks代码和h5代码
   <!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
 
-h5
-  游戏全屏按钮
-  Laya框架是支持全屏功能的，但是存在一些限制，如不支持Firefox浏览器的全屏功能。所以考虑用原生H5来实现。
-  思路比较简单：在游戏UI的上层，添加按钮。按钮添加事件，实现全屏、退出全屏功能。
-  遇到的问题：
-    添加按钮之后，向下拖动按钮时，会触发浏览器的下拉刷新事件。解决办法：在按钮的样式里添加
-    overscroll-behavior: none;，并在拖动事件里添加evt.preventDefault();，阻止事件在冒泡阶段向外传递。
 JQuery
   jquery
   $(#id)，#取的是id
@@ -608,62 +632,6 @@ CSS
     absolute 生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。
     fixed 生成绝对定位的元素，相对于浏览器窗口进行定位。
     relative 生成相对的元素，相对于其正常位置进行定位。
-postMessage
-  它可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面具有相同的协议、端口号、以及主机(两个页面的模数Document.domain设置相同的值)时，这两个脚本才能相互通信。
-  otherWindow.postMessage(message, tarOrigin, [transfer])
-    otherWindow，其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames。
-    message，将要发送到其他window的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。
-    targetOrigin，通过窗口的origin属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个URI。
-    transfer 可选。是一串和message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
-Cookie
-  会话Cookie，浏览器关闭之后自动删除。
-  持久Cookie，仅在达到过期时间后被删除。
-  设置HttpOnly的Cookie，无法通过js获取，仅能发送给服务端。
-  作用域
-    Domain、Path标识了Cookie的作用域。
-    Domain标识指定了哪些主机可以接受Cookie。如果不指定，默认为当前文档的主机（不包括子域名）。如果制定了Domain，则一般包含子域名。如，设置Domain=mozilla.org，则Cookie也包含在子域名中（如developer.mozilla.org）。
-    Path标识指定了主机下的哪些路径可以接收Cookie（该URL路径必须存在于请求URL中）。以字符%x2F("/")作为路径分隔符，子路径也会被匹配。如设置Path=/docs，则以下路径都会被匹配：/docs、/docs/Web/、/docs/Web/HTTP。
-CORS
-  跨域资源共享
-  浏览器会限制发起跨站请求，或者是跨站请求被正常发起，但返回结果被浏览器拦截。
-  该机制允许web应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。
-  跨域资源共享(cross-origin sharing standard)允许在下列场景中使用跨域htpp请求：
-    1.由XMLHttpRequest或Fetch发起的跨域HTTP请求。
-    2.Web字体(CSS中通过@font-face使用跨域字体资源)，因此网站就可以发布TrueType字体资源，并只允许已授权网站进行跨站调用。
-    3.WebGL贴图。
-    4.使用drawImage将Image/video画面绘制到Canvas。
-  跨域资源共享新增了一组http首部字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的http请求方法(特别是get以外的http请求，或者搭配某些mime类型的post请求)，浏览器必须首先使用options方法发起一个预检请求(preflight request)，从而获知服务器是否允许该跨域请求。服务器确认允许之后，才发起实际的http请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证(包括Cookies和http认证相关数据)。
-CSRF
-  cross-site request forgery，跨站请求伪造，也被称为one click attack/session riding，缩写为CSRF/XSRF。
-  例子：
-    登录了网站http://www.mybank.com，并可以通过http://www.mybank.comTransfer.php?toBankId=xx&money=xxx的方式转账
-    此时便可以通过欺骗方式进行转账操作，如<img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
-  防御策略
-    验证HTTP Referer字段
-      根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。服务端可以根据请求中的Referer值判断，是否是当前网站发来的请求。
-    在请求地址中添加token并验证
-      黑客很难伪造token，并且token不存储于cookie中，这样就避免了cookie被盗用的风险。
-    在HTTP头中自定义属性并验证
-      把token放入HTTP头中自定义的属性。通过XMLHttpRequest这个类，可以一次性给所有该类请求添加token这个HTTP头属性，并把token值放入其中。
-Token
-  Refresh Token
-    用户登录之后，服务端会返回两个token：Access Token、Refresh Token。Access Token的有效期较短，Refresh Token的有效期较长。在Access Token失效后，客户端通过Refresh Token获取新的Access Token和Refresh Token，如果Refresh Token也失效了，则只能重登录。
-XSS
-  Cross-site scripting，跨域脚本攻击。
-
-跨域请求方案
-  协议、域名、端口相同时，被认为是同源。跨域的http请求，在发起时被浏览器限制，或是在响应返回时，会被浏览器拦截。这被称为同源策略。
-  JSONP
-    DOM元素的src属性，能够绕过同源策略。这类元素包括：img、link、script、iframe等。JSONP就是使用script元素实现的。
-    实现流程：web端声明一个回调函数，创建一个script元素，将回调函数的名称作为url的参数，赋值给script元素的src属性。服务端收到请求后，把收到的函数名和客户端需要的数据拼接成一个字符串，通过http协议传递给web端。
-  CORS
-    仅仅依靠web端，是不能实现CORS的。它需要服务端设置Access-Control-Allow-Origin，该参数表示哪些域名可以访问当前服务器的资源。
-  nginx
-    反向代理
-  postMessage
-    
-  websocket
-      
 移动端
   点
     最初，所有绘制的坐标都被称为点。
