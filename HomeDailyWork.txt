@@ -233,6 +233,8 @@ bracket
   vt. 括在一起；把…归入同一类；排除
 breadth
   n. 宽度，幅度；广度，广泛性
+breathtaking
+  adj. 激动人心的，令人惊叹的；非常糟糕的，令人震惊的
 bulletproof
   adj. 防弹的
 bypass
@@ -1042,6 +1044,8 @@ polished
 portion
   n. 部分；一份；命运
   vt. 分配；给…嫁妆
+pragma
+  n. 编译指示；杂注
 precede
   v. 处在……之前，先于；在……之前做（或说）；比……更重要，比……（级别）更高
   vi. 领先，在前面
