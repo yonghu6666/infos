@@ -716,6 +716,9 @@ hood
   vt. 加罩于，覆盖
 hydration
   n.[化学]水合作用
+hyper
+  adj. <非正式>（行为）兴奋的，紧张的
+  n. 宣传人员
 hyperactivity
   n. 极度活跃；活动过度
 hybrid
@@ -1137,6 +1140,8 @@ receipt
 recipient
   n. 容器，接受者；容纳者
   adj. 容易接受的；容纳的
+reconcile
+  v. 调和，使协调一致；（使）和解，（使）恢复友好关系；调停，调解（争吵）；使顺从于，使接受；核对，查核（账目）
 rectify
   v. <正式>纠正，矫正；整流，把（交流电）转变成直流电；蒸馏；求曲线的直线等长
 recursion

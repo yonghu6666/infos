@@ -230,7 +230,14 @@ js 函数
   影响Web性能的两大主因
     1 等待资源加载时间
     2 大部分情况下的浏览器单线程执行
-
+  使用http缓存
+  使用http2协议
+  懒加载
+    图片、组件
+  压缩图片
+    使用webp格式
+  防止布局移动
+    给图片添加宽高
 
 浏览器 iframe内存回收
   回收方法：
@@ -382,31 +389,32 @@ CORS
     postMessage
       
     websocket
-XSS
-  Cross-site scripting，跨域脚本攻击。望页面里插入恶意Script代码，当用户浏览该页面时，嵌入web里面的Script代码会被执行，从而达到恶意攻击用户的目的。
-  XSS分为存储型，反射型，DOM型。
-  存储型：恶意代码是存储在服务器中。用户访问页面时，触发代码执行。这种XSS比较危险，容易造成蠕虫，盗窃cookie。
-  反射型：欺骗用户点击恶意链接，从而触发XSS代码。大多用来盗取用户的cookie信息。
-  DOM型：通过url传入参数去控制触发，其实也属于反射型。
-  防御策略
-    对用户的输入（和URL参数）进行过滤，对输出进行html转义。
 
-CSRF
-  cross-site request forgery，跨站请求伪造，也被称为one click attack/session riding，缩写为CSRF/XSRF。
-  例子：
-    登录了网站http://www.mybank.com，并可以通过http://www.mybank.com/Transfer.php?toBankId=xx&money=xxx的方式转账
-    此时便可以通过欺骗方式进行转账操作，如<img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
-  防御策略
-    验证HTTP Referer字段
-      根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。服务端可以根据请求中的Referer值判断，是否是当前网站发来的请求。
-    在请求地址中添加token并验证
-      黑客很难伪造token，并且token不存储于cookie中，这样就避免了cookie被盗用的风险。
-    在HTTP头中自定义属性并验证
-      把token放入HTTP头中自定义的属性。通过XMLHttpRequest这个类，可以一次性给所有该类请求添加token这个HTTP头属性，并把token值放入其中。
+浏览器安全
+  XSS
+    Cross-site scripting，跨域脚本攻击。往页面里插入恶意Script代码，当用户浏览该页面时，嵌入web里面的Script代码会被执行，从而达到恶意攻击用户的目的。
+    XSS分为存储型，反射型，DOM型。
+    存储型：恶意代码是存储在服务器中。用户访问页面时，触发代码执行。这种XSS比较危险，容易造成蠕虫，盗窃cookie。
+    反射型：欺骗用户点击恶意链接，从而触发XSS代码。大多用来盗取用户的cookie信息。
+    DOM型：通过url传入参数去控制触发，其实也属于反射型。
+    防御策略
+      对用户的输入（和URL参数）进行过滤，对输出进行html转义。
+
+  CSRF
+    cross-site request forgery，跨站请求伪造，也被称为one click attack/session riding，缩写为CSRF/XSRF。
+    例子：
+      登录了网站http://www.mybank.com，并可以通过http://www.mybank.com/Transfer.php?toBankId=xx&money=xxx的方式转账
+      此时便可以通过欺骗方式进行转账操作，如<img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
+    防御策略
+      验证HTTP Referer字段
+        根据HTTP协议，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址。服务端可以根据请求中的Referer值判断，是否是当前网站发来的请求。
+      在请求地址中添加token并验证
+        黑客很难伪造token，并且token不存储于cookie中时，这样就避免了cookie被盗用的风险。
+      在HTTP头中自定义属性并验证
+        把token放入HTTP头中自定义的属性。通过XMLHttpRequest这个类，可以一次性给所有该类请求添加token这个HTTP头属性，并把token值放入其中。
 Token
   Refresh Token
     用户登录之后，服务端会返回两个token：Access Token、Refresh Token。Access Token的有效期较短，Refresh Token的有效期较长。在Access Token失效后，客户端通过Refresh Token获取新的Access Token和Refresh Token，如果Refresh Token也失效了，则只能重登录。
-
 
 adb 
   adb -s yourdeviceId install yourapp
@@ -447,16 +455,6 @@ react
      */
     componentDidCatch(error, info);
     static getDerivedStateError(error);
-
-  ant design pro数据流转：
-    View层dispatch操作action –> 
-    触发models层effect中相应方法 –> 
-    触发call发起services层请求，获取接口数据 –> 
-    触发put发起reducer处理相应的action更新数据 –> 
-    更新model层中state –> 
-    触发view层的render方法进行重新渲染 –> 
-    页面更新
-  
 
 react native
   npm cache clean --force
