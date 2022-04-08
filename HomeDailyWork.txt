@@ -161,6 +161,9 @@ annotate
 approach
   v. 靠近，临近；接洽，交谈；对付，处理；近似，接近于
   n. 方法，态度；靠近，接近；接洽，要求；通道，路径；进场着陆；近似物
+appropriate
+  adj. 合适的，相称的
+  v. 拨出（款项）；私占，挪用
 approximate
   adj. 近似的，大概的
   v. 接近，近似；粗略估计
@@ -1460,3 +1463,4 @@ refer to 参考；涉及；指的是；适用于
 relative to 相对于；涉及
 side-by-side 并肩的；并行的
 take through 使通过
+under the hood 在引擎盖下面；在底层；在后台
