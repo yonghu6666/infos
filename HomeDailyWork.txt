@@ -300,6 +300,8 @@ collapse
   n. 倒塌，塌陷；突然失败，崩溃；病倒，垮掉；突然贬值，暴跌
 comma
   n. 逗号；停顿
+commerce
+  n. 贸易，商业；<旧>社交，交往；<旧>性交
 commutative
   adj. 交换的，交替的；（一般）代替的
 compatible
