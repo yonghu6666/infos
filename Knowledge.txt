@@ -216,8 +216,13 @@ Git
     git pull origin master --allow-unrelated-histories
       refusing to merge unrelated histories
   git push
+    git push --set-upstream origin <remotebranchname>
+      将当前分支关联到远程分支。如果远程分支不存在，就创建该远程分支
     git push origin --delete <remotebranchname>
       删除远程分支（可先删除本地分支git branch -d <localbranchname>，再删除远程分支）
+  git reflog 
+    git reflog show --date=iso develop
+      查看本地分支的创建时间
   git remote -v
     查看远程仓库地址
   git rm text.txt
@@ -233,6 +238,8 @@ Git
       使用储藏
     git stash drop [stash@{2}]
       移除最近第三次的暂存
+    git stash save [save message]
+      储藏修改的文件，并携带保存信息
     git stash show -p [stash@{0}] | git apply -R
       在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
   git tag
