@@ -6,3 +6,74 @@ flex-shrink: 元素的收缩规则。仅当默认宽度的和大于容器的时�
 (),[],/.../,+,-
 
 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
+
+5 nodejs服务崩溃信息
+  --20220902 01:10:25 start--
+    <--- Last few GCs --->
+
+    [8160:00000192D9125B80]  5819860 ms: Mark-sweep (reduce) 4031.2 (4084.5) -> 4031.1 (4085.5) MB, 600.5 / 0.1 ms  (average mu = 0.139, current mu = 0.000) last resort GC in old space requested
+    [8160:00000192D9125B80]  5820454 ms: Mark-sweep (reduce) 4031.1 (4084.5) -> 4031.1 (4085.5) MB, 594.0 / 0.1 ms  (average mu = 0.075, current mu = 0.000) last resort GC in old space requested
+
+
+    <--- JS stacktrace --->
+
+    FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
+    1: 00007FF712634BDF napi_wrap+111007
+    2: 00007FF7125D8166 v8::base::CPU::has_sse+59910
+    3: 00007FF7125D9066 node::OnFatalError+294
+    4: 00007FF712EB217E v8::Isolate::ReportExternalAllocationLimitReached+94
+    5: 00007FF712E96F4D v8::SharedArrayBuffer::Externalize+781
+    6: 00007FF712D4008C v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1516
+    7: 00007FF712D3B481 v8::internal::Heap::AllocateExternalBackingStore+1601
+    8: 00007FF712D55215 v8::internal::GCIdleTimeHandler::ShouldDoContextDisposalMarkCompact+1029
+    9: 00007FF712D55665 v8::internal::Factory::AllocateRaw+37
+    10: 00007FF712D69CEF v8::internal::FactoryBase<v8::internal::Factory>::NewRawTwoByteString+79
+    11: 00007FF712B5D659 v8::internal::String::SlowFlatten+441
+    12: 00007FF712A0C170 unibrow::Utf8::EncodeOneByte+656
+    13: 00007FF712EBD986 v8::String::Utf8Length+22
+    14: 00007FF7125F71B7 v8::internal::Malloced::operator delete+19479
+    15: 00007FF712E5F09F v8::internal::Builtins::builtin_handle+322607
+    16: 00007FF712E5E634 v8::internal::Builtins::builtin_handle+319940
+    17: 00007FF712E5E928 v8::internal::Builtins::builtin_handle+320696
+    18: 00007FF712E5E773 v8::internal::Builtins::builtin_handle+320259
+    19: 00007FF712F3B11D v8::internal::SetupIsolateDelegate::SetupHeap+465549
+    20: 000003467549DF5C
+    error Command failed with exit code 134.
+    info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+    error Command failed with exit code 134.
+    info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+  --20220902 01:10:31 end--
+
+  <--- Last few GCs --->
+
+  [12736:00000169AA133CB0]  5418664 ms: Mark-sweep (reduce) 4040.8 (4090.3) -> 4040.8 (4091.3) MB, 629.7 / 0.1 ms  (average mu = 0.109, current mu = 0.000) last resort GC in old space requested
+  [12736:00000169AA133CB0]  5419271 ms: Mark-sweep (reduce) 4040.8 (4090.3) -> 4040.7 (4091.3) MB, 607.9 / 0.1 ms  (average mu = 0.058, current mu = 0.000) last resort GC in old space requested
+
+
+  <--- JS stacktrace --->
+
+  FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
+  1: 00007FF63F2F4BDF napi_wrap+111007
+  2: 00007FF63F298166 v8::base::CPU::has_sse+59910
+  3: 00007FF63F299066 node::OnFatalError+294
+  4: 00007FF63FB7217E v8::Isolate::ReportExternalAllocationLimitReached+94
+  5: 00007FF63FB56F4D v8::SharedArrayBuffer::Externalize+781
+  6: 00007FF63FA0008C v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1516
+  7: 00007FF63F9FB481 v8::internal::Heap::AllocateExternalBackingStore+1601
+  8: 00007FF63FA15215 v8::internal::GCIdleTimeHandler::ShouldDoContextDisposalMarkCompact+1029
+  9: 00007FF63FA15665 v8::internal::Factory::AllocateRaw+37
+  10: 00007FF63FA29CEF v8::internal::FactoryBase<v8::internal::Factory>::NewRawTwoByteString+79
+  11: 00007FF63F81D659 v8::internal::String::SlowFlatten+441
+  12: 00007FF63F6CC170 unibrow::Utf8::EncodeOneByte+656
+  13: 00007FF63FB7D986 v8::String::Utf8Length+22
+  14: 00007FF63F2B71B7 v8::internal::Malloced::operator delete+19479
+  15: 00007FF63FB1F09F v8::internal::Builtins::builtin_handle+322607
+  16: 00007FF63FB1E634 v8::internal::Builtins::builtin_handle+319940
+  17: 00007FF63FB1E928 v8::internal::Builtins::builtin_handle+320696
+  18: 00007FF63FB1E773 v8::internal::Builtins::builtin_handle+320259
+  19: 00007FF63FBFB11D v8::internal::SetupIsolateDelegate::SetupHeap+465549
+  20: 000002021D3FCEFC
+  error Command failed with exit code 134.
+  info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+  error Command failed with exit code 134.
+  info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
