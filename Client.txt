@@ -230,6 +230,7 @@ js 函数
   影响Web性能的两大主因
     1 等待资源加载时间
     2 大部分情况下的浏览器单线程执行
+  web-vitals: CLS, cumulative layout shift，累积布局偏移（视觉稳定性）; LCP, largest contentful paint，最大内容绘制（加载性能）; FID, fisrt input delay，首次输入延迟（交互性）。
   使用http缓存
   使用http2协议
   懒加载

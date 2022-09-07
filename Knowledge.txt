@@ -174,6 +174,8 @@ Git
       回退本地修改的文件
     git checkout .
       恢复所有被修改的文件
+    git checkout -b <localbranchname>
+      创建并检出到localbranchname，如果分支已存在，则创建失败
     git checkout -b dev origin/dev
       将远程分支检出为本地的一个分支并切换到该分支
   git clone
@@ -227,19 +229,25 @@ Git
     查看远程仓库地址
   git rm text.txt
     删除文件
+  git show --pretty="" --name-only <sha1-commit-hash>
+    显示某一次提交记录的文件名列表
   git show commitid [FileName]
     查看某次提交的详细信息，文件名代表查看指定文件
   git stash
     git stash 
       储藏修改的文件
-    git stash list
-      列出当前的储藏列表
     git stash apply [stash@{2}]
       使用储藏
+    git stash clear
+      清空所有暂存
     git stash drop [stash@{2}]
       移除最近第三次的暂存
-    git stash save [save message]
-      储藏修改的文件，并携带保存信息
+    git stash list
+      列出当前的储藏列表
+    git stash pop
+    应用最近的一次的暂存并从暂存列表中移除它
+    git stash save [stashMessage]
+      储藏本次修改并添加描述信息
     git stash show -p [stash@{0}] | git apply -R
       在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。运用此命令，可以通过取消该储藏的补丁达到相同的效果。
   git tag
