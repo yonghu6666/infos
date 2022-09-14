@@ -223,6 +223,8 @@ Git
     git push origin --delete <remotebranchname>
       删除远程分支（可先删除本地分支git branch -d <localbranchname>，再删除远程分支）
   git reflog 
+    git reflog --date=local | grep <brachName>
+      查看目的分支是从哪个分支拉取出来的
     git reflog show --date=iso develop
       查看本地分支的创建时间
   git remote -v
