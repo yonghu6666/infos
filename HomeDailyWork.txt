@@ -1314,6 +1314,9 @@ sluggish
 snark
   n. 蛇鲨
   vi. 讽刺挖苦，尖锐批评
+spawn 
+  v.产卵；导致；引发；引起
+  n.（鱼、蛙等的）卵
 specific
   adj. 特殊的，特定的；明确的；详细的；[药] 具有特效的
   n. 特性；细节；特效药
@@ -1502,6 +1505,7 @@ in addition to 除...之外（还有，也）
 in contrast to 与……形成对照
 in response to 响应；回答；对……有反应
 in terms of 依据；按照；在…方面；以…措词
+pop up 弹出窗口
 refer to 参考；涉及；指的是；适用于
 relative to 相对于；涉及
 side-by-side 并肩的；并行的
