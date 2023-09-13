@@ -79,3 +79,13 @@ ToDesk设备代码:734 974 468
   info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
   error Command failed with exit code 134.
   info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+权限设计
+  要求
+    * 易理解
+    * 易配置
+    * 易扩展
+    * 不重复
+  原则
+    

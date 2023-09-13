@@ -1,3 +1,20 @@
+web前端工程化
+  打包：amd、cjs、umd
+    commonjs，cjs
+      Node中的模块规范，导入导出的API为：require、exports。采用同步方式加载模块。不能直接在浏览器环境中使用，可以借助webpack打包，使其在浏览器环境中可用。它是运行时加载的，模块输出的只是拷贝。
+    AMD，Asynchronous Module Definition，异步模块定义。
+      采用异步方式加载模块。所有依赖模块的语句，都定义在一个回调函数中，等到模块加载完成之后，这个回调函数才会运行。
+    UMD，Universal Module Definition，通用模块定义。
+      它可以在编译或运行时让同一个模块使用amd或cjs。它既可以在node或webpack环境下用require引用使用，也可以在浏览器中直接用script引用CDN使用。
+    ES Module，ESM
+      Node环境和浏览器环境都支持。模块输出的值是引用。可以在编译时加载，支持动态引入。
+
+  区别点
+    何时加载？运行时还是编译？
+    引出的值是拷贝还是引用？
+    可在哪些环境下使用？
+    同步还是异步？
+
 Data URI Limits
   Firefox Not Limited at 2020/09/16 09:07:23.
  
@@ -578,21 +595,6 @@ react native
       RN的css语法，是CSS标准语法的一个子集。
     2.限制
       不支持Android九点切图。
-V8
-  GC主要做三件事：
-    1.区分活着的、死亡的对象；
-    2.重新利用死亡对象占用的内存；
-    3.压紧、去分片内存。
-
-nunjucks
-  {##}，会注释其中包含的nunjucks代码和h5代码
-  <!-- -->只能注释其中的h5代码，而其中的nunjucks代码会执行
-
-JQuery
-  jquery
-  $(#id)，#取的是id
-  $(.class)，.取的是class
-  $(:inputtype)，:取的是所有的input，其type为‘inputtype’类型
 
 CSS
   盒模型

@@ -178,6 +178,18 @@ Git
       创建并检出到localbranchname，如果分支已存在，则创建失败
     git checkout -b dev origin/dev
       将远程分支检出为本地的一个分支并切换到该分支
+  git cherry-pick
+    git remote add -f <被遴选的远程仓库在当前仓库的别名> <远程仓库的地址>
+      把远程仓库的地址添加到当前仓库，并拉取所有数据
+    git cherry-pick <想要合并的远程仓库的某个分支的某次提交的hash>
+      把想要合并的远程仓库的某个分支的某次提交，合并到当前分支
+    git status
+
+    git push 
+      把本次合并的内容提交
+    git remote -v
+
+    git remote remove <已添加的其他远程仓库的名称>
   git clone
     git clone <repository> [YOUR_REPOSITORY_NAME]
       克隆一个远程仓库。可以指定本地的目录名称：YOUR_REPOSITORY_NAME。
@@ -204,9 +216,16 @@ Git
   git fetch
     git fetch origin master
     git merge origin/master
+
+    git fetch origin --prune
+      更新本地origin，并清理远端不存在的而本地存在的远端分支记录
+    git fetch origin --prune --dry-run
+      获取概览，不执行：更新本地origin，并清理远端不存在的而本地存在的远端分支记录
   git log
     git log filename
       显示所有记录
+    git log --grep=[StrToFilter]
+      显示提交信息包括StrToFilter的提交记录
     git log -n filename
       显示最近的n条记录
     git log -- <subdict>

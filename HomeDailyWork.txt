@@ -6,7 +6,7 @@ TODO
 * 前端项目管理
   lerna
 * 前端工程化
-  webpack, common.js
+  turbopack, webpack, common.js
 * 开发工具
   fiddle, electron
 * explorer
@@ -21,6 +21,7 @@ TODO
   学习fiber
   高阶组件
   ReactDOM.flushSync()
+  react-router-dom path
 * CSS
   学习flex: grid布局
   盒模型
@@ -35,6 +36,7 @@ TODO
   :first-child、::first-child区别
   position: relative
   canvas/webgl
+  scss、less及区别
 * algorithm
   DAG，有向无环图
 * js
@@ -182,6 +184,8 @@ arbitrary
   adj. [数] 任意的；武断的；专制的
 arithmetic
   n. 算术，算法；数字
+assembly
+  n.议会，代表大会；集会，集会者；装配，组装；（计算机）汇编
 assign
   vt. 分配；指派；[计][数] 赋值
   vi. 将财产过户（尤指过户给债权人）
@@ -317,6 +321,10 @@ commerce
   n. 贸易，商业；<旧>社交，交往；<旧>性交
 commutative
   adj. 交换的，交替的；（一般）代替的
+compact
+  adj. 小型的，袖珍的；紧凑的；紧密的，坚实的；矮小而健壮的；（演讲，作品）简洁的，简练的
+  n. 带镜小粉盒；合约，协定；小型汽车；袖珍物；坯块
+  v. 压紧，压实；缩短，精简；订立（或签订）（协定）
 compatible
   adj. 兼容的；可共存的；可和睦相处的；与……一致的
   n. 兼容性计算机
@@ -1039,6 +1047,8 @@ overlap
   n. 重叠的部分，互搭量；共同的兴趣（或责任等）；（两事发生的）重叠时间，交接时期
 overridden
   v. （以权力）否决，推翻，不理会；凌驾；超驰控制；重叠；从……上走过（override 的过去分词）
+overwhelm
+  v.（感情上）使受不了，使不知所措；使大吃一惊；压垮，使应接不暇；打败，击垮；<文> （水）漫过，淹没；压倒，制服
 panicky
   adj. 恐慌的；惊慌失措的
 paradigm
@@ -1386,6 +1396,8 @@ sustain
   v. 维持，保持；维持······的生命；遭受，经受；（在体力或精神方面）支持，支撑；承受住······的重量；证实，证明；认可，赞成，确认；充分表演（角色，人物），扮演
 sustainable
   adj. 可以忍受的；足可支撑的；养得起的；可持续的
+symmetric
+  adj. 对称的
 symmetrical
   adj. 对称的，匀称的
 syntax
@@ -1501,6 +1513,7 @@ workthrough
 
 a variety of 种种；各种各样的
 compose into 编写；写成
+defer to 尊重；遵从；听从；遵守
 in addition to 除...之外（还有，也）
 in contrast to 与……形成对照
 in response to 响应；回答；对……有反应
